@@ -1,2 +1,2 @@
 # lemursportal-home
-lemursportal home page
+<a href="www.lemursportal.org" target="_blank">lemursportal</a> home page
