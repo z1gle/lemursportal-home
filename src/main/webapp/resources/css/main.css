@@ -219,6 +219,7 @@ footer a:hover {
 footer a {
 	color: white !important;
 	text-decoration: none!important;
+	font-size: 12px;
 }
 
 

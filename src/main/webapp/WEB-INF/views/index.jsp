@@ -569,24 +569,24 @@ a.read-more:hover {
 			<div class="row">
 
 				<div class="col-md-1 animated" align="center">
-					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 60px; margin-left: 15px;" alt="">
+					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt="">
 				</div>
 
 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s">
 					<ul style="padding-left: 20px;">
-						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li>
-						<li class="animated zoomIn"><a href="#">Post</a></li>
-						<li class="animated zoomIn"><a href="#">Documents</a></li>
-						<li class="animated zoomIn"><a href="#">Experts</a></li>
+<!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
+						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li>
+						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li>
+						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li>
 					</ul>
 				</div>
 
 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s">
 					<ul style="padding-left: 20px;">
-						<li class="animated zoomIn"><a href="#">Opportunities</a></li>
+						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
 						<li class="animated zoomIn"><a href="#">Help</a></li>
 						<!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
-						<li class="animated zoomIn"><a href="#">Contact</a></li>
+						<li class="animated zoomIn"><a href="#contact">Contact</a></li>
 					</ul>
 				</div>
 
@@ -621,8 +621,67 @@ a.read-more:hover {
 						style="border-radius: 4%; margin-top: 3%;padding:2%;"></a>
 				</div>
 			</div>
-		</div>
-		<div style="background: #2E2E2E; margin-top: 70px">
+				<div class="row text-center" style="border-bottom: solid 1px; border-top: solid 1px;border-color: #84bc00; margin: 30px 15px; padding-bottom: 30px;">
+<!-- 					<div class="footer-content"> -->
+						<div style="font-size: 16px;padding: 15px;font-weight: bold;">PARTNERS</div>
+						<div class="footer-social">
+							<ul>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_ADD.jpg"></a></li>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_Aspinall.jpg"></a></li>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_DPZ.jpg"></a></li>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a></li>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_ISSEDD.png"></a></li>
+								<li class=""><a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_Valbio.jpg"></a></li>
+							</ul>
+						</div>
+
+<!-- 					</div> -->
+				</div>
+<!-- 				<div class="row"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<section class="customer-logos slider"> -->
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_ADD.jpg"></div> --%>
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_Aspinall.jpg"></div> --%>
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_DPZ.jpg"></div> --%>
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></div> --%>
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_ISSEDD.png"></div> --%>
+<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_Valbio.jpg"></div> --%>
+<!-- 			</section> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.customer-logos').slick({
+				slidesToShow: 6,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 1000,
+				arrows: false,
+				dots: false,
+					pauseOnHover: false,
+					responsive: [{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 4
+					}
+				}, {
+					breakpoint: 520,
+					settings: {
+						slidesToShow: 3
+					}
+				}]
+			});
+		});
+	</script>
+			</div>
+		<div style="background: #2E2E2E; margin-top: 60px">
 			<div class="row text-center">
 				<div class="footer-content">
 					<p>Copyright &copy; - Lemurs Portal 2017</p>
