@@ -275,14 +275,14 @@ a.read-more:hover {
 			</style>
 			<div class="inat-widget">
 				<div class="inat-widget-header">
-					<a href="https://www.inaturalist.org"><img
+					<a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
 						alt="iNaturalist.org"
 						src="https://www.inaturalist.org/assets/logo-small-27dadf5468502c764c7a2cf8e30617d3.png" /></a>
 				</div>
 				<script type="text/javascript" charset="utf-8"
 					src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
 				<span>
-				<a href="https://www.inaturalist.org/observations/project/23226">
+				<a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
 				Afficher plus d'observations de Madagascar Lemurs Portal sur <br><nobr>iNaturalist.org»</nobr>
 				</a></span>
 <!-- 				<h2 class="animated bounceInLeft"></h2> -->
@@ -428,7 +428,7 @@ a.read-more:hover {
 				<div class="row">
 
 					<div class="sec-title text-center white animated fadeInDown">
-						<h2><spring:message code="menu.experts" /></h2>
+                                            <h2><a style="color: white;" href="https://www.lemursportal.org/forum/experts/"><spring:message code="menu.experts" /></a></h2>
 					</div>
 
 					<div id="expert" class=" animated fadeInUp">
