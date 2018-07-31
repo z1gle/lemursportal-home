@@ -100,6 +100,8 @@ a.read-more:hover {
 					<li><a href="#experts"><spring:message code="menu.experts" /></a></li>
 					<li><a href="#number"><spring:message code="menu.number" /></a></li>
 					<li><a href="#contact"><spring:message code="menu.contact" /></a></li>
+                                        <!--<li><a href="https://www.lemursportal.org/forum/login" onclick="window.location='https://www.lemursportal.org/forum/login';"><spring:message code="home.login"/></a></li>-->
+					<!--<li><a href="https://www.lemursportal.org/forum/signup" onclick="window.location='https://www.lemursportal.org/forum/signup';"><spring:message code="login.signup"/></a></li>-->
 					<li><div style="padding-top: 12px;">
 							<select id="lang-select">
 								<option value="fr" selected="selected">Français</option>
@@ -130,7 +132,7 @@ a.read-more:hover {
 					<div class="slide-caption">
 						<div class="caption-content">
 							<h2><spring:message code="slider.lemursportal" /></h2>
-							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/login"
+							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/join_us"
 								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
