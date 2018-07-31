@@ -118,6 +118,9 @@ $(document).ready(function(){
 		navigationText: ["<i class='fa fa-angle-left fa-lg'></i>","<i class='fa fa-angle-right fa-lg'></i>"]
 	});
 	
+	$("#owl-example").owlCarousel({
+	  	autoPlay : true
+	});
 	
 	$(".fancybox").fancybox({
 		padding: 0,

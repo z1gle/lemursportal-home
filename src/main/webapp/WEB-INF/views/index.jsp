@@ -33,6 +33,8 @@
 
 <link rel="stylesheet" href="${resourcesPath}/css/owl.carousel.css">
 
+<link rel="stylesheet" href="${resourcesPath}/css/owl.theme.css">
+
 <link rel="stylesheet" href="${resourcesPath}/css/slit-slider.css">
 
 <link rel="stylesheet" href="${resourcesPath}/css/animate.css">
@@ -285,7 +287,7 @@ a.read-more:hover {
 					src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
 				<span>
 				<a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
-				Afficher plus d'observations de Madagascar Lemurs Portal sur <br><nobr>iNaturalist.org»</nobr>
+				<spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
 				</a></span>
 <!-- 				<h2 class="animated bounceInLeft"></h2> -->
 				<!-- table class="inat-footer">
@@ -559,18 +561,49 @@ a.read-more:hover {
 		</div>
 	</section>
 	<!-- end -->
-
+	<section id="partner-area" style="padding: 10px 0 30px">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						<div class="block-heading">
+							<h2><spring:message code="our.partners" /></h2>
+						</div>
+					</div>	<!-- End of /.block -->
+					<div id="owl-example" class="owl-carousel">
+						
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/MEEF_logo.png"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/05_2016-Logo-300x297.png"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_ADD.jpg"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_Aspinall.jpg"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_DPZ.jpg"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_ISSEDD.png"></a></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/logo_Valbio.jpg"></div>
+					</div>	<!-- End of /.Owl-Slider -->
+				</div>	<!-- End of /.col-md-12 -->
+			</div> <!-- End Of /.Row -->
+		</div> <!-- End Of /.Container -->
+	</section>	<!-- End of Section -->
 	<section id="google-map">
 		<div id="map-canvas" class="animated fadeInUp"></div>
 	</section>
-
+	
 	</main>
 
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-1 animated" align="center">
+				<div class="col-md-1 animated" align="center" id="lg-footer">
 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt="">
 				</div>
 
@@ -623,65 +656,6 @@ a.read-more:hover {
 						style="border-radius: 4%; margin-top: 3%;padding:2%;"></a>
 				</div>
 			</div>
-				<div class="row text-center" style="border-bottom: solid 1px; border-top: solid 1px;border-color: #84bc00; margin: 30px 15px; padding-bottom: 30px;">
-<!-- 					<div class="footer-content"> -->
-						<div style="font-size: 16px;padding: 15px;font-weight: bold;">PARTNERS</div>
-						<div class="footer-social">
-							<ul>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_ADD.jpg"></a></li>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_Aspinall.jpg"></a></li>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_DPZ.jpg"></a></li>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a></li>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_ISSEDD.png"></a></li>
-								<li class=""><a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_Valbio.jpg"></a></li>
-							</ul>
-						</div>
-
-<!-- 					</div> -->
-				</div>
-<!-- 				<div class="row"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<section class="customer-logos slider"> -->
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_ADD.jpg"></div> --%>
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_Aspinall.jpg"></div> --%>
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_DPZ.jpg"></div> --%>
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></div> --%>
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_ISSEDD.png"></div> --%>
-<%-- 				<div class="slide"><img src="${resourcesPath}/logos/logo_Valbio.jpg"></div> --%>
-<!-- 			</section> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.customer-logos').slick({
-				slidesToShow: 6,
-				slidesToScroll: 1,
-				autoplay: true,
-				autoplaySpeed: 1000,
-				arrows: false,
-				dots: false,
-					pauseOnHover: false,
-					responsive: [{
-					breakpoint: 768,
-					settings: {
-						slidesToShow: 4
-					}
-				}, {
-					breakpoint: 520,
-					settings: {
-						slidesToShow: 3
-					}
-				}]
-			});
-		});
-	</script>
 			</div>
 		<div style="background: #2E2E2E; margin-top: 60px">
 			<div class="row text-center">
@@ -712,6 +686,7 @@ a.read-more:hover {
 	<script src="${resourcesPath}/js/wow.min.js"></script>
 
 	<script src="${resourcesPath}/js/main.js"></script>
+	
 	<script type="text/javascript">
 		function setGetParameter(paramName, paramValue) {
 			var url = window.location.href;
