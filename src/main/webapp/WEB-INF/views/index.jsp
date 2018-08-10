@@ -134,7 +134,7 @@ a.read-more:hover {
 					<div class="slide-caption">
 						<div class="caption-content">
 							<h2><spring:message code="slider.lemursportal" /></h2>
-							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/join_us"
+							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}"
 								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
@@ -166,7 +166,7 @@ a.read-more:hover {
 						<div class="caption-content">
 							<h2><spring:message code="slider.savelemurs" /></h2>
 							<span><spring:message code="slider.savelemurs.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/login" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
+							<a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
 
@@ -181,7 +181,7 @@ a.read-more:hover {
 						<div class="caption-content">
 							<h2><spring:message code="slider.vision" /></h2>
 							<span><spring:message code="slider.vision.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/login" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
+							<a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
 
@@ -223,7 +223,7 @@ a.read-more:hover {
 
 				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn"
 					data-wow-delay="0.6s">
-					<a href="/forum"><div class="service-item">
+					<a href="/forum?lang=${pageContext.response.locale.language}"><div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-comments-o fa-3x"></i>
 							</div>
@@ -233,7 +233,7 @@ a.read-more:hover {
 				</div>
 
 				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn">
-					<a href="/species"><div class="service-item">
+					<a href="/species?lang=${pageContext.response.locale.language}"><div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-database fa-3x"></i>
 							</div>
@@ -244,7 +244,7 @@ a.read-more:hover {
 
 				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn"
 					data-wow-delay="0.3s">
-					<a href="/species/visualisation"><div class="service-item">
+					<a href="/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-globe fa-3x"></i>
 							</div>
