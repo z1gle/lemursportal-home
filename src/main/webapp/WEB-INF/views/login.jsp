@@ -93,7 +93,7 @@
           	<c:url value="/authenticate" var="loginUrl"/>
             function login() {
                 $.post("https://www.lemursportal.org/species/autentification", {login: $('#email').val(), password: $('#pwd').val()}, function () {
-                    $.post("https://www.lemursportal.org/forum/autentification", {email: $('#email').val(), password: $('#pwd').val()}, function () {
+                    $.post("https://www.lemursportal.org/forum/authenticate", {email: $('#email').val(), password: $('#pwd').val()}, function () {
                         $.post("${loginUrl}", {email: $('#email').val(), password: $('#pwd').val()}, function () {
                             window.location = document.referrer;
                         }).fail(function () {
