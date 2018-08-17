@@ -146,7 +146,7 @@ a.read-more:hover {
 							class="fa fa-user fa-fw"></i> <spring:message code="login.signup"/></a></li>
 <%--                             <c:url value="/login" var="loginUrl"/> --%>
                             <c:url value="/forum/login" var="loginUrl"/>
-                        <li class=""><a href="https://localhost:8444/lemursPortal/login"><i
+                        <li class=""><a href="${loginUrl}"><i
 							class="fa fa-sign-in fa-fw"></i> <spring:message code="home.login"/></a></li>
                         </c:otherwise>
                     </c:choose>
