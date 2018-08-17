@@ -54,5 +54,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		UserType type = query.getSingleResult();
 		return new ArrayList<Utilisateur>(type.getUsers());
 	}
+	
+	@Override
+	public Utilisateur findByEmail(String email) {
+		return dao.findByEmail(email);
+	}
 
 }

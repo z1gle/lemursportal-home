@@ -9,6 +9,8 @@ public interface UtilisateurService {
 
 	Utilisateur findById(int id);
 	
+	Utilisateur findByEmail(String email);
+	
 	void saveUtilisateur(Utilisateur utilisateur);
 	
 	Utilisateur findUtilisateur(int id);

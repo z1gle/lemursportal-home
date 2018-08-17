@@ -50,6 +50,7 @@ a {
 a, a:hover, a:focus, .btn:focus {
     text-decoration: none;
     outline: none;
+    color: #A18029;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -296,20 +297,39 @@ footer a {
 /*	Header
 /* ==========================================*/
 
-#navigation {
-    -webkit-transition: all 0.8s ease 0s;
+#navigation, #navigation.animated-header, #navigation .topbar {
+	-webkit-transition: all 0.8s ease 0s;
        -moz-transition: all 0.8s ease 0s;
         -ms-transition: all 0.8s ease 0s;
          -o-transition: all 0.8s ease 0s;
             transition: all 0.8s ease 0s;
+}
+
+#navigation.animated-header .topbar {
+	-webkit-transition: all 0.8s ease 0.4s;
+       -moz-transition: all 0.8s ease 0.4s;
+        -ms-transition: all 0.8s ease 0.4s;
+         -o-transition: all 0.8s ease 0.4s;
+            transition: all 0.8s ease 0.4s;
+}
+
+#navigation {
     background-color: rgba(0,0,0,.9);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     padding: 5px 0;
 }
 
 #navigation.animated-header {
-    padding: 20px 0;
+    /*padding: 20px 0;*/
 	background-color: rgba(0,0,0,.6) !important;
+}
+
+#navigation .topbar {
+    display:none;
+}
+
+#navigation.animated-header .topbar {
+	display:block;
 }
 
 h1.navbar-brand {
@@ -624,7 +644,8 @@ h1.navbar-brand {
 }
 
 figcaption.mask {
-    background-color: rgba(54, 55, 50, 0.79);
+    /*background-color: rgba(54, 55, 50, 0.79);*/
+    background: linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);
     bottom: -126px;
     color: #fff;
     padding: 25px;
@@ -976,9 +997,9 @@ textarea.form-control {
   background: #2E2E2E;
 }
 
-.animated-header  img {
+.animated-header img {
 	width:50px !important; 
-	margin-top: -33px !important; 
+	margin-top: -55px !important; 
 }
  #navigation img {
 	width : 108px;
@@ -1538,4 +1559,112 @@ footer a img:hover {
 }
 .owl-item div {
 	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.topbar {
+		padding: 10px 0 0;
+	}
+}
+
+.topbar {
+    float: left;
+    width: 100%;
+}
+
+.topbar ul {
+    float: right;
+}
+
+.topbar i {
+    padding-right: 3px;
+}
+li.language.dropdown > a {
+    padding-left: 23px;
+}
+
+li.language.dropdown {
+    padding: 0;
+}
+
+li.language.dropdown ul.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.topbar ul li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 200;
+    color: #97a0a5;
+    position: relative;
+    padding-left: 23px;
+}
+
+li.language.dropdown ul.dropdown-menu {
+    width: 100px;
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    min-width: 100px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    border: 1px solid #e6eaf0;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.topbar ul {
+    float: right;
+}
+
+nav>.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 20px 0 0 30px;
+}
+
+.topbar a {
+	color: white;
+}
+
+.topbar a:hover {
+	text-decoration: underline;
+    outline: none;
+    color: #A18029;
+}
+
+.language span {
+    text-transform: uppercase;
+}
+
+.topbar .img-circle {
+    width: 20px!important;
+    margin-right: 5px;
+    margin-top: -5px !important;
+}
+
+.divider {
+	display: block !important;
+}
+
+.dropdown-menu li {
+	padding-left: 0px !important;
+}
+
+.navbar-brand a img  {
+	-webkit-transition: width 0.4s, height 0.4s;
+    -moz-transition: width 0.4s, height 0.4s;
+    -ms-transition: width 0.4s, height 0.4s;
+    -o-transition: width 0.4s, height 0.4s;
+    transition: width 0.4s, height 0.4s;
 }

@@ -19,6 +19,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<org.hibernate-version>4.3.10.Final</org.hibernate-version>
 		<logback.version>1.2.17</logback.version>
+        <spring.security.version>4.0.1.RELEASE</spring.security.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -60,7 +61,27 @@
 	        <artifactId>spring-web</artifactId>  
 	        <version>${org.springframework-version}</version>  
 	    </dependency>  
+	    
+	    <!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<!-- Spring Security JSP Taglib -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+        
 	    <!-- CGLIB is required to process @Configuration classes -->  
     	<dependency>  
         	<groupId>cglib</groupId>  

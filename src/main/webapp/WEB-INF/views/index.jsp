@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
 <c:url value="/resources" var="resourcesPath" />
 <c:url value="/" var="path" />
 <!DOCTYPE html>
@@ -75,6 +76,95 @@ a.read-more:hover {
 	<header id="navigation"
 		class="navbar-inverse navbar-fixed-top animated-header">
 		<div class="container">
+			<!-- TOPBAR -->
+			<div class="topbar">
+				<ul>
+					<c:set value="${pageContext.request.userPrincipal.name != null}" var="isLoggedInUser"/>
+                	<c:choose>
+                    <c:when test="${isLoggedInUser}">
+                    	<c:url var="viewProfilUrl" value="/user/profil"></c:url>
+                    	<c:url var="imgProfilUrl" value="/forum"></c:url>
+                    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-haspopup="true" aria-expanded="false"> 
+                    		<img src="https://www.lemursportal.org/forum/resources${currentUser.photoProfil}" class="img-circle"/> 
+<%--                     		<spring:message code="login.signup"/> --%>
+							Welcome, ${currentUser.prenom} <i class="fa fa-caret-down"></i></a>
+							
+							<ul class="dropdown-menu">
+								<li><a href="https://www.lemursportal.org/forum/user/profil"> 
+									<i class="fa fa-edit fa-fw"></i> My account</a></li>
+									<li class="divider"></li>
+								<li><a href="https://www.lemursportal.org/species/modification-observations"> 
+									<i class="fa fa-align-left"></i> My data</a></li>
+									<li class="divider"></li>
+								<li>
+		                            <span style="display:none;">
+		                                <c:url value="/logout" var="logoutUrl" />
+		                                <form action="${logoutUrl}" method="post" id="logoutForm">
+		                                    <input type="hidden" name="${_csrf.parameterName}"
+		                                           value="${_csrf.token}" />
+		                                </form>
+		<!--                                 verification dev mode -->
+		                                <c:set var="port" value="" />
+										<c:if test="${req.getServerPort() != '80' || req.getServerPort() != '443'}">
+											<c:set var="port" value=":${req.getServerPort()}" />
+										</c:if>
+		                                <script>
+		                                    function formSubmit() {
+		                                        //logout also species databases by Zacharie
+		                                        $.ajax({
+		                                            type: 'post',
+		                                            url: '${req.getScheme()}://${req.getServerName()}${port}/species/logout',
+		                                            success: function (json) {
+		                                            	$.ajax({
+				                                            type: 'post',
+				                                            url: '${req.getScheme()}://${req.getServerName()}${port}/forum/logout',
+				                                            success: function (json) {
+				                                                document.getElementById("logoutForm").submit();
+				                                            }
+//		 		                                            ,
+//		 		                                            error: function (json) {
+//		 		                                            	document.getElementById("logoutForm").submit();
+//		 		                                            }
+				                                        });
+		                                            }
+		                                        });
+		                                    }
+		                                </script>
+		                            </span>
+		                            <a href="javascript:formSubmit();"><i
+										class="fa fa-power-off fa-fw"></i><spring:message code="home.logout"/></a>
+		                        </li>
+							</ul>
+						</li>
+
+                    </c:when>
+                    <c:otherwise>
+<%--                         <c:url value="/signup" var="signupUrl"/> --%>
+                        <c:url value="/forum/signup" var="signupUrl"/>
+                        <li class=""><a href="${signupUrl}"><i
+							class="fa fa-user fa-fw"></i> <spring:message code="login.signup"/></a></li>
+<%--                             <c:url value="/login" var="loginUrl"/> --%>
+                            <c:url value="/forum/login" var="loginUrl"/>
+                        <li class=""><a href="https://localhost:8444/lemursPortal/login"><i
+							class="fa fa-sign-in fa-fw"></i> <spring:message code="home.login"/></a></li>
+                        </c:otherwise>
+                    </c:choose>
+					<li class="dropdown language" id="lang-select"><a
+						href="#"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-haspopup="true" aria-expanded="false"> <i
+							class="fa fa-globe"></i><span>EN </span><i class="fa fa-caret-down"></i>
+					</a>
+						<ul class="dropdown-menu">
+							<li class="active" id="en"><a
+								href="#">English</a>
+							</li>
+							<li  id="fr"><a href="#">Français</a></li>
+							<li  id="mg"><a href="#">Malagasy</a></li>
+						</ul></li>
+				</ul>
+			</div>
 			<div class="navbar-header">
 				<!-- responsive nav button -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -104,13 +194,13 @@ a.read-more:hover {
 					<li><a href="#contact"><spring:message code="menu.contact" /></a></li>
                                         <!--<li><a href="https://www.lemursportal.org/forum/login" onclick="window.location='https://www.lemursportal.org/forum/login';"><spring:message code="home.login"/></a></li>-->
 					<!--<li><a href="https://www.lemursportal.org/forum/signup" onclick="window.location='https://www.lemursportal.org/forum/signup';"><spring:message code="login.signup"/></a></li>-->
-					<li><div style="padding-top: 12px;">
-							<select id="lang-select">
-								<option value="fr" selected="selected">Français</option>
-								<option value="en" >English</option>
-								<option value="mg" >Malagasy</option>
-							</select>
-						</div></li>
+<!-- 					<li><div style="padding-top: 12px;"> -->
+<!-- 							<select id="lang-select"> -->
+<!-- 								<option value="fr" selected="selected">Français</option> -->
+<!-- 								<option value="en" >English</option> -->
+<!-- 								<option value="mg" >Malagasy</option> -->
+<!-- 							</select> -->
+<!-- 						</div></li> -->
 				</ul>
 			</nav>
 			<!-- /main nav -->
@@ -688,7 +778,8 @@ a.read-more:hover {
 	<script src="${resourcesPath}/js/main.js"></script>
 	
 	<script type="text/javascript">
-		function setGetParameter(paramName, paramValue) {
+		function setGetParameter(paramName,paramValue) {
+			if(paramValue == '${pageContext.response.locale}') return;
 			var url = window.location.href;
 			var hash = location.hash;
 			url = url.replace(hash, '');
@@ -745,9 +836,20 @@ a.read-more:hover {
 							//	$(this).siblings(".more-text").contents().unwrap();
 							//	$(this).remove();
 							//});
-							$('#lang-select').val('${pageContext.response.locale}');
-							$('#lang-select').change(function(){
-								setGetParameter('lang', this.value);
+// 							$('#lang-select').val('${pageContext.response.locale}');
+// 							$('#lang-select').change(function(){
+// 								setGetParameter('lang', this.value);
+// 							});
+							$('#lang-select span').html('${pageContext.response.locale} ');
+							
+							//activate menu of selected language
+							if('${pageContext.response.locale}' != null) {
+								$("#lang-select li").removeClass("active");
+								$("#${pageContext.response.locale}").addClass("active");
+							}
+
+							$('#lang-select li a').click(function(){
+								setGetParameter('lang', $(this).parents('#lang-select li').attr('id'));
 							});
 						});
 	</script>
