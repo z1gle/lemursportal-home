@@ -8,9 +8,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><spring:message code="login.title"/></title>
         <link href="${resourcesPath}/css/styles-h.css" rel="stylesheet">
-        <link href="${resourcesPath}/css/bootstrapcss" rel="stylesheet">
+        <link href="${resourcesPath}/css/bootstrap.css" rel="stylesheet">
         <script src="${resourcesPath}/js/script.js"></script>
-        <script src="${resourcesPath}/js/bootstrapjs"></script>
+        <script src="${resourcesPath}/js/bootstrap.js"></script>
     </head>
 
     <body>
@@ -72,7 +72,7 @@
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
-        <script src="https://malsup.github.com/jquery.form.js"></script> 
+        <script src="${resourcesPath}/js/jquery.form.js"></script> 
         <%-- verification dev mode --%>
         <c:set var="port" value="" />
         <c:if test="${req.getServerPort() != 80 || req.getServerPort() != 443}">
