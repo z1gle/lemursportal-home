@@ -214,7 +214,7 @@ a.read-more:hover {
 					<div class="slide-caption">
 						<div class="caption-content">
 							<h2><spring:message code="slider.lemursportal" /></h2>
-							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}"
+							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
 								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
@@ -229,9 +229,9 @@ a.read-more:hover {
 
 					<div class="slide-caption">
 						<div class="caption-content">
-							<h2 class="animated fadeInDown"><spring:message code="slider.lemurs" /></h2>
-							<span class="animated fadeInDown"><spring:message code="slider.lemurs.txt" /></span>
-							<!--a href="#" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a-->
+							<h2><spring:message code="slider.lemursportal" /></h2>
+							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
+								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
 
@@ -246,7 +246,7 @@ a.read-more:hover {
 						<div class="caption-content">
 							<h2><spring:message code="slider.savelemurs" /></h2>
 							<span><spring:message code="slider.savelemurs.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
+							<a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
 
@@ -261,7 +261,7 @@ a.read-more:hover {
 						<div class="caption-content">
 							<h2><spring:message code="slider.vision" /></h2>
 							<span><spring:message code="slider.vision.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/join_us?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
+							<a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
 						</div>
 					</div>
 
