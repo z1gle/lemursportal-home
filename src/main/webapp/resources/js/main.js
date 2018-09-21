@@ -1,3 +1,40 @@
+var cookieDName = "lp-donate";
+
+function createCookie(name, value, days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		var expires = "; expires=" + date.toGMTString();
+	} else
+		var expires = "";
+	document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ')
+			c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) == 0)
+			return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}
+
+function isDonateClosed() {
+	if (readCookie(cookieDName) == null) {
+		createCookie(cookieDName, 'false', 4);
+		return false;
+	} else return (readCookie(cookieDName) == 'true' );
+}
+
+function removeStickyDonate() {
+	createCookie(cookieDName, 'true', 4);
+	$("#supDonateWrapper").removeClass("supStickyDonate");
+}
+
 jQuery(window).load(function(){
 
 	$("#preloader").fadeOut("slow");
@@ -70,7 +107,13 @@ $(function() {
 
 });
 
-
+function donateFunction(sticky) {
+	if ($(window).scrollTop() < sticky) {
+	    $("#supDonateWrapper").addClass("supStickyDonate");
+	} else {
+	    $("#supDonateWrapper").removeClass("supStickyDonate");
+	}
+}
 
 $(document).ready(function(){
 
@@ -91,12 +134,19 @@ $(document).ready(function(){
 	
     $(window).scroll(function () {
         if ($(window).scrollTop() > 400) {
-            $(".navbar-brand a").css("color","#fff");
+            $(".navbar-brand a").css("color", "#fff");
             $("#navigation").removeClass("animated-header");	
         } else {
-            $(".navbar-brand a").css("color","inherit");
+            $(".navbar-brand a").css("color", "inherit");
             $("#navigation").addClass("animated-header");	
         }
+        
+		if(!isDonateClosed()) {
+			//x=w-(g+s)
+        	var sticky = $('#google-map').offset().top - ($(window).height() - ($('#google-map').height() + $('#supDonateWrapper').height()));
+	        //console.log('sticky=' + sticky + ";scroll=" + $(window).scrollTop());
+        	donateFunction(sticky);
+	    }
     });
 	
     var slideHeight = $(window).height();

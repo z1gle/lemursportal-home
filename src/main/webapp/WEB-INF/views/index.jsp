@@ -71,11 +71,14 @@ a.read-more:hover {
             </div>
 		</div>
 	<!-- end -->
-
+	
+	
+		
 	<!-- Navigation -->
 	<header id="navigation"
-		class="navbar-inverse navbar-fixed-top animated-header">
+		class="navbar-inverse animated-header navbar-fixed-top">
 		<div class="container">
+			
 			<!-- TOPBAR -->
 			<div class="topbar">
 				<ul>
@@ -631,7 +634,7 @@ a.read-more:hover {
 							<i class="fa fa-phone"></i>Fax : (+261 20) 22 621 44
 						</p>
 						<p>
-							<i class="fa fa-envelope"></i>lemursportal@lemursportal.org
+							<i class="fa fa-envelope"></i>lemursportal@gmail.com
 						</p>
 
 					</address>
@@ -668,45 +671,109 @@ a.read-more:hover {
 								src="${resourcesPath}/logos/logo_ISSEDD.png"></a></div>
 						<div> <a href="#" target="_blank"><img
 								src="${resourcesPath}/logos/logo_Valbio.jpg"></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/MV_logo.png"></div>
+						<div> <a href="#" target="_blank"><img
+								src="${resourcesPath}/logos/PGF_logo.png"></div>
 					</div>	<!-- End of /.Owl-Slider -->
 				</div>	<!-- End of /.col-md-12 -->
 			</div> <!-- End Of /.Row -->
 		</div> <!-- End Of /.Container -->
 	</section>	<!-- End of Section -->
 	<section id="google-map">
-		<div id="map-canvas" class="animated fadeInUp"></div>
+			
+			<div id="map-canvas" class="animated fadeInUp"></div>
 	</section>
 	
 	</main>
+	<div id="supWrapperToPreventFeedbackFlickering">
+				<section id="supDonateWrapper">
+					<div id="supColumnWrapper" class="x-hidden-focus">
+						<div id="supDonateContainer">
+							<section id="supDT" class="ocDT">
+								<div id="supFBCont">
+									<form class="supStickyDonateMarginBottom" 
+										data-support-available="true">
+										<div class="ocSmartDonateBegin x-hidden-focus" role="region">
+											<div id="beginDonateHeader">
+												Don't let lemurs disappear from the wild on our watch.</h2>
+											</div>
+											<div class="donateButtons">
+												<button
+													class="ocDonateButton"
+													name="" type="button" data-bi-mto="">Donate</button>
+											</div>
+										</div>
+									</form>
+									<div
+										class="ocDonateThxMessage ocHidden">
+										<h2>Thank you for your donation!</h2>
+									</div>
+								</div>
+							</section>
+						</div>
 
+						<a href="javascript:removeStickyDonate();" id="supDisableStickyFeedbackButton" class="">×</a>
+					</div>
+				</section>
+			</div>
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-1 animated" align="center" id="lg-footer">
-					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt="">
-				</div>
+<!-- 				<div class="col-md-1 animated" align="center" id="lg-footer"> -->
+<%-- 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt=""> --%>
+<!-- 				</div> -->
 
-				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s">
-					<ul style="padding-left: 20px;">
-<!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
-						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li>
-						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li>
-						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li>
-					</ul>
-				</div>
+<!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
+<!-- 					<ul style="padding-left: 20px;"> -->
+<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li> -->
+<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li> -->
+<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
 
-				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s">
-					<ul style="padding-left: 20px;">
-						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
-						<li class="animated zoomIn"><a href="#">Help</a></li>
-						<!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
-						<li class="animated zoomIn"><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
+<!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
+<!-- 					<ul style="padding-left: 20px;"> -->
+<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li> -->
+<!-- 						<li class="animated zoomIn"><a href="#">Help</a></li> -->
+<!-- 						li class="animated zoomIn"><a href="#">Mentions légales</a></li -->
+<!-- 						<li class="animated zoomIn"><a href="#contact">Contact</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
 
-				<div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
-					<div class="row">
+					<div class="col-md-5">
+						<div class="row">
+
+							<div class="col-xs-3 animated fadeInUp" data-wow-delay="0.4s">
+								<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="height: 78px; margin-left: 15px;" alt="">
+							</div>
+
+							<div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
+								<ul style="padding-left: 20px;">
+									<!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
+									<li class="animated zoomIn"><a
+										href="https://www.lemursportal.org/forum/">Post</a></li>
+									<li class="animated zoomIn"><a
+										href="https://www.lemursportal.org/forum/documents">Documents</a></li>
+									<li class="animated zoomIn"><a
+										href="https://www.lemursportal.org/forum/experts">Experts</a></li>
+								</ul>
+							</div>
+							<div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
+								<ul style="padding-left: 20px;">
+									<li class="animated zoomIn"><a
+										href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
+									<li class="animated zoomIn"><a href="#">Help</a></li>
+									<!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
+									<li class="animated zoomIn"><a href="#contact">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
+					<div class="row" style="padding-left: 15px !important;">
 						<div class="col-xs-2">
 							<a href="http://www.fapbm.org/" target="_blank"><img
 								src="${resourcesPath}/img/part1.png"></a>
@@ -731,13 +798,13 @@ a.read-more:hover {
 					</div>
 				</div>
 				<div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
-					<a href="http://jrsbiodiversity.org/" target="_blank"><img
+					<a href="http://jrsbiodiversity.org/" class="donor" target="_blank"><img
 						src="http://jrsbiodiversity.org/wp-content/themes/zero/images/jrs-logo.svg"
-						style="border-radius: 4%; margin-top: 3%;padding:2%;"></a>
+						style="border-radius: 4%; /*margin-top: 3%*/;padding:2%;"></a>
 				</div>
 			</div>
 			</div>
-		<div style="background: #2E2E2E; margin-top: 60px">
+		<div style="background: #2E2E2E; margin-top: 35px">
 			<div class="row text-center">
 				<div class="footer-content">
 					<p>Copyright &copy; - Lemurs Portal 2017</p>
@@ -768,8 +835,10 @@ a.read-more:hover {
 	<script src="${resourcesPath}/js/main.js"></script>
 	
 	<script type="text/javascript">
-		function setGetParameter(paramName,paramValue) {
-			if(paramValue == '${pageContext.response.locale}') return;
+	
+		function setGetParameter(paramName, paramValue) {
+			if (paramValue == '${pageContext.response.locale}')
+				return;
 			var url = window.location.href;
 			var hash = location.hash;
 			url = url.replace(hash, '');
@@ -788,7 +857,7 @@ a.read-more:hover {
 			}
 			window.location.href = url + hash;
 		}
-		
+
 		$(document)
 				.ready(
 						function() {
@@ -810,37 +879,47 @@ a.read-more:hover {
 													$(this).empty().html(
 															newStr + "...");
 													var link = $(this).parent()
-															.parent().children('a').attr(
+															.parent().children(
+																	'a').attr(
 																	'href');
 													$(this)
 															.append(
 																	' <a href="'+link+'" class="read-more"> read more</a>');
 													//$(this)
-// 															.append(
-// 																	'<span class="more-text">'
-// 																			+ removedStr
-// 																			+ '</span>');
+													// 															.append(
+													// 																	'<span class="more-text">'
+													// 																			+ removedStr
+													// 																			+ '</span>');
 												}
 											});
 							//$(".read-more").click(function(){
 							//	$(this).siblings(".more-text").contents().unwrap();
 							//	$(this).remove();
 							//});
-// 							$('#lang-select').val('${pageContext.response.locale}');
-// 							$('#lang-select').change(function(){
-// 								setGetParameter('lang', this.value);
-// 							});
-							$('#lang-select span').html('${pageContext.response.locale} ');
-							
+							// 							$('#lang-select').val('${pageContext.response.locale}');
+							// 							$('#lang-select').change(function(){
+							// 								setGetParameter('lang', this.value);
+							// 							});
+							$('#lang-select span').html(
+									'${pageContext.response.locale} ');
+
 							//activate menu of selected language
-							if('${pageContext.response.locale}' != null) {
+							if ('${pageContext.response.locale}' != null) {
 								$("#lang-select li").removeClass("active");
-								$("#${pageContext.response.locale}").addClass("active");
+								$("#${pageContext.response.locale}").addClass(
+										"active");
 							}
 
-							$('#lang-select li a').click(function(){
-								setGetParameter('lang', $(this).parents('#lang-select li').attr('id'));
-							});
+							$('#lang-select li a').click(
+									function() {
+										setGetParameter('lang', $(this)
+												.parents('#lang-select li')
+												.attr('id'));
+									});
+							//donate button
+							if(isDonateClosed()) {
+								removeStickyDonate();
+							}
 						});
 	</script>
 </body>
