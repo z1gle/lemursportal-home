@@ -184,10 +184,10 @@
                 <!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
-                        <li><a href="https://www.lemursporal.org/species/taxonomi"><spring:message code="menu.species" /></a></li>
-                        <li><a href="https://www.lemursportal.org/species/darwinportal">Observations</a></li>
-                        <li><a href="https://www.lemursportal.org/species/visualisations">Maps</a></li>
-                        <li><a href="https://www.lemursportal.org/forum/documents">Documents</a></li>
+                        <li><a href="https://www.lemursportal.org/species/taxonomi" onclick="window.location = 'https://www.lemursportal.org/species/taxonomi'"><spring:message code="menu.species" /></a></li>
+                        <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'">Observations</a></li>
+                        <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'">Maps</a></li>
+                        <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'">Documents</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"
                                data-toggle="dropdown" role="button"
