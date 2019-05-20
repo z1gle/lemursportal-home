@@ -162,6 +162,9 @@
 .bg-img-4 {
 	background-image: url(../img/slider/0270_ruffed_lemur.jpg);
 }
+.bg-img-5 {
+	background-image: url(../img/slider/Photo3.png);
+}
 
 .sl-trans-elems .caption-content h2 {
 	-webkit-animation: moveUp 1s ease-in-out both;

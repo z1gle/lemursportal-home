@@ -640,7 +640,7 @@ h1.navbar-brand {
     margin: 0 1% 1% 0;
     overflow: hidden;
     position: relative;
-    width: 32%;
+    /*width: 32%;*/
 }
 
 figcaption.mask {
@@ -748,7 +748,8 @@ ul.external li a:hover {
 }
 
 #experts .overlay {
-    background-color: rgba(161,128,41, 0.78);
+    /*background-color: rgba(161,128,41, 0.78);*/
+    background-color: rgba(33, 24, 2, 0.78);;
     padding: 70px 0 40px;
 }
 

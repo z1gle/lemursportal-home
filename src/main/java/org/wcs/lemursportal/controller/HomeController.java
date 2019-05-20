@@ -40,6 +40,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.wcs.lemursportal.model.ClientInfo;
 import org.wcs.lemursportal.model.UserRole;
 import org.wcs.lemursportal.model.Utilisateur;
+import org.wcs.lemursportal.repository.ThematiqueRepository;
 import org.wcs.lemursportal.service.ClientInfoService;
 import org.wcs.lemursportal.service.DarwinCoreService;
 import org.wcs.lemursportal.service.TaxonomiService;
@@ -64,6 +65,9 @@ public class HomeController {
     
     @Autowired 
 	private DarwinCoreService darwinCoreService;
+    
+    @Autowired 
+	private ThematiqueRepository thematiqueRepository;
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Locale locale, Model model, HttpServletRequest request,
@@ -96,6 +100,7 @@ public class HomeController {
         model.addAttribute("nbrTaxonomi", df2.format(taxonomiService.getTaxonomiBaseCount()));
         model.addAttribute("nbrUtilisateur", df2.format(utilisateurService.getUtilisateurCount()));
         model.addAttribute("nbrOccurrence", df2.format(darwinCoreService.getDarwinCoreCount()));
+        model.addAttribute("topics", thematiqueRepository.findAll());
         
         List<Utilisateur> listExperts = utilisateurService.getExpert(UserRole.EXPERT);
         List<Utilisateur> experts = new ArrayList<Utilisateur>();
@@ -118,7 +123,8 @@ public class HomeController {
 		}
         model.addAttribute("locale", currentLocale);
         
-        return "index";
+//        return "index";
+        return "remake_index";
     }
     
 //    @RequestMapping(value = "/image-byte-array", method = RequestMethod.GET)

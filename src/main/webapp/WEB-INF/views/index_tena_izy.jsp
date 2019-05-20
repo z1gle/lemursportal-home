@@ -66,13 +66,13 @@
 
     <body id="body">
 
-        <!-- preloader -->
+        <!-- preloader 
         <div id="preloader">
             <div class="loder-box">
                 <div class="battery"></div>
             </div>
         </div>
-        <!-- end -->
+         end -->
 
 
 
@@ -650,189 +650,203 @@
                                 </div>	<!-- End of /.block -->
                                 <div id="owl-example" class="owl-carousel">
 
+                                    <div> <a href="http://www.ecologie.gov.mg/" target="_blank"><img
+                                                src="${resourcesPath}/logos/MEEF_logo.png"></a>
+                                    </div>
+                                    <div> <a href="http://www.tourisme.gov.mg/" target="_blank"><img
+                                                src="${resourcesPath}/logos/05_2016-Logo-300x297.png"></a>
+                                    </div>
                                     <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/MEEF_logo.png"></a></div>
+                                                src="${resourcesPath}/logos/logo_ADD.jpg"></a>
+                                    </div>
+                                    <div> <a href="https://www.aspinallfoundation.org/the-aspinall-foundation/working-around-the-world/madagascar/" target="_blank"><img
+                                                src="${resourcesPath}/logos/logo_Aspinall.jpg"></a>
+                                    </div>
+                                    <div> <a href="https://www.dpz.eu/en/unit/sociobiology-homepage/study-sites/madagascar.html" target="_blank"><img
+                                                src="${resourcesPath}/logos/logo_DPZ.jpg"></a>
+                                    </div>
                                     <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/05_2016-Logo-300x297.png"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_ADD.jpg"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_Aspinall.jpg"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_DPZ.jpg"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_ISSEDD.png"></a></div>
-                                    <div> <a href="#" target="_blank"><img
-                                                src="${resourcesPath}/logos/logo_Valbio.jpg"></div>
-                                            <div> <a href="#" target="_blank"><img
-                                                        src="${resourcesPath}/logos/MV_logo.png"></div>
-                                                    <div> <a href="#" target="_blank"><img
-                                                                src="${resourcesPath}/logos/PGF_logo.png"></div>
-                                                    <div> <a href="#" target="_blank"><img
-                                                                src="${resourcesPath}/logos/CI_logo.png"></div>
-                                                            </div>	<!-- End of /.Owl-Slider -->
-                                                            </div>	<!-- End of /.col-md-12 -->
-                                                            </div> <!-- End Of /.Row -->
-                                                            </div> <!-- End Of /.Container -->
-                                                            </section>	<!-- End of Section -->
-                                                            <section id="google-map">
+                                                src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a>
+                                    </div>
+                                    <div> <a href="http://www.issedd-univ.mg/" target="_blank"><img
+                                                src="${resourcesPath}/logos/logo_ISSEDD.png"></a>
+                                    </div>
+                                    <div> <a href="https://www.stonybrook.edu/commcms/centre-valbio/" target="_blank"><img
+                                                src="${resourcesPath}/logos/logo_Valbio.jpg"></a>
+                                    </div>
+                                    <div> <a href="https://www.madagasikara-voakajy.org/" target="_blank"><img
+                                                src="${resourcesPath}/logos/MV_logo.png"></a>
+                                    </div>
+                                    <div> <a href="https://www.peregrinefund.org/projects/madagascar-project" target="_blank"><img
+                                                src="${resourcesPath}/logos/PGF_logo.png"></a>
+                                    </div>
+                                    <div> <a href="https://www.conservation.org/global/madagascar/Pages/default.aspx" target="_blank"><img
+                                                src="${resourcesPath}/logos/CI_logo.png"></a>
+                                    </div>
+                                    <div> <a href="http://www.parcs-madagascar.com/" target="_blank"><img
+                                                src="${resourcesPath}/logos/mnp.png"></a>
+                                    </div>
+                                </div>	<!-- End of /.Owl-Slider -->
+                            </div>	<!-- End of /.col-md-12 -->
+                        </div> <!-- End Of /.Row -->
+                    </div> <!-- End Of /.Container -->
+                </section>	<!-- End of Section -->
+                <section id="google-map">
 
-                                                                <div id="map-canvas" class="animated fadeInUp"></div>
-                                                            </section>
+                    <div id="map-canvas" class="animated fadeInUp"></div>
+                </section>
 
-                                                            </main>
-                                                            <div id="supWrapperToPreventFeedbackFlickering">
-                                                                <section id="supDonateWrapper">
-                                                                    <div id="supColumnWrapper" class="x-hidden-focus">
-                                                                        <div id="supDonateContainer">
-                                                                            <section id="supDT" class="ocDT">
-                                                                                <div id="supFBCont">
-                                                                                    <form class="supStickyDonateMarginBottom" 
-                                                                                          data-support-available="true">
-                                                                                        <div class="ocSmartDonateBegin x-hidden-focus" role="region">
-                                                                                            <div id="beginDonateHeader">
-                                                                                                Don't let lemurs disappear from the wild on our watch.</h2>
-                                                                                            </div>
-                                                                                            <div class="donateButtons">
-                                                                                                <button
-                                                                                                    class="ocDonateButton"
-                                                                                                    name="" type="button" data-bi-mto="">Donate</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                    <div
-                                                                                        class="ocDonateThxMessage ocHidden">
-                                                                                        <h2>Thank you for your donation!</h2>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </section>
-                                                                        </div>
+        </main>
+        <div id="supWrapperToPreventFeedbackFlickering">
+            <section id="supDonateWrapper">
+                <div id="supColumnWrapper" class="x-hidden-focus">
+                    <div id="supDonateContainer">
+                        <section id="supDT" class="ocDT">
+                            <div id="supFBCont">
+                                <form class="supStickyDonateMarginBottom" 
+                                      data-support-available="true">
+                                    <div class="ocSmartDonateBegin x-hidden-focus" role="region">
+                                        <div id="beginDonateHeader">
+                                            Don't let lemurs disappear from the wild on our watch.</h2>
+                                        </div>
+                                        <div class="donateButtons">
+                                            <button
+                                                class="ocDonateButton"
+                                                name="" type="button" data-bi-mto="">Donate</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div
+                                    class="ocDonateThxMessage ocHidden">
+                                    <h2>Thank you for your donation!</h2>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
 
-                                                                        <a href="javascript:removeStickyDonate();" id="supDisableStickyFeedbackButton" class="">×</a>
-                                                                    </div>
-                                                                </section>
-                                                            </div>
-                                                            <footer id="footer">
-                                                                <div class="container">
-                                                                    <div class="row">
+                    <a href="javascript:removeStickyDonate();" id="supDisableStickyFeedbackButton" class="">×</a>
+                </div>
+            </section>
+        </div>
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
 
-                                                                        <!-- 				<div class="col-md-1 animated" align="center" id="lg-footer"> -->
-                                                                        <%-- 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt=""> --%>
-                                                                        <!-- 				</div> -->
+                    <!-- 				<div class="col-md-1 animated" align="center" id="lg-footer"> -->
+                    <%-- 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt=""> --%>
+                    <!-- 				</div> -->
 
-                                                                        <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-                                                                        <!-- 					<ul style="padding-left: 20px;"> -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li> -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li> -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li> -->
-                                                                        <!-- 					</ul> -->
-                                                                        <!-- 				</div> -->
+                    <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
+                    <!-- 					<ul style="padding-left: 20px;"> -->
+                    <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li> -->
+                    <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li> -->
+                    <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li> -->
+                    <!-- 					</ul> -->
+                    <!-- 				</div> -->
 
-                                                                        <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-                                                                        <!-- 					<ul style="padding-left: 20px;"> -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li> -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="#">Help</a></li> -->
-                                                                        <!-- 						li class="animated zoomIn"><a href="#">Mentions légales</a></li -->
-                                                                        <!-- 						<li class="animated zoomIn"><a href="#contact">Contact</a></li> -->
-                                                                        <!-- 					</ul> -->
-                                                                        <!-- 				</div> -->
+                    <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
+                    <!-- 					<ul style="padding-left: 20px;"> -->
+                    <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li> -->
+                    <!-- 						<li class="animated zoomIn"><a href="#">Help</a></li> -->
+                    <!-- 						li class="animated zoomIn"><a href="#">Mentions légales</a></li -->
+                    <!-- 						<li class="animated zoomIn"><a href="#contact">Contact</a></li> -->
+                    <!-- 					</ul> -->
+                    <!-- 				</div> -->
 
-                                                                        <div class="col-md-5">
-                                                                            <div class="row">
+                    <div class="col-md-5">
+                        <div class="row">
 
-                                                                                <div class="col-xs-3 animated fadeInUp" data-wow-delay="0.4s">
-                                                                                    <img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="height: 78px; margin-left: 15px;" alt="">
-                                                                                </div>
+                            <div class="col-xs-3 animated fadeInUp" data-wow-delay="0.4s">
+                                <img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="height: 78px; margin-left: 15px;" alt="">
+                            </div>
 
-                                                                                <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
-                                                                                    <ul style="padding-left: 20px;">
-                                                                                        <!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
-                                                                                        <li class="animated zoomIn"><a
-                                                                                                href="https://www.lemursportal.org/forum/">Post</a></li>
-                                                                                        <li class="animated zoomIn"><a
-                                                                                                href="https://www.lemursportal.org/forum/documents">Documents</a></li>
-                                                                                        <li class="animated zoomIn"><a
-                                                                                                href="https://www.lemursportal.org/forum/experts">Experts</a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                                <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
-                                                                                    <ul style="padding-left: 20px;">
-                                                                                        <li class="animated zoomIn"><a
-                                                                                                href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
-                                                                                        <li class="animated zoomIn"><a href="#">Help</a></li>
-                                                                                        <!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
-                                                                                        <li class="animated zoomIn"><a href="#contact">Contact</a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                            <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
+                                <ul style="padding-left: 20px;">
+                                    <!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
+                                    <li class="animated zoomIn"><a
+                                            href="https://www.lemursportal.org/forum/">Post</a></li>
+                                    <li class="animated zoomIn"><a
+                                            href="https://www.lemursportal.org/forum/documents">Documents</a></li>
+                                    <li class="animated zoomIn"><a
+                                            href="https://www.lemursportal.org/forum/experts">Experts</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
+                                <ul style="padding-left: 20px;">
+                                    <li class="animated zoomIn"><a
+                                            href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
+                                    <li class="animated zoomIn"><a href="#">Help</a></li>
+                                    <!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
+                                    <li class="animated zoomIn"><a href="#contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                                                                        <div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
-                                                                            <div class="row" style="padding-left: 15px !important;">
-                                                                                <div class="col-xs-2">
-                                                                                    <a href="http://www.fapbm.org/" target="_blank"><img
-                                                                                            src="${resourcesPath}/img/part1.png"></a>
-                                                                                </div>
-                                                                                <div class="col-xs-2">
+                    <div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
+                        <div class="row" style="padding-left: 15px !important;">
+                            <div class="col-xs-2">
+                                <a href="http://www.fapbm.org/" target="_blank"><img
+                                        src="${resourcesPath}/img/part1.png"></a>
+                            </div>
+                            <div class="col-xs-2">
 
-                                                                                    <a href="http://www.gerp.mg" target="_blank"><img
-                                                                                            src="${resourcesPath}/img/part2.png"></a>
-                                                                                </div>
-                                                                                <div class="col-xs-2">
-                                                                                    <a href="http://www.primate-sg.org/" target="_blank"><img
-                                                                                            src="${resourcesPath}/img/part3.png"></a>
-                                                                                </div>
-                                                                                <div class="col-xs-2">
-                                                                                    <a href="http://madagascar.wcs.org" target="_blank"><img
-                                                                                            src="${resourcesPath}/img/part4.png"></a>
-                                                                                </div>
-                                                                                <div class="col-xs-2">
-                                                                                    <a href="http://data.rebioma.net/" target="_blank"><img
-                                                                                            src="${resourcesPath}/img/part5.png"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
-                                                                            <a href="http://jrsbiodiversity.org/" class="donor" target="_blank"><img
-                                                                                    src="http://jrsbiodiversity.org/wp-content/themes/zero/images/jrs-logo.svg"
-                                                                                    style="border-radius: 4%; /*margin-top: 3%*/;padding:2%;"></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div style="background: #2E2E2E; margin-top: 35px">
-                                                                    <div class="row text-center">
-                                                                        <div class="footer-content">
-                                                                            <p>Copyright &copy; - Lemurs Portal 2017</p>
-                                                                        </div>
-                                                                    </div>
-                                                            </footer>
+                                <a href="http://www.gerp.mg" target="_blank"><img
+                                        src="${resourcesPath}/img/part2.png"></a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="http://www.primate-sg.org/" target="_blank"><img
+                                        src="${resourcesPath}/img/part3.png"></a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="http://madagascar.wcs.org" target="_blank"><img
+                                        src="${resourcesPath}/img/part4.png"></a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="http://data.rebioma.net/" target="_blank"><img
+                                        src="${resourcesPath}/img/part5.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
+                        <a href="http://jrsbiodiversity.org/" class="donor" target="_blank"><img
+                                src="http://jrsbiodiversity.org/wp-content/themes/zero/images/jrs-logo.svg"
+                                style="border-radius: 4%; /*margin-top: 3%*/;padding:2%;"></a>
+                    </div>
+                </div>
+            </div>
+            <div style="background: #2E2E2E; margin-top: 35px">
+                <div class="row text-center">
+                    <div class="footer-content">
+                        <p>Copyright &copy; - Lemurs Portal 2017</p>
+                    </div>
+                </div>
+        </footer>
 
-                                                            <script src="${resourcesPath}/js/jquery-1.11.1.min.js"></script>
+        <script src="${resourcesPath}/js/jquery-1.11.1.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/bootstrap.min.js"></script>
+        <script src="${resourcesPath}/js/bootstrap.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/jquery.singlePageNav.min.js"></script>
+        <script src="${resourcesPath}/js/jquery.singlePageNav.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/jquery.fancybox.pack.js"></script>
+        <script src="${resourcesPath}/js/jquery.fancybox.pack.js"></script>
 
-                                                            <script
-                                                            src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2OxdbCcY&callback=initMap"></script>
+        <script
+        src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2OxdbCcY&callback=initMap"></script>
 
-                                                            <script src="${resourcesPath}/js/owl.carousel.min.js"></script>
+        <script src="${resourcesPath}/js/owl.carousel.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/jquery.easing.min.js"></script>
+        <script src="${resourcesPath}/js/jquery.easing.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/jquery.slitslider.js"></script>
-                                                            <script src="${resourcesPath}/js/jquery.ba-cond.min.js"></script>
+        <script src="${resourcesPath}/js/jquery.slitslider.js"></script>
+        <script src="${resourcesPath}/js/jquery.ba-cond.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/wow.min.js"></script>
+        <script src="${resourcesPath}/js/wow.min.js"></script>
 
-                                                            <script src="${resourcesPath}/js/main.js"></script>
-                                                            <script src="${resourcesPath}/js/jquery.li-scroller.1.0.js"></script>
+        <script src="${resourcesPath}/js/main.js"></script>
+        <script src="${resourcesPath}/js/jquery.li-scroller.1.0.js"></script>
 
-                                                            <script type="text/javascript">
+        <script type="text/javascript">
 
                                                     function setGetParameter(paramName, paramValue) {
                                                         if (paramValue == '${pageContext.response.locale}')
@@ -935,7 +949,7 @@
                                                             }
                                                         })
                                                     });
-                                                            </script>
-                                                            </body>
-                                                            </html>
+        </script>
+    </body>
+</html>
 

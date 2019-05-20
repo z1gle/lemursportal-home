@@ -35,11 +35,11 @@ function removeStickyDonate() {
 	$("#supDonateWrapper").removeClass("supStickyDonate");
 }
 
-jQuery(window).load(function(){
+/*jQuery(window).load(function(){
 
 	$("#preloader").fadeOut("slow");
 
-});
+});*/
 
 $(function() {
 
