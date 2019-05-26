@@ -188,6 +188,8 @@
                         <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'">Observations</a></li>
                         <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'">Maps</a></li>
                         <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'">Documents</a></li>
+                        <!--<li><a href="https://www.lemursportal.org/forum/documents#tab-item-4" onclick="window.location = 'https://www.lemursportal.org/forum/documents#tab-item-4'">Galerie</a></li>-->
+                        <c:if test="${isLoggedInUser}">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"
                                data-toggle="dropdown" role="button"
@@ -204,6 +206,7 @@
                                 </li>
                             </ul>
                         </li>
+                        </c:if>
                         <li>
                             <a href="https://www.lemursportal.org/forum/experts">
                                 <spring:message code="menu.experts" />
@@ -374,44 +377,44 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
                              data-wow-delay="0.6s">
-                            <a href="/forum?lang=${pageContext.response.locale.language}"><div class="service-item">
+                            <a onmouseover="$('#forum-desc').show();" onmouseout="$('#forum-desc').hide();" href="https://www.lemursporal.org/forum?lang=${pageContext.response.locale.language}"><div class="service-item">
                                     <div class="img-icons">
                                         <img src="${resourcesPath}/img/icons/Forum_en_ligne2.png">
                                     </div>
                                     <h3><spring:message code="home.services.onlineForum" /></h3>
-                                    <p style="color: #818181 !important"><spring:message code="service.online.txt" /></p>
+                                    <p id="forum-desc" class="service-desc"><spring:message code="service.online.txt" /></p>
                                 </div></a>
                         </div>
 
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable">
-                            <a href="/species?lang=${pageContext.response.locale.language}"><div class="service-item">
+                            <a onmouseover="$('#species-desc').show();" onmouseout="$('#species-desc').hide();" href="https://www.lemursporal.org/species?lang=${pageContext.response.locale.language}"><div class="service-item">
                                     <div class="img-icons">
                                         <img src="${resourcesPath}/img/icons/archiveMetyTsara.png">
                                     </div>
                                     <h3><spring:message code="home.services.speciesDatabases" /></h3>
-                                    <p style="color: #818181 !important"><spring:message code="service.species.txt" /></p>
+                                    <p id="species-desc" class="service-desc"><spring:message code="service.species.txt" /></p>
                                 </div></a>
                         </div>
 
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
                              data-wow-delay="0.3s">
-                            <a href="/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
+                            <a onmouseover="$('#map-desc').show();" onmouseout="$('#map-desc').hide();" href="https://www.lemursporal.org/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
                                     <div class="img-icons">
                                         <img src="${resourcesPath}/img/icons/Localisation2.png">
                                     </div>
                                     <h3><spring:message code="home.services.visualisation" /></h3>
-                                    <p style="color: #818181 !important"><spring:message code="service.visualization.txt" /></p>
+                                    <p id="map-desc" class="service-desc"><spring:message code="service.visualization.txt" /></p>
                                 </div></a>
                         </div>
 
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
                              data-wow-delay="0.3s">
-                            <a href="/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
+                            <a onmouseover="$('#mobile-desc').show();" onmouseout="$('#mobile-desc').hide();" href="https://www.lemursporal.org/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
                                     <div class="img-icons">
                                         <img src="${resourcesPath}/img/icons/Mobile_app_2.png">
                                     </div>
                                     <h3><spring:message code="home.services.apps" /></h3>
-                                    <p style="color: #818181 !important"><spring:message code="service.mobile.txt" /></p>
+                                    <p id="mobile-desc" class="service-desc"><spring:message code="service.mobile.txt" /></p>
                                 </div></a>
                         </div>
 
@@ -484,6 +487,15 @@
                     border-radius: 5px;
                     border-color: #d3d3d34f;
                 }
+                
+                .service-desc {
+                    color: #818181 !important; 
+                    display: none;
+                }
+                
+/*                .service-desc:hover {
+                    display: block;
+                }*/
 
                 .new-second {
                     height: 22vh; 
@@ -783,20 +795,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 animated fadeInUp">
-                            <img src="https://www.lemursportal.org/forum/resources/profil/Stacey Tecot.png">
+                            <img src="https://www.lemursportal.org/forum/resources/profil/Profil_Iaiky.jpg">
                         </div>
                         <div class="col-md-8 animated fadeInUp" data-wow-delay="0.4s">
-                            <h3 class="comment-feedback">Stacey Tecot</h3>
+                            <h3 class="comment-feedback">Iaikitiana RAKOTOARINIVO</h3>
                             <span class="comment-feedback" style="font-weight: 100;">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Madagascar lemurs portal m'a permis la découverte de nombreux espèces de lémuriens ainsi que les regions où les trouver.
                             </span>
+                            <br><br><span>Utilisateur inscrit</span>
                         </div>
                     </div>
                 </div>
             </section>
             <!--Fin commentaire section-->
             <!--How to section-->
-            <section id="">
+<!--            <section id="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 animated fadeInUp">
@@ -812,7 +825,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>-->
             <!--Fin how to section-->
             <!-- Social section -->
             <section id="social" class="parallax">
@@ -1051,7 +1064,7 @@
             <div style="background: #2E2E2E; margin-top: 35px">
                 <div class="row text-center">
                     <div class="footer-content">
-                        <p>Copyright &copy; - Lemurs Portal 2017</p>
+                        <p>Copyright &copy; - Lemurs Portal 2019</p>
                     </div>
                 </div>
         </footer>
@@ -1327,7 +1340,6 @@
 
         <script type="text/javascript">
                             function sendAddDocument() {
-                                alert('nandeha aloha');
                                 var formData = new FormData();
                                 var id = $('#id').val();
                                 if (id !== 0 && id !== undefined && id !== null) {
@@ -1384,7 +1396,7 @@
                                         $('#url').val('');
                                         $('#species').val('');
                                         $('#errorMdp').html("<p style='color: red;'> " + "</p>");
-                                        closeModal('modal-ajout-document');
+//                                        closeModal('modal-ajout-document');
                                         location.reload();
                                     },
                                     error: function (json) {
@@ -1495,7 +1507,7 @@
                                 });
                                 $.ajax({
                                     method: "POST",
-                                    url: "https://www.lemursportal.org/species/findByespeceTaxo",
+                                    url: "https://www.lemursportal.org/species_test/findByespeceTaxo",
                                     success: function (json) {
 //                                                                if (json != null && json.length != 0) {
 //                                                                }
@@ -1506,7 +1518,7 @@
                                         $("#modal-species").html(selectBody);
                                         tail.select(".tailed");
                                     }, error: function () {
-                                        $("#modal-species").html("<option>Tralalala</option><option>trililili</option><option>Trelelele</option>");
+                                        $("#modal-species").html("<option>None</option>");
                                         console.log("there is a problem with species ajax");
                                         tail.select(".tailed");
                                     }
@@ -1532,8 +1544,8 @@
                                     processData: false,
                                     contentType: false,
                                     success: function (response) {
-                                        if (response.data[0].message != null) {
-                                            console.log(response.data[0].message);
+                                        if (response == null) {
+                                            console.log(response);
                                             $('#messageAlerte').text(response.data[0].message);
                                             $('#modal-upload_spinner').modal('hide');
                                             $('#modal-alert').modal({backdrop: 'static'});
