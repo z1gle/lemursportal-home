@@ -185,24 +185,24 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
                         <li><a href="https://www.lemursportal.org/species/taxonomi" onclick="window.location = 'https://www.lemursportal.org/species/taxonomi'"><spring:message code="menu.species" /></a></li>
-                        <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'">Observations</a></li>
-                        <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'">Maps</a></li>
-                        <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'">Documents</a></li>
+                        <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'"><spring:message code="home.header.observations" /></a></li>
+                        <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'"><spring:message code="home.header.map" /></a></li>
+                        <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.header.documents" /></a></li>
                         <!--<li><a href="https://www.lemursportal.org/forum/documents#tab-item-4" onclick="window.location = 'https://www.lemursportal.org/forum/documents#tab-item-4'">Galerie</a></li>-->
                         <c:if test="${isLoggedInUser}">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle"
                                data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false"> 
-                                <span>Contribute</span>
+                                <span><spring:message code="home.header.contribute" /></span>
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="">
-                                    <a href="#" data-toggle='modal' data-target='#modal-upload-darwincore'>Add Observation</a>
+                                    <a href="#" data-toggle='modal' data-target='#modal-upload-darwincore'><spring:message code="home.header.addObservations" /></a>
                                 </li>
                                 <li>
-                                    <a href="#" data-toggle='modal' data-target='#modal-ajout-document' >Add Documents</a>
+                                    <a href="#" data-toggle='modal' data-target='#modal-ajout-document' ><spring:message code="home.header.addDocument" /></a>
                                 </li>
                             </ul>
                         </li>
@@ -1529,8 +1529,8 @@
                                 var formData = new FormData();
                                 var file = $('#csv-xl')[0].files[0];
                                 formData.append("excelfile", file);
-                                console.log(document.getElementById("publique").checked);
-                                if (document.getElementById("publique").checked) {
+                                console.log(document.getElementById("publique-modal").checked);
+                                if (document.getElementById("publique-modal").checked) {
                                     formData.append("publique", 1);
                                 } else
                                     formData.append("publique", 0);
@@ -1550,6 +1550,7 @@
                                             $('#modal-upload_spinner').modal('hide');
                                             $('#modal-alert').modal({backdrop: 'static'});
                                         } else {
+                                            console.log(response);
                                             $('#modal-upload_spinner').modal('hide');
                                         }
                                     }, error: function (response) {
