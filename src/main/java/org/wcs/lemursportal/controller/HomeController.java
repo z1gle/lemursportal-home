@@ -43,6 +43,7 @@ import org.wcs.lemursportal.model.Utilisateur;
 import org.wcs.lemursportal.repository.ThematiqueRepository;
 import org.wcs.lemursportal.service.ClientInfoService;
 import org.wcs.lemursportal.service.DarwinCoreService;
+import org.wcs.lemursportal.service.MetadataService;
 import org.wcs.lemursportal.service.TaxonomiService;
 import org.wcs.lemursportal.service.UtilisateurService;
 
@@ -68,6 +69,9 @@ public class HomeController {
     
     @Autowired 
 	private ThematiqueRepository thematiqueRepository;
+    
+        @Autowired
+    private MetadataService documentService;
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Locale locale, Model model, HttpServletRequest request,
@@ -100,6 +104,7 @@ public class HomeController {
         model.addAttribute("nbrTaxonomi", df2.format(taxonomiService.getTaxonomiBaseCount()));
         model.addAttribute("nbrUtilisateur", df2.format(utilisateurService.getUtilisateurCount()));
         model.addAttribute("nbrOccurrence", df2.format(darwinCoreService.getDarwinCoreCount()));
+        model.addAttribute("nbrDocument", df2.format(documentService.getDocumentCount()));
         model.addAttribute("topics", thematiqueRepository.findAll());
         
         List<Utilisateur> listExperts = utilisateurService.getExpert(UserRole.EXPERT);

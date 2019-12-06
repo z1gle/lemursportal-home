@@ -76,9 +76,6 @@
             </div>
         </div>
          end -->
-
-
-
         <!-- Navigation -->
         <header id="navigation"
                 class="navbar-inverse animated-header navbar-fixed-top">
@@ -180,38 +177,52 @@
                     </h1>
                     <!-- /logo -->
                 </div>
-
                 <!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
+                        <li class="act"><a href="#"><spring:message code="menu.home" /></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Forum <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="https://www.lemursportal.org/forum" onclick="window.location = 'https://www.lemursportal.org/forum'">Publier</a></li>
+                                <li class="divider"></li>
+                                <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.header.documents" /></a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="https://www.lemursportal.org/forum/experts"  onclick="window.location = 'https://www.lemursportal.org/forum/experts'">
+                                        <spring:message code="menu.experts" />
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="https://www.lemursportal.org/forum/formation/" onclick="window.location = 'https://www.lemursportal.org/forum/formation/'">Opportunités</a></li>
+                            </ul>
+                        </li>
                         <li><a href="https://www.lemursportal.org/species/taxonomi" onclick="window.location = 'https://www.lemursportal.org/species/taxonomi'"><spring:message code="menu.species" /></a></li>
                         <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'"><spring:message code="home.header.observations" /></a></li>
                         <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'"><spring:message code="home.header.map" /></a></li>
-                        <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.header.documents" /></a></li>
+                            <c:url var="graphics" value="/graphics"></c:url>
+                        <li><a href="${graphics}" onclick="window.location = '${graphics}'">Graphiques</a></li>
                         <!--<li><a href="https://www.lemursportal.org/forum/documents#tab-item-4" onclick="window.location = 'https://www.lemursportal.org/forum/documents#tab-item-4'">Galerie</a></li>-->
                         <c:if test="${isLoggedInUser}">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle"
-                               data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false"> 
-                                <span><spring:message code="home.header.contribute" /></span>
-                                <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="">
-                                    <a href="#" data-toggle='modal' data-target='#modal-upload-darwincore'><spring:message code="home.header.addObservations" /></a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle='modal' data-target='#modal-ajout-document' ><spring:message code="home.header.addDocument" /></a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"> 
+                                    <span><spring:message code="home.header.contribute" /></span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="">
+                                        <a href="#" data-toggle='modal' data-target='#modal-upload-darwincore'><spring:message code="home.header.addObservations" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle='modal' data-target='#modal-ajout-document' ><spring:message code="home.header.addDocument" /></a>
+                                    </li>
+                                </ul>
+                            </li>
                         </c:if>
-                        <li>
-                            <a href="https://www.lemursportal.org/forum/experts">
-                                <spring:message code="menu.experts" />
-                            </a>
-                        </li>
                         <!--                        <li class="dropdown">
                                                     <a href="#" class="dropdown-toggle"
                                                         data-toggle="dropdown" role="button"
@@ -251,8 +262,7 @@
                         margin-top: -70px;
                     }
 
-                    #service {
-                        padding-top: 0px;
+                    #searchs {
                         margin-top: -50px;
                     }
                 </style>
@@ -361,68 +371,211 @@
                                 </div>-->
                 <!-- /slider-wrapper -->
             </section>
-
-
             <style>
-                .img-icons img {
-                    height: 11vh;
+                .home__searchFilters a {
+                    -webkit-box-flex: 1;
+                    -ms-flex: 1 0 auto;
+                    flex: 1 0 auto;
+                    padding: 7px 7px 3px;
+                    border-bottom: 2px solid transparent;
+                    text-align: center;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    color: white;
                 }
-                .no-padding-bottom-section {
-                    padding-bottom: 0px;
+                .home__searchFilters a:hover {
+                    -webkit-box-flex: 1;
+                    -ms-flex: 1 0 auto;
+                    flex: 1 0 auto;
+                    padding: 7px 7px 3px;
+                    border-bottom: 2px solid transparent;
+                    text-align: center;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    color: #A18029;
+                }
+                *, :after, :before {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                }
+                .home__searchFilters {
+                    background: #d8b03f;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    overflow: auto;
+                    max-width: 700px;
+                    color: #fff;
+                }
+                .home__header {
+                    background-color: #71b171;
+                    background-size: cover;
+                    background-position: center;
+                    color: #fff;
+                    position: relative;
+                }
+
+                .noUnderline, .noUnderline:focus, .noUnderline:hover, a.inherit.noUnderline, a.inherit.noUnderline:focus, a.inherit.noUnderline:hover {
+                    text-decoration: none;
+                }
+                .home .search-box {
+                    max-width: 700px;
+                }
+                form {
+                    display: block;
+                    margin-top: 0em;
+                }
+
+                button, input, select, textarea {
+                    font-family: inherit;
+                    font-size: inherit;
+                    line-height: inherit;
+                }
+
+                button, input, optgroup, select, textarea {
+                    color: inherit;
+                    font: inherit;
+                    margin: 0;
+                }
+                button, input, select, textarea {
+                    font-size: 100%;
+                }
+                button, input, select, textarea {
+                    vertical-align: baseline;
+                }
+                button, html, input, md-bottom-sheet .md-subheader, select, textarea {
+                    font-family: Roboto,"Helvetica Neue",sans-serif;
+                }
+                .search-box input {
+                    border: none;
+                    padding-right: 1.42857142857rem;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .search-box .search-box__submit {
+                    position: absolute;
+                    right: 0;
+                    margin: 15px 15px;
+                    top: 0;
+                    font-size: 1.60714285714125rem;
+                }
+                .search-box {
+                    background: #fff;
+                    color: #444;
+                    padding: 12px 20px;
+                    max-width: 700px;
+                }
+                .search-box {
+                    position: relative;
+                }
+                .search-box {
+                    -webkit-transition: box-shadow .2s ease;
+                    transition: box-shadow .2s ease;
+                    box-shadow: 0 2px 2px 0 rgba(0,0,0,.16);
+                }
+                .search-box {
+                    -webkit-transition: box-shadow .2s ease;
+                    transition: box-shadow .2s ease;
+                    box-shadow: 0 2px 2px 0 rgba(0,0,0,.16);
+                }
+                *, :after, :before {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                }
+                div {
+                    display: block;
+                }
+                .home__header__hero-text {
+                    padding-bottom: 3rem;
+                }
+                .w{
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    max-width: 700px;
+                    color:grey;
+                    padding-right: 1.42857142857rem;
+                    margin: 0px 15px;
+                    text-align: justify;
+                    line-height: 30px;
+                }
+                html {
+                    font-size: 12px;
+                }
+                html {
+                    font-family: sans-serif;
+                    -ms-text-size-adjust: 100%;
+                    -webkit-text-size-adjust: 100%;
+                }
+                body.md-default-theme, body, html.md-default-theme, html {
+                    color: rgba(0,0,0,0.87);
+                    background-color: rgb(250,250,250);
                 }
             </style>
-            <!-- Service section -->
-            <section id="service" class="no-padding-bottom-section">
+            <!-- search section -->
+            <div id="searchs" class="no-padding-bottom-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
-                             data-wow-delay="0.6s">
-                            <a onmouseover="$('#forum-desc').show();" onmouseout="$('#forum-desc').hide();" href="https://www.lemursporal.org/forum?lang=${pageContext.response.locale.language}"><div class="service-item">
-                                    <div class="img-icons">
-                                        <img src="${resourcesPath}/img/icons/Forum_en_ligne2.png">
-                                    </div>
-                                    <h3><spring:message code="home.services.onlineForum" /></h3>
-                                    <p id="forum-desc" class="service-desc"><spring:message code="service.online.txt" /></p>
-                                </div></a>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable">
-                            <a onmouseover="$('#species-desc').show();" onmouseout="$('#species-desc').hide();" href="https://www.lemursporal.org/species?lang=${pageContext.response.locale.language}"><div class="service-item">
-                                    <div class="img-icons">
-                                        <img src="${resourcesPath}/img/icons/archiveMetyTsara.png">
-                                    </div>
-                                    <h3><spring:message code="home.services.speciesDatabases" /></h3>
-                                    <p id="species-desc" class="service-desc"><spring:message code="service.species.txt" /></p>
-                                </div></a>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
-                             data-wow-delay="0.3s">
-                            <a onmouseover="$('#map-desc').show();" onmouseout="$('#map-desc').hide();" href="https://www.lemursporal.org/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
-                                    <div class="img-icons">
-                                        <img src="${resourcesPath}/img/icons/Localisation2.png">
-                                    </div>
-                                    <h3><spring:message code="home.services.visualisation" /></h3>
-                                    <p id="map-desc" class="service-desc"><spring:message code="service.visualization.txt" /></p>
-                                </div></a>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12 text-center animated zoomIn service-clickable"
-                             data-wow-delay="0.3s">
-                            <a onmouseover="$('#mobile-desc').show();" onmouseout="$('#mobile-desc').hide();" href="https://www.lemursporal.org/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
-                                    <div class="img-icons">
-                                        <img src="${resourcesPath}/img/icons/Mobile_app_2.png">
-                                    </div>
-                                    <h3><spring:message code="home.services.apps" /></h3>
-                                    <p id="mobile-desc" class="service-desc"><spring:message code="service.mobile.txt" /></p>
-                                </div></a>
-                        </div>
+                        <h4 class="w">
+                            <spring:message code="home.description" />
+                        </h4>
 
                     </div>
-                </div>
-            </section>
+                </div> 
+            </div>
             <!-- end -->
 
+            <!-- number section -->
+            <div id="number" style="background-color: #fffdf9;">
+                <div class="container">
+                    <div class="row">
+
+                        <!--                            <div class="sec-title text-center animated fadeInDown">
+                                                        <h2><spring:message code="menu.number" /></h2>
+                                                        <p>--</p>
+                                                    </div>-->
+
+                        <div class="col-md-3 animated fadeInUp">
+                            <div class="number-table text-center">
+                                <span><spring:message code="text.users" /></span>
+                                <div class="value">
+                                    <span></span> <span>${nbrUtilisateur}</span><br> <span><spring:message code="text.users.detail" /></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 animated fadeInUp" data-wow-delay="0.4s">
+                            <div class="number-table text-center">
+                                <span><spring:message code="text.species" /></span>
+                                <div class="value">
+                                    <span></span> <span>${nbrTaxonomi}</span><br> <span><spring:message code="text.species.detail" /></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
+                            <div class="number-table text-center">
+                                <span><spring:message code="text.obsercations" /></span>
+                                <div class="value">
+                                    <span></span> <span>${nbrOccurrence}</span><br> <span><spring:message code="text.obsercations.detail" /></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
+                            <div class="number-table text-center">
+                                <span><spring:message code="home.document" /></span>
+                                <div class="value">
+                                    <span></span> <span>${nbrDocument}</span><br> <span><spring:message code="home.available.document" /></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end --> 
             <!--            <div class="row text-center pad-top-20" style="background: #f8f8f8;padding: 25px 0;">
                             <div class="sec-title text-center animated fadeInDown" style="margin-bottom: 0px !important">
                                 <style type="text/css" media="screen">
@@ -487,15 +640,15 @@
                     border-radius: 5px;
                     border-color: #d3d3d34f;
                 }
-                
+
                 .service-desc {
                     color: #818181 !important; 
                     display: none;
                 }
-                
-/*                .service-desc:hover {
-                    display: block;
-                }*/
+
+                /*                .service-desc:hover {
+                                    display: block;
+                                }*/
 
                 .new-second {
                     height: 22vh; 
@@ -744,88 +897,78 @@
                 </div>
             </section>
             <!-- end --> 
-            <!-- number section -->
-            <section id="number" style="background-color: #fffdf9;">
-                <div class="container">
-                    <div class="row">
 
-                        <!--                            <div class="sec-title text-center animated fadeInDown">
-                                                        <h2><spring:message code="menu.number" /></h2>
-                                                        <p>--</p>
-                                                    </div>-->
-
-                        <div class="col-md-4 animated fadeInUp">
-                            <div class="number-table text-center">
-                                <span><spring:message code="text.users" /></span>
-                                <div class="value">
-                                    <span></span> <span>${nbrUtilisateur}</span><br> <span><spring:message code="text.users.detail" /></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 animated fadeInUp" data-wow-delay="0.4s">
-                            <div class="number-table text-center">
-                                <span><spring:message code="text.species" /></span>
-                                <div class="value">
-                                    <span></span> <span>${nbrTaxonomi}</span><br> <span><spring:message code="text.species.detail" /></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
-                            <div class="number-table text-center">
-                                <span><spring:message code="text.obsercations" /></span>
-                                <div class="value">
-                                    <span></span> <span>${nbrOccurrence}</span><br> <span><spring:message code="text.obsercations.detail" /></span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- end --> 
             <style>
                 .comment-feedback {
                     color: white;
                 }
             </style>
             <!--Commentaire section-->
-            <section id="" style="background-color: black;">
-                <div class="container">
+            <section id="">
+                <div class="">
                     <div class="row">
-                        <div class="col-md-4 animated fadeInUp">
-                            <img src="https://www.lemursportal.org/forum/resources/profil/Profil_Iaiky.jpg">
-                        </div>
-                        <div class="col-md-8 animated fadeInUp" data-wow-delay="0.4s">
-                            <h3 class="comment-feedback">Iaikitiana RAKOTOARINIVO</h3>
-                            <span class="comment-feedback" style="font-weight: 100;">
-                                Madagascar lemurs portal m'a permis la découverte de nombreux espèces de lémuriens ainsi que les regions où les trouver.
-                            </span>
-                            <br><br><span>Utilisateur inscrit</span>
+                        <div class="row text-center pad-top-20" style="background: #f8f8f8;padding: 25px 0;">
+                            <div class="sec-title text-center animated fadeInDown" style="margin-bottom: 0px !important">
+                                <style type="text/css" media="screen">
+                                    .inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
+                                    .inat-widget-header {margin-bottom: 10px;}
+                                    .inat-widget td {vertical-align: top; padding-bottom: 10px;}
+                                    .inat-label { color: #888; }
+                                    .inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
+                                    .inat-observation-body, .inat-user-body { padding-left: 10px; }
+                                    .inat-observation-image {text-align: center;}
+                                    .inat-observation-image, .inat-user-image { width: 48px; display: inline-block; }
+                                    .inat-observation-image img, .inat-user-image img { max-width: 48px; }
+                                    .inat-observation-image img { vertical-align: middle; }
+                                    .inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 3px 3px 0; height:48px;}
+                                    .inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; }
+                                    .inat-user-body {vertical-align: middle;}
+                                    .inat-widget td.inat-user-body {vertical-align: middle;}
+                                    .inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
+                                </style>
+                                <div class="inat-widget">
+                                    <div class="inat-widget-header">
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
+                                                alt="iNaturalist.org"
+                                                src="https://www.inaturalist.org/assets/logo-small-27dadf5468502c764c7a2cf8e30617d3.png" /></a>
+                                    </div>
+                                    <script type="text/javascript" charset="utf-8"
+                                    src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
+                                    <span>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
+                                            <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
+                                        </a></span>
+                                    <!-- 				<h2 class="animated bounceInLeft"></h2> -->
+                                    <!-- table class="inat-footer">
+                                            <tr class="inat-user">
+                                                    <td class="inat-value">&nbsp;</td>
+                                            </tr>
+                                    </table-->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!--Fin commentaire section-->
             <!--How to section-->
-<!--            <section id="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 animated fadeInUp">
-                            <h3>How to upload observations</h3>
-                            <span style="font-weight: 100;">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </span>
-                        </div>
-                        <div class="col-md-6 animated fadeInUp" data-wow-delay="0.4s">
-                            <iframe style="height: 20vh; width: 100%;"
-                                    src="https://www.youtube.com/embed/Hdi7OqUlEt8">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>-->
+            <!--            <section id="">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 animated fadeInUp">
+                                        <h3>How to upload observations</h3>
+                                        <span style="font-weight: 100;">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6 animated fadeInUp" data-wow-delay="0.4s">
+                                        <iframe style="height: 20vh; width: 100%;"
+                                                src="https://www.youtube.com/embed/Hdi7OqUlEt8">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>-->
             <!--Fin how to section-->
             <!-- Social section -->
             <section id="social" class="parallax">
@@ -1396,7 +1539,7 @@
                                         $('#url').val('');
                                         $('#species').val('');
                                         $('#errorMdp').html("<p style='color: red;'> " + "</p>");
-//                                        closeModal('modal-ajout-document');
+                                        //                                        closeModal('modal-ajout-document');
                                         location.reload();
                                     },
                                     error: function (json) {
@@ -1509,8 +1652,8 @@
                                     method: "POST",
                                     url: "https://www.lemursportal.org/species_test/findByespeceTaxo",
                                     success: function (json) {
-//                                                                if (json != null && json.length != 0) {
-//                                                                }
+                                        //                                                                if (json != null && json.length != 0) {
+                                        //                                                                }
                                         var selectBody = "";
                                         for (var i = 0; i < json.length; i++) {
                                             selectBody += "<option>" + json[i].scientificname + "</option>";
