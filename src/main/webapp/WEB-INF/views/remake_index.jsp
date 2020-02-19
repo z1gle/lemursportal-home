@@ -201,7 +201,7 @@
                         </li>
                         <li><a href="https://www.lemursportal.org/species/taxonomi" onclick="window.location = 'https://www.lemursportal.org/species/taxonomi'"><spring:message code="menu.species" /></a></li>
                         <li><a href="https://www.lemursportal.org/species/darwinportal" onclick="window.location = 'https://www.lemursportal.org/species/darwinportal'"><spring:message code="home.header.observations" /></a></li>
-                        <li><a href="https://www.lemursportal.org/species/visualisations" onclick="window.location = 'https://www.lemursportal.org/species/visualisations'"><spring:message code="home.header.map" /></a></li>
+                        <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>
                             <c:url var="graphics" value="/graphics"></c:url>
                         <li><a href="${graphics}" onclick="window.location = '${graphics}'">Graphiques</a></li>
                         <!--<li><a href="https://www.lemursportal.org/forum/documents#tab-item-4" onclick="window.location = 'https://www.lemursportal.org/forum/documents#tab-item-4'">Galerie</a></li>-->
