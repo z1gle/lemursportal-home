@@ -19,45 +19,54 @@ import org.wcs.lemursportal.repository.UtilisateurRepository;
 @Transactional
 public class UtilisateurServiceImpl implements UtilisateurService {
 
-	@Autowired //@Resource
-	private UtilisateurRepository dao;
-	
-	@PersistenceContext(unitName="lemursportalPUnit")
-	protected EntityManager em;
-	
-	public Utilisateur findById(int id) {
-		return dao.findOne(id);
-	}
+    @Autowired //@Resource
+    private UtilisateurRepository dao;
 
-	@Override
+    @PersistenceContext(unitName = "lemursportalPUnit")
+    protected EntityManager em;
+
+    public Utilisateur findById(int id) {
+        return dao.findOne(id);
+    }
+
+    @Override
     @Transactional
     public void saveUtilisateur(Utilisateur utilisateur) {
-		dao.save(utilisateur);
-	}
+        dao.save(utilisateur);
+    }
 
-	@Override
+    @Override
     @Transactional
     public long getUtilisateurCount() {
-		return dao.getCount();
-	}
+        return dao.getCount();
+    }
 
-	public Utilisateur findUtilisateur(int id) {
-		return dao.findOne(id);
-	}
+    public Utilisateur findUtilisateur(int id) {
+        return dao.findOne(id);
+    }
 
-	@Override
-	@Transactional(readOnly=true)
-	public List<Utilisateur> getExpert(UserRole userRole) {
-		TypedQuery<UserType> query = em.createQuery("Select t from  UserType t left join fetch t.users where t.id=:usertype order by random()", UserType.class);
-		query.setParameter("usertype", userRole.getId());
+    @Override
+    @Transactional(readOnly = true)
+    public List<Utilisateur> getExpert(UserRole userRole) {
+        TypedQuery<UserType> query = em.createQuery("Select t from  UserType t left join fetch t.users where t.id=:usertype order by random()", UserType.class);
+        query.setParameter("usertype", userRole.getId());
 
-		UserType type = query.getSingleResult();
-		return new ArrayList<Utilisateur>(type.getUsers());
-	}
-	
-	@Override
-	public Utilisateur findByEmail(String email) {
-		return dao.findByEmail(email);
-	}
+        UserType type = query.getSingleResult();
+        return new ArrayList<Utilisateur>(type.getUsers());
+    }
 
+    @Override
+    public Utilisateur findByEmail(String email) {
+        return dao.findByEmail(email);
+    }
+
+    @Override
+    public List<Object[]> findExpert(String keyword) {
+        return dao.findExpert(keyword);
+    }
+    
+     @Override
+    public List<Object[]> findExpertlim(String keyword) {
+        return dao.findExpertlim(keyword);
+    }
 }

@@ -11,31 +11,41 @@ import org.wcs.lemursportal.repository.DarwinCoreRepository;
 @Transactional
 public class DarwinCoreServiceImpl implements DarwinCoreService {
 
-	@Autowired //@Resource
-	private DarwinCoreRepository dao;
-	
-	public DarwinCore findById(int id) {
-		return dao.findOne(id);
-	}
+    @Autowired //@Resource
+    private DarwinCoreRepository dao;
 
-	@Override
+    public DarwinCore findById(int id) {
+        return dao.findOne(id);
+    }
+
+    @Override
     @Transactional
     public void saveDarwinCore(DarwinCore darwinCore) {
-		dao.save(darwinCore);
-	}
+        dao.save(darwinCore);
+    }
 
-	@Override
+    @Override
     @Transactional
     public long getDarwinCoreCount() {
-		return dao.getCount();
-	}
+        return dao.getCount();
+    }
 
-	public DarwinCore findDarwinCore(int id) {
-		return dao.findOne(id);
-	}
-        
-   @Override
+    public DarwinCore findDarwinCore(int id) {
+        return dao.findOne(id);
+    }
+
+    @Override
     public List<DarwinCore> getOccperYear() {
         return dao.getOccperYear();
+    }
+
+    @Override
+    public List<Object[]> findOccurrennce(String keyword) {
+        return dao.findOccurrennce(keyword);
+    }
+
+    @Override
+    public List<Object[]> findOccurrenncelim(String keyword) {
+         return dao.findOccurrenncelim(keyword);
     }
 }

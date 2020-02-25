@@ -20,4 +20,12 @@ public interface MetadataService {
     List<Object[]> getDocbyPublicationYear();
 
     List<Object[]> getDocbyBibliographicLevel();
+
+    List<Object[]> findGlobal(String search);
+
+    List<Object[]> findDiscussion(String keyword);
+    
+    List<Object[]> findGloballim(String search);
+
+    List<Object[]> findDiscussionlim(String keyword);
 }

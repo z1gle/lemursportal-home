@@ -14,4 +14,7 @@ public interface DarwinCoreService {
     long getDarwinCoreCount();
 
     List<DarwinCore> getOccperYear();
+
+    public List<Object[]> findOccurrenncelim(String keyword);
+     public List<Object[]> findOccurrennce(String keyword);
 }

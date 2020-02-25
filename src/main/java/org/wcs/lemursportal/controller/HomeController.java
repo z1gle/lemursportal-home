@@ -251,4 +251,36 @@ public class HomeController {
         return userInfo;
     }
 
+     @RequestMapping(value = "/results{keyword}", method = RequestMethod.GET)
+    public ModelAndView results(@RequestParam("keyword") String keyword) {
+        
+         List<Object[]> expert = utilisateurService.findExpertlim(keyword);
+          List<Object[]> e = utilisateurService.findExpert(keyword);
+        int countexpert=e.size();
+        List<Object[]> m = documentService.findGloballim(keyword);
+         List<Object[]> meta = documentService.findGlobal(keyword);
+        int countdocs=meta.size();
+        List<Object[]> d = documentService.findDiscussionlim(keyword);
+        List<Object[]> post= documentService.findDiscussion(keyword);
+        int countdiscussion=post.size();
+        List<Object[]> tax = taxonomiService.searchlim(keyword);
+        List<Object[]> t = taxonomiService.search(keyword);
+        int countspecies=t.size();
+        List<Object[]> occ = darwinCoreService.findOccurrenncelim(keyword);
+        List<Object[]> o = darwinCoreService.findOccurrennce(keyword);
+        int countoccs=o.size();
+        ModelAndView model = new ModelAndView("results");
+        model.addObject("expertres", expert);
+        model.addObject("searchfield", keyword);
+        model.addObject("result", tax);
+        model.addObject("countdocs", countdocs);
+        model.addObject("resdocs", m);
+        model.addObject("countspecies", countspecies);
+        model.addObject("countocc", countoccs);
+        model.addObject("occres", occ);
+        model.addObject("countexpert", countexpert);
+        model.addObject("countdiscussion", countdiscussion);
+        model.addObject("discussionres", d);
+        return model;
+    }
 }

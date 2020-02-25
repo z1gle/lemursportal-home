@@ -7,16 +7,19 @@ import org.wcs.lemursportal.model.Utilisateur;
 
 public interface UtilisateurService {
 
-	Utilisateur findById(int id);
-	
-	Utilisateur findByEmail(String email);
-	
-	void saveUtilisateur(Utilisateur utilisateur);
-	
-	Utilisateur findUtilisateur(int id);
-	
-	long getUtilisateurCount();
-	
-	List<Utilisateur> getExpert(UserRole userRole);
+    Utilisateur findById(int id);
 
+    Utilisateur findByEmail(String email);
+
+    void saveUtilisateur(Utilisateur utilisateur);
+
+    Utilisateur findUtilisateur(int id);
+
+    long getUtilisateurCount();
+
+    List<Utilisateur> getExpert(UserRole userRole);
+
+    List<Object[]> findExpert(String keyword);
+    
+    List<Object[]> findExpertlim(String keyword);
 }

@@ -422,10 +422,6 @@
                 .home .search-box {
                     max-width: 700px;
                 }
-                form {
-                    display: block;
-                    margin-top: 0em;
-                }
 
                 button, input, select, textarea {
                     font-family: inherit;
@@ -433,18 +429,18 @@
                     line-height: inherit;
                 }
 
-                button, input, optgroup, select, textarea {
+                button, input {
                     color: inherit;
                     font: inherit;
                     margin: 0;
                 }
-                button, input, select, textarea {
+                button, input {
                     font-size: 100%;
                 }
-                button, input, select, textarea {
+                button, input{
                     vertical-align: baseline;
                 }
-                button, html, input, md-bottom-sheet .md-subheader, select, textarea {
+                button, html, input, md-bottom-sheet .md-subheader{
                     font-family: Roboto,"Helvetica Neue",sans-serif;
                 }
                 .search-box input {
@@ -457,25 +453,18 @@
                 .search-box .search-box__submit {
                     position: absolute;
                     right: 0;
-                    margin: 15px 15px;
+                    margin: 15px 22px;
                     top: 0;
                     font-size: 1.60714285714125rem;
+                    border: none;
+                    cursor: pointer;
                 }
-                .search-box {
+                .search-box{
                     background: #fff;
                     color: #444;
                     padding: 12px 20px;
                     max-width: 700px;
-                }
-                .search-box {
                     position: relative;
-                }
-                .search-box {
-                    -webkit-transition: box-shadow .2s ease;
-                    transition: box-shadow .2s ease;
-                    box-shadow: 0 2px 2px 0 rgba(0,0,0,.16);
-                }
-                .search-box {
                     -webkit-transition: box-shadow .2s ease;
                     transition: box-shadow .2s ease;
                     box-shadow: 0 2px 2px 0 rgba(0,0,0,.16);
@@ -489,7 +478,10 @@
                     display: block;
                 }
                 .home__header__hero-text {
-                    padding-bottom: 3rem;
+                    padding-bottom: 2rem;
+                }
+                form{
+                    height: 30px;
                 }
                 .w{
                     display: -webkit-box;
@@ -498,7 +490,7 @@
                     max-width: 700px;
                     color:grey;
                     padding-right: 1.42857142857rem;
-                    margin: 0px 15px;
+                    margin: 0px 15px 10px 15px;
                     text-align: justify;
                     line-height: 30px;
                 }
@@ -523,6 +515,27 @@
                             <spring:message code="home.description" />
                         </h4>
 
+                        <div class="home__header__hero-text">
+                            <div ng-app="">
+                                <div class="home__searchFilters">
+                                    <c:url var="documentslist" value="https://www.lemursportal.org/forum/documents?search=${keyword}"></c:url>
+                                    <a href="${documentslist}{{s}}"><spring:message code="home.header.documents" /></a>
+                                    <c:url var="specieslist" value="/lists/specieslist?keyword=${keyword}"></c:url>
+                                    <a href="${specieslist}{{s}}"><spring:message code="menu.species" /></a>
+                                    <c:url var="occurrenceList" value="/lists/occurrenceList?keyword=${keyword}"></c:url>
+                                    <a href="${occurrenceList}{{s}}"><spring:message code="home.header.observations" /></a>
+                                    <c:url var="expertslist" value="/lists/expertslist?keyword=${keyword}"></c:url>
+                                    <a href="${expertslist}{{s}}"><spring:message code="menu.experts" /></a> 
+                                </div>
+                                <div class="home__header__search-bar search-box">
+                                    <c:url var="resus" value="/results${keyword}"></c:url>
+                                    <form method="get" action="${resus}">
+                                        <input type="text" name="keyword" ng-model="s"/> &nbsp;
+                                        <button type="submit" class="search-box__submit fa fa-search btn-default"/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div> 
             </div>

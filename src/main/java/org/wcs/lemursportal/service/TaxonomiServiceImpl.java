@@ -50,4 +50,18 @@ public class TaxonomiServiceImpl implements TaxonomiService {
     public List<Object[]> getCountSpeciesGpByGenus() {
         return dao.getSpeciesByGenus();
     }
+
+    @Override
+    public List<Object[]> search(String keyword) {
+        return dao.search(keyword);
+    }
+
+    @Override
+    public List<Object[]> searchlim(String keyword) {
+       return dao.searchlim(keyword);
+    }
+    @Override
+    public void MAJIUCN_satus(String scientificname, String category) {
+        dao.MAJIUCN_satus(scientificname, category);
+    }
 }

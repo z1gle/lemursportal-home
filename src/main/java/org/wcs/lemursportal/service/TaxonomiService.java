@@ -18,4 +18,10 @@ public interface TaxonomiService {
     List<Object[]> getCountSpeciesGpByFamily();
 
     List<Object[]> getCountSpeciesGpByGenus();
+
+    public List<Object[]> search(String keyword);
+    
+    public List<Object[]> searchlim(String keyword);
+    
+    void MAJIUCN_satus(String scientificname,String category);
 }

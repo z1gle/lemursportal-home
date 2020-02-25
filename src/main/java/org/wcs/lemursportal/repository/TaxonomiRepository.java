@@ -2,7 +2,9 @@ package org.wcs.lemursportal.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.wcs.lemursportal.model.TaxonomiBase;
@@ -27,5 +29,104 @@ public interface TaxonomiRepository extends
 
     @Query("Select genus, count(Distinct scientificname)as count from TaxonomiBase group by genus")
     public List<Object[]> getSpeciesByGenus();
+
+    @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
+            + "FROM taxonomi_base t left join photo_taxonomi p on t.idtaxonomibase=p.id_taxonomi and p.profil=true where "
+            + "LOWER(t.higherclassification) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.kingdom) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.phylum) LIKE '%' || :keyword || '%' or LOWER(t.dwcclass) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.dwcorder) LIKE '%' || :keyword || '%' or LOWER(t.dwcfamily) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.genus) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.genussource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.specificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.specificepithetsource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithetsource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.scientificname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.scientificnameauthorship) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.acceptednameusage) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.basisofrecord) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.frenchvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.malagasyvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.englishvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.germany_vernacular_name) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.length_and_weight) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.length_and_weight_source) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.color_en) LIKE '%' || :keyword || '%' or "
+            + "t.color_fr LIKE '%' || :keyword || '%' or "
+            + "t.color_source LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
+            + "t.habitat_en LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
+            + "t.population_density LIKE '%' || :keyword || '%' or "
+            + "t.population_density_source LIKE '%' || :keyword || '%' or "
+            + "t.ecology_fr LIKE '%' || :keyword || '%' or "
+            + "t.ecology_en LIKE '%' || :keyword || '%' or "
+            + "t.ecologysource LIKE '%' || :keyword || '%' or "
+            + "t.behavior_fr LIKE '%' || :keyword || '%' or "
+            + "t.behavior_en LIKE '%' || :keyword || '%' or "
+            + "t.behaviorsource LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
+            + "t.threat_en LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
+            + "t.conservation_status LIKE '%' || :keyword || '%' or "
+            + "t.iucn_source LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
+            + "t.protected_area_occurrences_sources LIKE '%' || :keyword || '%' or "
+            + "t.species_expert LIKE '%' || :keyword || '%' or "
+            + "t.new_and_updates LIKE '%' || :keyword || '%' or "
+            + "t.top_five_publication LIKE '%' || :keyword || '%' order by t.scientificname ", nativeQuery = true)
+    /* @Query("SELECT distinct(t.scientificname),t.phototaxonomi.chemin "
+            + "FROM TaxonomiBase t left join t.phototaxonomi "
+            + "WHERE t.scientificname LIKE '%' || :keyword || '%'order by t.scientificname")*/
+    public List<Object[]> search(@Param("keyword") String keyword);
+    
+        @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
+            + "FROM taxonomi_base t left join photo_taxonomi p on t.idtaxonomibase=p.id_taxonomi and p.profil=true where "
+            + "LOWER(t.higherclassification) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.kingdom) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.phylum) LIKE '%' || :keyword || '%' or LOWER(t.dwcclass) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.dwcorder) LIKE '%' || :keyword || '%' or LOWER(t.dwcfamily) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.genus) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.genussource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.specificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.specificepithetsource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithetsource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.scientificname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.scientificnameauthorship) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.acceptednameusage) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.basisofrecord) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.infraspecificepithet) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.frenchvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.malagasyvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.englishvernacularname) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.germany_vernacular_name) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.length_and_weight) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.length_and_weight_source) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.color_en) LIKE '%' || :keyword || '%' or "
+            + "t.color_fr LIKE '%' || :keyword || '%' or "
+            + "t.color_source LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
+            + "t.habitat_en LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
+            + "t.population_density LIKE '%' || :keyword || '%' or "
+            + "t.population_density_source LIKE '%' || :keyword || '%' or "
+            + "t.ecology_fr LIKE '%' || :keyword || '%' or "
+            + "t.ecology_en LIKE '%' || :keyword || '%' or "
+            + "t.ecologysource LIKE '%' || :keyword || '%' or "
+            + "t.behavior_fr LIKE '%' || :keyword || '%' or "
+            + "t.behavior_en LIKE '%' || :keyword || '%' or "
+            + "t.behaviorsource LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
+            + "t.threat_en LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
+            + "t.conservation_status LIKE '%' || :keyword || '%' or "
+            + "t.iucn_source LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
+            + "t.protected_area_occurrences_sources LIKE '%' || :keyword || '%' or "
+            + "t.species_expert LIKE '%' || :keyword || '%' or "
+            + "t.new_and_updates LIKE '%' || :keyword || '%' or "
+            + "t.top_five_publication LIKE '%' || :keyword || '%' order by t.scientificname limit 2", nativeQuery = true)
+    /* @Query("SELECT distinct(t.scientificname),t.phototaxonomi.chemin "
+            + "FROM TaxonomiBase t left join t.phototaxonomi "
+            + "WHERE t.scientificname LIKE '%' || :keyword || '%'order by t.scientificname")*/
+    public List<Object[]> searchlim(@Param("keyword") String keyword);
+    
+    @Transactional
+    @Modifying
+    @Query(value="UPDATE taxonomi_base set conservation_status=:category where scientificname like '%' || :scientificname || '%' ", nativeQuery = true)
+    public void MAJIUCN_satus(@Param("category") String category,@Param("scientificname") String scientificname);
 
 }
