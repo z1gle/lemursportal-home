@@ -978,29 +978,6 @@
             </div>
         </div>                        
     </div>
-    <!--        <div id="modal-upload-darwincore" class="modal edit-profil-form">
-                <div class="modal-dialog">
-                     Modal content
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title"><spring:message code="document.add_document.title"/></h4>
-                        </div>
-                        <form action="javascript:sendAddDocument();" autocomplete="off">
-                            <div class="modal-body" style="overflow-y: auto;max-height:  500px;">
-                                                            
-                            </div>
-                            <div class="modal-footer">
-                                <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.cancel"/></button>
-                                <input type="submit" style="float: right;" class="btn btn-default" value="<spring:message code="global.btn.save"/>">
-                                <button style="float: right;" type="submit" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.save"/></button>
-                                <div id="delete"></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>                        
-            </div>-->
-
     <div id='modal-upload_spinner' class='modal fade' role='dialog' style='display:none !important' tabindex="-1">
         <div class='modal-dialog'>
             <div class='modal-content'>
