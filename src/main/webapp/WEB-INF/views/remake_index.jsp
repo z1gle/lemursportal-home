@@ -903,41 +903,52 @@
                     color: white;
                 }
             </style>
-            <!--Commentaire section-->
+            <!--inaturalist section-->
             <section id="">
                 <div class="">
                     <div class="row">
-                        <div class="row text-center pad-top-20" style="background: #f8f8f8;padding: 25px 0;">
+                        <div class="row text-center pad-top-20" style="background: #f8f8f8;">
                             <div class="sec-title text-center animated fadeInDown" style="margin-bottom: 0px !important">
                                 <style type="text/css" media="screen">
-                                    .inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
-                                    .inat-widget-header {margin-bottom: 10px;}
+                                    .inat-widget { font-family: Georgia, serif; line-height: 1;}
                                     .inat-widget td {vertical-align: top; padding-bottom: 10px;}
                                     .inat-label { color: #888; }
                                     .inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
                                     .inat-observation-body, .inat-user-body { padding-left: 10px; }
                                     .inat-observation-image {text-align: center;}
-                                    .inat-observation-image, .inat-user-image { width: 48px; display: inline-block; }
-                                    .inat-observation-image img, .inat-user-image img { max-width: 48px; }
+                                    .inat-observation-image, .inat-user-image { width: 100px; display: inline-block; }
+                                    .inat-observation-image img, .inat-user-image img { max-width: 100px; }
                                     .inat-observation-image img { vertical-align: middle; }
                                     .inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 3px 3px 0; height:48px;}
                                     .inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; }
                                     .inat-user-body {vertical-align: middle;}
                                     .inat-widget td.inat-user-body {vertical-align: middle;}
                                     .inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
+                                    #inaturalist{
+                                        margin-left:100px;
+                                        margin-right:100px;
+                                    }
+                                    #img-inaturalist{
+                                        margin: 40px;
+                                    }
                                 </style>
                                 <div class="inat-widget">
                                     <div class="inat-widget-header">
                                         <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
                                                 alt="iNaturalist.org"
-                                                src="https://www.inaturalist.org/assets/logo-small-27dadf5468502c764c7a2cf8e30617d3.png" /></a>
+                                                src="https://static.inaturalist.org/sites/1-logo.svg?1573071870" style="width:150px;height: 150px;"/></a>
                                     </div>
-                                    <script type="text/javascript" charset="utf-8"
-                                    src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
-                                    <span>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
-                                            <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
-                                        </a></span>
+                                    <div id="inaturalist">
+                                        <script type="text/javascript" charset="utf-8"
+                                        src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
+                                    </div>
+                                    <div id="img-inaturalist">
+                                        <span>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
+                                                <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
+                                            </a></span>
+                                    </div>
+
                                     <!-- 				<h2 class="animated bounceInLeft"></h2> -->
                                     <!-- table class="inat-footer">
                                             <tr class="inat-user">
@@ -949,8 +960,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--Fin commentaire section-->
+            </section
+            <!--Fin inaturalist section-->
             <!--How to section-->
             <!--            <section id="">
                             <div class="container">
@@ -1706,4 +1717,3 @@
         </script>
     </body>
 </html>
-
