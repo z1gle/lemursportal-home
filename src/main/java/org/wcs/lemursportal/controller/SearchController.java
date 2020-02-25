@@ -63,17 +63,6 @@ public class SearchController {
         return model;
     }
 
-    @RequestMapping(value = "/lists/documentslist{keyword}", method = RequestMethod.GET)
-    public ModelAndView documentslist(@RequestParam("keyword") String keyword) {
-        ModelAndView model = new ModelAndView("/lists/documentslist");
-        List<Object[]> m = documentService.findGlobal(keyword);
-        int countdocs = m.size();
-        model.addObject("searchfield", keyword);
-        model.addObject("doc", m);
-        model.addObject("countd", countdocs);
-        return model;
-    }
-
     @RequestMapping(value = "/lists/expertslist{keyword}", method = RequestMethod.GET)
     public ModelAndView expertslist(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("/lists/expertslist");
