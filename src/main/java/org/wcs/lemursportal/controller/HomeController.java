@@ -253,7 +253,6 @@ public class HomeController {
 
      @RequestMapping(value = "/results{keyword}", method = RequestMethod.GET)
     public ModelAndView results(@RequestParam("keyword") String keyword) {
-        
          List<Object[]> expert = utilisateurService.findExpertlim(keyword.toLowerCase());
           List<Object[]> e = utilisateurService.findExpert(keyword.toLowerCase());
         int countexpert=e.size();

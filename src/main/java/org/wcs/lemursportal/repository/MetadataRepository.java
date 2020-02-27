@@ -40,7 +40,7 @@ public interface MetadataRepository extends JpaRepository<Metadata, Integer> {
             + "left join thematique t on t.id = amt.id_topic \n"
             + "left join taxonomi_base tax on tax.idtaxonomibase = amtax.id_taxonomi) as test \n"
             + "left join metadata m on test.id = m.id \n"
-            + "where lower(rtrim(ltrim(replace(test.*\\:\\:text, ','\\:\\:text, ''\\:\\:text), '('\\:\\:text), ')'\\:\\:text)) like '%' || :keyword || '%' order by m.year", nativeQuery = true)
+            + "where lower(rtrim(ltrim(replace(test.*\\:\\:text, ','\\:\\:text, ''\\:\\:text), '('\\:\\:text), ')'\\:\\:text)) like '%' || :keyword || '%' order by m.year desc", nativeQuery = true)
     public List<Object[]> findGlobal(@Param("keyword") String keyword);
     
      @Query(value = "select distinct m.id,m.title,m.url,m.year,m.creator,m.coverage from \n"
@@ -51,7 +51,7 @@ public interface MetadataRepository extends JpaRepository<Metadata, Integer> {
             + "left join thematique t on t.id = amt.id_topic \n"
             + "left join taxonomi_base tax on tax.idtaxonomibase = amtax.id_taxonomi) as test \n"
             + "left join metadata m on test.id = m.id \n"
-            + "where lower(rtrim(ltrim(replace(test.*\\:\\:text, ','\\:\\:text, ''\\:\\:text), '('\\:\\:text), ')'\\:\\:text)) like '%' || :keyword || '%' order by m.year limit 2", nativeQuery = true)
+            + "where lower(rtrim(ltrim(replace(test.*\\:\\:text, ','\\:\\:text, ''\\:\\:text), '('\\:\\:text), ')'\\:\\:text)) like '%' || :keyword || '%' order by m.year desc limit 2", nativeQuery = true)
     public List<Object[]> findGloballim(@Param("keyword") String keyword);
 
     @Query(value = "select u.photo_profil,me.id,me.title,me.contenu from message me \n"
