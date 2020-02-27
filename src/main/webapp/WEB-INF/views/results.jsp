@@ -398,7 +398,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="https://www.lemursportal.org/forum" onclick="window.location = 'https://www.lemursportal.org/forum'">Publier</a></li>
                                 <li class="divider"></li>
-                                <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.header.documents" /></a></li>
+                                <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.document" /></a></li>
                                 <li class="divider"></li>
                                 <li>
                                     <a href="https://www.lemursportal.org/forum/experts"  onclick="window.location = 'https://www.lemursportal.org/forum/experts'">
@@ -584,7 +584,7 @@
                                <!-- <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>-->
                                 <li>
                                     <c:url var="documentslist" value="https://www.lemursportal.org/forum/documents?search=${searchfield}"></c:url>
-                                    <a href="${documentslist}"><spring:message code="home.header.documents" /></a>
+                                    <a href="${documentslist}"><spring:message code="home.document" /></a>
                                 </li>
                                 <li>
                                     <c:url var="expertslist" value="/lists/expertslist?keyword=${searchfield}"></c:url>
@@ -606,7 +606,7 @@
                 <section id="document-section">
                     <div class="col-sm-9">
                         <div class="row">
-                            <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="home.header.documents" /></h6></div>
+                            <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="home.document" /></h6></div>
                             <div class="col-sm-3"> <c:url var="documentslist" value="https://www.lemursportal.org/forum/documents?search=${searchfield}"></c:url>
                                 <a href="${documentslist}" class="btn btn-default"><h6 style="color:grey">${countdocs} <spring:message code="text.results" /></h6></a></div>
                         </div>

@@ -188,7 +188,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="https://www.lemursportal.org/forum" onclick="window.location = 'https://www.lemursportal.org/forum'">Publier</a></li>
                                 <li class="divider"></li>
-                                <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.header.documents" /></a></li>
+                                <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.document" /></a></li>
                                 <li class="divider"></li>
                                 <li>
                                     <a href="https://www.lemursportal.org/forum/experts"  onclick="window.location = 'https://www.lemursportal.org/forum/experts'">
@@ -519,7 +519,7 @@
                             <div ng-app="">
                                 <div class="home__searchFilters">
                                     <c:url var="documentslist" value="https://www.lemursportal.org/forum/documents?search=${keyword}"></c:url>
-                                    <a href="${documentslist}{{s}}"><spring:message code="home.header.documents" /></a>
+                                    <a href="${documentslist}{{s}}"><spring:message code="home.document" /></a>
                                     <c:url var="specieslist" value="/lists/specieslist?keyword=${keyword}"></c:url>
                                     <a href="${specieslist}{{s}}"><spring:message code="menu.species" /></a>
                                     <c:url var="occurrenceList" value="/lists/occurrenceList?keyword=${keyword}"></c:url>
