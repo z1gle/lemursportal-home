@@ -996,7 +996,7 @@
                             <div class="sec-title text-center white animated fadeInDown">
                                 <h2><spring:message code="text.follow_us" /></h2>
                                 <p><img src="${path}visit" alt="Nombre de visite"></p>
-                                <p><h4 style="color:white;font-weight: bold;">Nombre de visite</h4></p>
+                                <p><h4 style="color:white;font-weight: bold;"><spring:message code="number.visit" /></h4></p>
                             </div>
                             <ul class="social-button">
                                 <li class="animated zoomIn" data-wow-delay="0.3s"><a href="#"><i
