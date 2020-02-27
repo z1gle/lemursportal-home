@@ -545,12 +545,6 @@
             <div id="number" style="background-color: #fffdf9;">
                 <div class="container">
                     <div class="row">
-
-                        <!--                            <div class="sec-title text-center animated fadeInDown">
-                                                        <h2><spring:message code="menu.number" /></h2>
-                                                        <p>--</p>
-                                                    </div>-->
-
                         <div class="col-md-3 animated fadeInUp">
                             <div class="number-table text-center">
                                 <span><spring:message code="text.users" /></span>
@@ -992,19 +986,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>-->
+                        </section>
             <!--Fin how to section-->
             <!-- Social section -->
             <section id="social" class="parallax">
                 <div class="overlay">
                     <div class="container">
                         <div class="row">
-
-                            <!--                                <div class="sec-title text-center white animated fadeInDown">
-                                                                <h2><spring:message code="text.follow_us" /></h2>
-                                                                <p><img src="${path}visit" alt="Nombre de visite"></p>
-                                                            </div>-->
-
+                            <div class="sec-title text-center white animated fadeInDown">
+                                <h2><spring:message code="text.follow_us" /></h2>
+                                <p><img src="${path}visit" alt="Nombre de visite"></p>
+                                <p><h4 style="color:white;font-weight: bold;">Nombre de visite</h4></p>
+                            </div>
                             <ul class="social-button">
                                 <li class="animated zoomIn" data-wow-delay="0.3s"><a href="#"><i
                                             class="fa fa-twitter fa-2x"></i></a></li>
