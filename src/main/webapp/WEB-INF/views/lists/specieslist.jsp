@@ -368,7 +368,7 @@
         </div>
         <div class="container">
             <div>
-                <h6 style="color:grey">${counttax} Species found</h6>
+                <h6 style="color:grey">${counttax} <spring:message code="menu.species" />  <spring:message code="text.found" /></h6>
             </div>
             <div class="col-sm-9" id="resultat">
                 <div class="row">

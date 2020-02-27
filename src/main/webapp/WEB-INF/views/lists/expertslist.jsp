@@ -556,7 +556,7 @@
         </div>
         <div class="container">
             <div>
-                <h6 style="color:grey">${counte} Expert(s) found</h6>
+                <h6 style="color:grey">${counte} <spring:message code="menu.experts" /> <spring:message code="text.found" /></h6>
             </div>
             <div class="forum-container liste-expert">
                 <div class="row expert">

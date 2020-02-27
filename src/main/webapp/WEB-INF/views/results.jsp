@@ -829,10 +829,18 @@
                                         <div class="forum-item">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <div class="col-sm-1">
-                                                        <div class="col-sm-2"><img src="${discussion[0]}" class="img-circle "/></div>
-                                                    </div>
-                                                    <div class="col-sm-11">
+                                                    <div class="col-sm-2">
+                                                         <c:choose>
+                                                    <c:when test="${empty discussion[0]}">
+                                                        <img src="https://www.lemursportal.org/forum/resources/profil/default.png" class="img-circle " alt="<c:out value="${discussion[0]}" /> ">
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div><img src="https://www.lemursportal.org/forum/resources/${discussion[0]}" class="img-circle "/></div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                        </div>
+                                                    <div class="col-sm-10">
                                                         <div class="col-sm-12"><p><a class="forum-item-title" href="https://www.lemursportal.org/forum/post/show/${discussion[1]}">${discussion[2]}</a></p></div>
                                                         <div class="col-sm-12">${discussion[3]}</div>
                                                     </div>
