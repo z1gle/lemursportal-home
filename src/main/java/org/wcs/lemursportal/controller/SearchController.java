@@ -55,7 +55,7 @@ public class SearchController {
     @RequestMapping(value = "/lists/discussionslist{keyword}", method = RequestMethod.GET)
     public ModelAndView discussionslist(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("/lists/discussionslist");
-        List<Object[]> discussion = documentService.findDiscussion(keyword);
+        List<Object[]> discussion = documentService.findDiscussion(keyword.toLowerCase());
         int countdisc=discussion.size();
         model.addObject("searchfield", keyword);
         model.addObject("discussion", discussion);
@@ -66,7 +66,7 @@ public class SearchController {
     @RequestMapping(value = "/lists/expertslist{keyword}", method = RequestMethod.GET)
     public ModelAndView expertslist(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("/lists/expertslist");
-        List<Object[]> exp = utilisateurService.findExpert(keyword);
+        List<Object[]> exp = utilisateurService.findExpert(keyword.toLowerCase());
         int countexp=exp.size();
         model.addObject("searchfield", keyword);
         model.addObject("expertresult", exp);
@@ -77,7 +77,7 @@ public class SearchController {
     @RequestMapping(value = "/lists/occurrenceList{keyword}", method = RequestMethod.GET)
     public ModelAndView occurrenceList(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("lists/occurrenceList");
-        List<Object[]> occurrence = darwinCoreService.findOccurrennce(keyword);
+        List<Object[]> occurrence = darwinCoreService.findOccurrennce(keyword.toLowerCase());
         int countoccs = occurrence.size();
         model.addObject("searchfield", keyword);
         model.addObject("resultocc", occurrence);
@@ -87,7 +87,7 @@ public class SearchController {
 
     @RequestMapping(value = "/lists/specieslist{keyword}", method = RequestMethod.GET)
     public ModelAndView specieslist(@RequestParam("keyword") String keyword) {
-        List<Object[]> tax = taxonomiService.search(keyword);
+        List<Object[]> tax = taxonomiService.search(keyword.toLowerCase());
         int counttax = tax.size();
         ModelAndView model = new ModelAndView("lists/specieslist");
         model.addObject("searchfield", keyword);

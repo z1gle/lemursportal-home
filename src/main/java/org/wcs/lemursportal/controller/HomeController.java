@@ -254,20 +254,20 @@ public class HomeController {
      @RequestMapping(value = "/results{keyword}", method = RequestMethod.GET)
     public ModelAndView results(@RequestParam("keyword") String keyword) {
         
-         List<Object[]> expert = utilisateurService.findExpertlim(keyword);
-          List<Object[]> e = utilisateurService.findExpert(keyword);
+         List<Object[]> expert = utilisateurService.findExpertlim(keyword.toLowerCase());
+          List<Object[]> e = utilisateurService.findExpert(keyword.toLowerCase());
         int countexpert=e.size();
-        List<Object[]> m = documentService.findGloballim(keyword);
-         List<Object[]> meta = documentService.findGlobal(keyword);
+        List<Object[]> m = documentService.findGloballim(keyword.toLowerCase());
+         List<Object[]> meta = documentService.findGlobal(keyword.toLowerCase());
         int countdocs=meta.size();
-        List<Object[]> d = documentService.findDiscussionlim(keyword);
-        List<Object[]> post= documentService.findDiscussion(keyword);
+        List<Object[]> d = documentService.findDiscussionlim(keyword.toLowerCase());
+        List<Object[]> post= documentService.findDiscussion(keyword.toLowerCase());
         int countdiscussion=post.size();
-        List<Object[]> tax = taxonomiService.searchlim(keyword);
-        List<Object[]> t = taxonomiService.search(keyword);
+        List<Object[]> tax = taxonomiService.searchlim(keyword.toLowerCase());
+        List<Object[]> t = taxonomiService.search(keyword.toLowerCase());
         int countspecies=t.size();
-        List<Object[]> occ = darwinCoreService.findOccurrenncelim(keyword);
-        List<Object[]> o = darwinCoreService.findOccurrennce(keyword);
+        List<Object[]> occ = darwinCoreService.findOccurrenncelim(keyword.toLowerCase());
+        List<Object[]> o = darwinCoreService.findOccurrennce(keyword.toLowerCase());
         int countoccs=o.size();
         ModelAndView model = new ModelAndView("results");
         model.addObject("expertres", expert);
