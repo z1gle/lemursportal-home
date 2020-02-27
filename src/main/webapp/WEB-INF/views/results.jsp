@@ -655,7 +655,7 @@
                                                     <div class="image speciespic">
                                                         <c:choose>
                                                             <c:when test="${empty taxo[2]}">
-                                                                <img src="https://www.lemursportal.org/forum/resources/profil/default.png" alt="<c:out value="${taxo[0]}" /> " style="background-position: center; margin: auto; width: 100%; height: 150px; background-image:  url('https://www.lemursportal.org/forum/resources/profil/default.png'); background-repeat: no-repeat; background-size: auto 100%;" class="img-responsive"/>
+                                                                <img src="${resourcesPath}/img/images.png" alt="<c:out value="${taxo[0]}" /> " style="background-position: center; margin: auto; width: 100%; height: 150px; background-image:  url('${resourcesPath}/img/images.png'); background-repeat: no-repeat; background-size: auto 100%;" class="img-responsive"/>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <img src="https://www.lemursportal.org/species/${taxo[2]}" alt="<c:out value="${taxo[0]}" /> " style="background-position: center; margin: auto; width: 100%; height: 150px; background-image:  url('https://www.lemursportal.org/species/${taxo[2]}'); background-repeat: no-repeat; background-size: auto 100%;" class="img-responsive"/>
