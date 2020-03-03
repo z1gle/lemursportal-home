@@ -854,16 +854,7 @@
                     </div>
                 </section>
             </div>
-            <!-- <div class="col-sm-3">
-                 <div class="col-sm-12">
-                     <center><h4>Carte</h4></center>
-                     <div class="panel panel-default well-sm">
-                         <div class="map" id="map">more</div>
-                     </div>
-                 </div>
-             </div>-->
         </div>
-
         <footer id="footer">
             <div class="container">
                 <div class="row">
