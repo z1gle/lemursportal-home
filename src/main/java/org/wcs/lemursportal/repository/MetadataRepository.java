@@ -26,7 +26,7 @@ public interface MetadataRepository extends JpaRepository<Metadata, Integer> {
             nativeQuery = true)
     public List<Object[]> getDocbySpecies();
 
-    @Query("Select year, count(id_document)as count from Metadata where year is not null group by year order by year")
+    @Query("Select year, count(id_document)as count from Metadata where year is not null and year not like '' group by year order by year")
     public List<Object[]> getDocbyPublicationYear();
 
     @Query("Select bibliographic_resource, count(id_document)as count from Metadata where bibliographic_resource is not null and bibliographic_resource not like '' group by bibliographic_resource")

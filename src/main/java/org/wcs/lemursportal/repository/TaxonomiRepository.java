@@ -54,30 +54,29 @@ public interface TaxonomiRepository extends
             + "LOWER(t.length_and_weight) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.length_and_weight_source) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.color_en) LIKE '%' || :keyword || '%' or "
-            + "t.color_fr LIKE '%' || :keyword || '%' or "
-            + "t.color_source LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
-            + "t.habitat_en LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
-            + "t.population_density LIKE '%' || :keyword || '%' or "
-            + "t.population_density_source LIKE '%' || :keyword || '%' or "
-            + "t.ecology_fr LIKE '%' || :keyword || '%' or "
-            + "t.ecology_en LIKE '%' || :keyword || '%' or "
-            + "t.ecologysource LIKE '%' || :keyword || '%' or "
-            + "t.behavior_fr LIKE '%' || :keyword || '%' or "
-            + "t.behavior_en LIKE '%' || :keyword || '%' or "
-            + "t.behaviorsource LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
-            + "t.threat_en LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
-            + "t.conservation_status LIKE '%' || :keyword || '%' or "
-            + "t.iucn_source LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
-            + "t.protected_area_occurrences_sources LIKE '%' || :keyword || '%' or "
-            + "t.species_expert LIKE '%' || :keyword || '%' or "
-            + "t.new_and_updates LIKE '%' || :keyword || '%' or "
-            + "t.top_five_publication LIKE '%' || :keyword || '%' order by t.scientificname ", nativeQuery = true)
+            + "LOWER(t.color_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.color_source) LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.habitat_en) LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.population_density) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.population_density_source) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecology_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecology_en) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecologysource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behavior_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behavior_en) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behaviorsource) LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.threat_en) LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.conservation_status) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.iucn_source) LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.protected_area_occurrences_sources) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.species_expert) LIKE '%' || :keyword || '%'"
+            + " order by t.scientificname ", nativeQuery = true)
     /* @Query("SELECT distinct(t.scientificname),t.phototaxonomi.chemin "
             + "FROM TaxonomiBase t left join t.phototaxonomi "
             + "WHERE t.scientificname LIKE '%' || :keyword || '%'order by t.scientificname")*/
     public List<Object[]> search(@Param("keyword") String keyword);
-    
-        @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
+
+    @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
             + "FROM taxonomi_base t left join photo_taxonomi p on t.idtaxonomibase=p.id_taxonomi and p.profil=true where "
             + "LOWER(t.higherclassification) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.kingdom) LIKE '%' || :keyword || '%' or "
@@ -101,32 +100,28 @@ public interface TaxonomiRepository extends
             + "LOWER(t.length_and_weight) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.length_and_weight_source) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.color_en) LIKE '%' || :keyword || '%' or "
-            + "t.color_fr LIKE '%' || :keyword || '%' or "
-            + "t.color_source LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
-            + "t.habitat_en LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
-            + "t.population_density LIKE '%' || :keyword || '%' or "
-            + "t.population_density_source LIKE '%' || :keyword || '%' or "
-            + "t.ecology_fr LIKE '%' || :keyword || '%' or "
-            + "t.ecology_en LIKE '%' || :keyword || '%' or "
-            + "t.ecologysource LIKE '%' || :keyword || '%' or "
-            + "t.behavior_fr LIKE '%' || :keyword || '%' or "
-            + "t.behavior_en LIKE '%' || :keyword || '%' or "
-            + "t.behaviorsource LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
-            + "t.threat_en LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
-            + "t.conservation_status LIKE '%' || :keyword || '%' or "
-            + "t.iucn_source LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
-            + "t.protected_area_occurrences_sources LIKE '%' || :keyword || '%' or "
-            + "t.species_expert LIKE '%' || :keyword || '%' or "
-            + "t.new_and_updates LIKE '%' || :keyword || '%' or "
-            + "t.top_five_publication LIKE '%' || :keyword || '%' order by t.scientificname limit 2", nativeQuery = true)
-    /* @Query("SELECT distinct(t.scientificname),t.phototaxonomi.chemin "
-            + "FROM TaxonomiBase t left join t.phototaxonomi "
-            + "WHERE t.scientificname LIKE '%' || :keyword || '%'order by t.scientificname")*/
+            + "LOWER(t.color_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.color_source) LIKE '%' || :keyword || '%' or t.habitat_fr LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.habitat_en) LIKE '%' || :keyword || '%' or t.habitatsource LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.population_density) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.population_density_source) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecology_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecology_en) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.ecologysource) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behavior_fr) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behavior_en) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.behaviorsource) LIKE '%' || :keyword || '%' or t.threat_fr LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.threat_en) LIKE '%' || :keyword || '%' or t.threatsource LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.conservation_status) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.iucn_source) LIKE '%' || :keyword || '%' or t.protectedareaoccurrences LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.protected_area_occurrences_sources) LIKE '%' || :keyword || '%' or "
+            + "LOWER(t.species_expert) LIKE '%' || :keyword || '%' "
+            + "order by t.scientificname limit 2", nativeQuery = true)
     public List<Object[]> searchlim(@Param("keyword") String keyword);
-    
+
     @Transactional
     @Modifying
-    @Query(value="UPDATE taxonomi_base set conservation_status=:category where scientificname like '%' || :scientificname || '%' ", nativeQuery = true)
-    public void MAJIUCN_satus(@Param("category") String category,@Param("scientificname") String scientificname);
+    @Query(value = "UPDATE taxonomi_base set conservation_status=:category where scientificname like '%' || :scientificname || '%' ", nativeQuery = true)
+    public void MAJIUCN_satus(@Param("category") String category, @Param("scientificname") String scientificname);
 
 }
