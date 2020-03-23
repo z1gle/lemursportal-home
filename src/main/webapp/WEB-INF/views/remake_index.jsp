@@ -223,6 +223,7 @@
                                 </ul>
                             </li>
                         </c:if>
+
                         <!--                        <li class="dropdown">
                                                     <a href="#" class="dropdown-toggle"
                                                         data-toggle="dropdown" role="button"
@@ -394,6 +395,11 @@
                     text-transform: uppercase;
                     color: #A18029;
                 }
+                .number-table{
+                    margin-top:20px;
+                    background-color: #A18029;
+                    margin-bottom:20px;
+                }
                 *, :after, :before {
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
@@ -480,7 +486,7 @@
                 .home__header__hero-text {
                     padding-bottom: 2rem;
                 }
-                form{
+                .form {
                     height: 30px;
                 }
                 .w{
@@ -530,7 +536,7 @@
                                 </div>
                                 <div class="home__header__search-bar search-box">
                                     <c:url var="resus" value="/results${keyword}"></c:url>
-                                    <form method="get" action="${resus}">
+                                    <form method="get" class="form" action="${resus}">
                                         <input type="text" name="keyword" ng-model="s"/> &nbsp;
                                         <button type="submit" class="search-box__submit fa fa-search btn-default"/>
                                     </form>
@@ -543,9 +549,12 @@
                 <!-- end -->
 
                 <!-- number section -->
-                <div id="number" style="background-color: #fffdf9;">
+                <div id="number" style="background-color: lightgray;">
                     <div class="container">
                         <div class="row">
+                            <div class="text-center white animated fadeInDown">
+                                <h2> <spring:message code="menu.number" /></h2>
+                            </div>
                             <div class="col-md-3 animated fadeInUp">
                                 <div class="number-table text-center">
                                     <span><spring:message code="text.users" /></span>
@@ -1244,7 +1253,7 @@
                     <h4 class="modal-title"><spring:message code="document.add_document.title"/></h4>
                 </div>
                 <form action="javascript:sendAddDocument();" autocomplete="off">
-                    <div class="modal-body" style="overflow-y: auto;max-height:  500px;">
+                    <div class="modal-body" style="overflow-y: auto;max-height:  500px;background-color:white;">
                         <div style=" font-size: 10px; color: #999;"><span style="color: red;">NB</span><spring:message code="document.add_document.nb"/></div>
                         <div id="errorMdp"></div>
                         <input type="hidden" id="id">
@@ -1355,7 +1364,7 @@
                             <input title="<spring:message code="metadata.popup.bubble.rights"/>" placeholder="ex: Syst. Biol. 52(5):705–716, 2003 | Copyright(c) Society of Systematic Biologists" type="text" class="form-control" id="rights">                        
                         </div>                            
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="background-color:white">
                         <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.cancel"/></button>
                         <input type="submit" style="float: right;" class="btn btn-success" value="<spring:message code="global.btn.save"/>">
                         <!--<button style="float: right;" type="submit" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.save"/></button>-->
