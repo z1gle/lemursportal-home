@@ -120,5 +120,4 @@ public interface TaxonomiRepository extends
     @Modifying
     @Query(value = "UPDATE taxonomi_base set conservation_status=:category where scientificname like '%' || :scientificname || '%' ", nativeQuery = true)
     public void MAJIUCN_satus(@Param("category") String category, @Param("scientificname") String scientificname);
-
 }
