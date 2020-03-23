@@ -71,9 +71,6 @@ public interface TaxonomiRepository extends
             + "LOWER(t.protected_area_occurrences_sources) LIKE '%' || :keyword || '%' or "
             + "LOWER(t.species_expert) LIKE '%' || :keyword || '%'"
             + " order by t.scientificname ", nativeQuery = true)
-    /* @Query("SELECT distinct(t.scientificname),t.phototaxonomi.chemin "
-            + "FROM TaxonomiBase t left join t.phototaxonomi "
-            + "WHERE t.scientificname LIKE '%' || :keyword || '%'order by t.scientificname")*/
     public List<Object[]> search(@Param("keyword") String keyword);
 
     @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
