@@ -32,7 +32,7 @@ public interface DarwinCoreRepository extends
             + "(select count(a.iddwc) from vue_validation_darwin_core a where a.validationexpert=0 and a.scientificname=d.scientificname )as attente_validation,\n"
             + "(select count(q.iddwc) from vue_validation_darwin_core q where q.validationexpert=-1 and q.scientificname=d.scientificname )as questionnable\n"
             + "from darwin_core d\n"
-            + "where lower(d.scientificname) like '%' || :keyword || '%' group by d.scientificname order by d.scientificname limit 2", nativeQuery = true)
+            + "where lower(d.scientificname) like '%' || :keyword || '%' and lower(d.scientificname) not like '-' group by d.scientificname order by d.scientificname limit 2", nativeQuery = true)
     public List<Object[]> findOccurrenncelim(@Param("keyword") String keyword);
     
     @Query(value = "Select distinct(d.scientificname),\n"
@@ -41,6 +41,6 @@ public interface DarwinCoreRepository extends
             + "(select count(a.iddwc) from vue_validation_darwin_core a where a.validationexpert=0 and a.scientificname=d.scientificname )as attente_validation,\n"
             + "(select count(q.iddwc) from vue_validation_darwin_core q where q.validationexpert=-1 and q.scientificname=d.scientificname )as questionnable\n"
             + "from darwin_core d\n"
-            + "where lower(d.scientificname) like '%' || :keyword || '%' group by d.scientificname order by d.scientificname ", nativeQuery = true)
+            + "where lower(d.scientificname) like '%' || :keyword || '%' and lower(d.scientificname) not like '-' group by d.scientificname order by d.scientificname ", nativeQuery = true)
     public List<Object[]> findOccurrennce(@Param("keyword") String keyword);
 }
