@@ -290,7 +290,7 @@
             .home .search-box {
                 max-width: 700px;
             }
-            form {
+            .form {
                 display: block;
                 height: 30px;
             }
@@ -357,7 +357,7 @@
                 <div class="container">
                     <div class="search-box">
                         <c:url var="results" value="/results${keyword}"></c:url>
-                        <form method="get" action="${results}">
+                        <form method="get" class="form" action="${results}">
                             <input type="text" name="keyword" value="${searchfield}" /> &nbsp;
                             <button type="submit" class="search-box__submit fa fa-search btn-default"/>
                         </form>
@@ -472,6 +472,246 @@
                     </div>
                 </div>
         </footer>
+
+        <style>
+            .tail-select {
+                width: 100%!important;
+            }
+        </style>
+        <div id="modal-ajout-document" class="modal edit-profil-form">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><spring:message code="document.add_document.title"/></h4>
+                    </div>
+                    <form action="javascript:sendAddDocument();" autocomplete="off">
+                        <div class="modal-body" style="overflow-y: auto;max-height:  500px;background-color:white;">
+                            <div style=" font-size: 10px; color: #999;"><span style="color: red;">NB</span><spring:message code="document.add_document.nb"/></div>
+                            <div id="errorMdp"></div>
+                            <input type="hidden" id="id">
+                            <spring:message code="metadata.topics"/><sup>*</sup>
+                            <select title="<spring:message code="metadata.popup.bubble.topics"/>" required multiple="" id="id_thematique" class="form-control tailed">
+                                <c:forEach items="${topics}" var="topThematique">
+                                    <option value="${topThematique.id}"><spring:message code="document.thematique.id.${topThematique.id}"/></option>
+                                </c:forEach>                                
+                            </select><br>                            
+                            <spring:message code="metadata.type"/><sup>*</sup>
+                            <select required title="<spring:message code="metadata.popup.bubble.type"/>" class="form-control" id="type" style="width: 100%!important;">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option style="background-color: #f9efc9;" value="4">Document</option>
+                                <option style="background-color: #f9efc9;" value="1">Photo</option>
+                                <option style="background-color: #f9efc9;" value="2">Video</option>
+                                <option style="background-color: #f9efc9;" value="3">Audio</option>
+                            </select>                            
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.year"/><sup>*</sup>                        
+                                <input title="<spring:message code="metadata.popup.bubble.year"/>" required type="text" class="form-control" id="year">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.title"/><sup>*</sup>
+                                <input title="<spring:message code="metadata.popup.bubble.title"/>" required type="text" class="form-control" id="title">
+                            </div>
+                            <spring:message code="global.label.file"/>
+                            <input type="file" class="form-control" id="document">
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.url"/>
+                                <input title="<spring:message code="metadata.popup.bubble.url"/>" placeholder="ex: https://www.lemursportal.org/forum/resources/upload/1530798561545Ziheng&Yoder2003.pdf" type="text" class="form-control" id="url">
+                            </div>
+                            <div class="" style="width: 100%;">
+                                <spring:message code="metadata.species"/>
+                                <select title="<spring:message code="metadata.popup.bubble.species"/>" multiple class="form-control tailed" id="modal-species" style="width: 100%!important;"></select>
+                            </div>
+                            <spring:message code="metadata.date"/>
+                            <input title="<spring:message code="metadata.popup.bubble.date"/>" type="date" class="form-control" id="datePublication">
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.bibliographicResource"/>
+                                <select title="<spring:message code="metadata.popup.bubble.bibliographicResource"/>" class="form-control" id="bibliographic_resource" style="width: 100%!important;">
+                                    <option style="background-color: #f9efc9;" value="">none</option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.paper"/>"><spring:message code="metadata.bibliographicResource.paper"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.journal"/>"><spring:message code="metadata.bibliographicResource.journal"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.book"/>"><spring:message code="metadata.bibliographicResource.book"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.report"/>"><spring:message code="metadata.bibliographicResource.report"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.memory"/>"><spring:message code="metadata.bibliographicResource.memory"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.thesis"/>"><spring:message code="metadata.bibliographicResource.thesis"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.map"/>"><spring:message code="metadata.bibliographicResource.map"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.poster"/>"><spring:message code="metadata.bibliographicResource.poster"/></option>                                    
+                                    <option style="background-color: #f9efc9;" value="<spring:message code="metadata.bibliographicResource.others"/>"><spring:message code="metadata.bibliographicResource.others"/></option>                                    
+                                </select>
+                            </div>                                                
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.coverage"/>
+                                <input title="<spring:message code="metadata.popup.bubble.coverage"/>" placeholder="ex: SAINTE LUCE | FORT-DAUPHIN | MADAGASCAR" type="text" class="form-control" id="coverage">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.description"/>
+                                <textarea title="<spring:message code="metadata.popup.bubble.description"/>" class="form-control" id="description">
+                                    
+                                </textarea>
+                            </div>
+                            <spring:message code="metadata.language"/>
+                            <select title="<spring:message code="metadata.popup.bubble.language"/>" class="form-control" id="language" style="width: 100%!important;">
+                                <option style="background-color: #f9efc9;" selected="" value="MLG">MG</option>
+                                <option style="background-color: #f9efc9;" value="EN">EN</option>
+                                <option style="background-color: #f9efc9;" value="FR">FR</option>
+                                <option style="background-color: #f9efc9;" value="FR">OTHERS</option>
+                            </select>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.relation"/>
+                                <input title="<spring:message code="metadata.popup.bubble.relation"/>" placeholder="ex: Relation" type="text" class="form-control" id="relation">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.source"/>
+                                <input title="<spring:message code="metadata.popup.bubble.source"/>" placeholder="ex: Syst. Biol. 52(5):705–716, 2003" type="text" class="form-control" id="source">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.subject"/>
+                                <input title="<spring:message code="metadata.popup.bubble.subject"/>" placeholder="ex: Mouse lemur Species | Bayesian Methods" type="text" class="form-control" id="subject">
+                            </div>                        
+                            <!--<div class="autocomplete" style="width: 100%;">-->
+                            <%--<spring:message code="metadata.format"/>--%>
+                            <input title="<spring:message code="metadata.popup.bubble.format"/>" placeholder="ex: text" type="hidden" class="form-control" id="format">
+                            <!--</div>-->
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.fileFormat"/>
+                                <input title="<spring:message code="metadata.popup.bubble.fileFormat"/>" placeholder="ex: PDF" type="text" class="form-control" id="fileFormat">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.identifier"/>
+                                <input title="<spring:message code="metadata.popup.bubble.identifier"/>" placeholder="ex :ISSN: 1063-5157 print / 1076-836X online | DOI: 10.1080/10635150390235557" type="text" class="form-control" id="identifier">
+                            </div>                        
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.contributor"/>
+                                <input title="<spring:message code="metadata.popup.bubble.contributor"/>" placeholder="ex: Department of Biology, University College London | Department of Ecology and Evolutionary Biology, Yale University" type="text" class="form-control" id="contributor">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.creator"/>
+                                <input title="<spring:message code="metadata.popup.bubble.creator"/>" placeholder="ex: ZIHENG YANG | ANNE D. YODER" type="text" class="form-control" id="creator">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.publisher"/>
+                                <input title="<spring:message code="metadata.popup.bubble.publisher"/>" placeholder="ex: Society of Systematic Biologists" type="text" class="form-control" id="publisher">
+                            </div>
+                            <div class="autocomplete" style="width: 100%;">
+                                <spring:message code="metadata.rights"/>
+                                <input title="<spring:message code="metadata.popup.bubble.rights"/>" placeholder="ex: Syst. Biol. 52(5):705–716, 2003 | Copyright(c) Society of Systematic Biologists" type="text" class="form-control" id="rights">                        
+                            </div>                            
+                        </div>
+                        <div class="modal-footer" style="background-color:white">
+                            <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.cancel"/></button>
+                            <input type="submit" style="float: right;" class="btn btn-success" value="<spring:message code="global.btn.save"/>">
+                            <!--<button style="float: right;" type="submit" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.save"/></button>-->
+                            <div id="delete"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>                        
+        </div>
+        <!--        <div id="modal-upload-darwincore" class="modal edit-profil-form">
+                    <div class="modal-dialog">
+                         Modal content
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"><spring:message code="document.add_document.title"/></h4>
+                            </div>
+                            <form action="javascript:sendAddDocument();" autocomplete="off">
+                                <div class="modal-body" style="overflow-y: auto;max-height:  500px;">
+                                                                
+                                </div>
+                                <div class="modal-footer">
+                                    <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.cancel"/></button>
+                                    <input type="submit" style="float: right;" class="btn btn-default" value="<spring:message code="global.btn.save"/>">
+                                    <button style="float: right;" type="submit" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.save"/></button>
+                                    <div id="delete"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>                        
+                </div>-->
+
+        <div id='modal-upload_spinner' class='modal fade' role='dialog' style='display:none !important' tabindex="-1">
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class="modal-header">
+                        <button data-dismiss='modal' class='close' type='button'>x</button>
+                        <h4 class="modal-title"><center>Upload</center></h4>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='row'>
+                            <div class='col-md-10 col-md-offset-1'>                                                        
+                                <img src="https://www.lemursportal.org/species/resources/assets/img/loaderB32.gif" class="img-responsive" style="margin: 5px auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='modal-alert' class='modal fade' role='dialog' style='display:none !important' tabindex="-1">
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class="modal-header">
+                        <button data-dismiss='modal' class='close' type='button'>x</button>
+                        <h4 class="modal-title"><center>ERREUR</center></h4>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='row'>
+                            <div class='col-md-10 col-md-offset-1'>                            
+                                <div class="col-sm-12">
+                                    <span id="messageAlerte">Un erreur est survenu lors du t&eacute;l&eacute;chargement. Veuiller v&eacute;rifier votre acr&eacute;ditation ou la structure des donn&eacute;es.</span>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'>OK</button>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='modal-upload-darwincore' class='modal'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class="modal-header">
+                        <button data-dismiss='modal' class='close' type='button'>x</button>
+                        <h4 class="modal-title"><center><spring:message code="observation.upload.title"/></center></h4>
+                    </div>
+                    <div class='modal-body row'>                       
+                        <form id="uploadForm" method="POST" class="col-md-offset-1 col-md-11" enctype="multipart/form-data">
+                            <label for="sep">Format file</label>
+                            <select class="form-control" id="sep" style="width: 92%;height: 42px;border-radius: 5px;">
+                                <option value="2"><spring:message code="observation.popup.upload_dwc.semicolon"/></option>
+                                <option value="0"><spring:message code="observation.popup.upload_dwc.comma"/></option>
+                                <option value="1">Excel (*.xlsx)</option>                                                        
+                            </select><br>
+                            <label for="csv-xl" id="buttonlabel">
+                                <span role="button" aria-controls="filename" tabindex="0">
+                                    File path
+                                </span>
+                            </label>
+                            <input type="file" class="form-control" name="excelfile" ng-model="file" id="csv-xl">
+                            <!--                            <label for="filename" class="hide">
+                                                            uploaded file
+                                                        </label>
+                                                        <input type="text" id="filename" autocomplete="off" readonly placeholder="no file uploaded">  <br>-->
+                            <!--<input id="publique" type="checkbox" value="1"> publique --> <br>
+                            <div class="">
+                                <input id="publique-modal" type="checkbox" value="1">
+                                <label for="publique-modal"><spring:message code="checkbox.public"/></label>
+                            </div>
+                            <spring:message code="observation.popup.upload_dwc.term"/> <a href="#" onclick="window.open('resources/assets/policy.pdf', '_blank')">(<spring:message code="global.download"/>)</a>
+                        </form>
+                    </div>
+                    <div class='modal-footer'>                        
+                        <input data-toggle='modal' data-target='#modal-upload_spinner' data-dismiss='modal' class="btn btn-success btn-sm" type="submit" id="publique" onclick="upload()" value="<spring:message code="global.import"/>">                        
+                        <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><spring:message code="global.btn.cancel"/></button>                    
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
         <script src="${resourcesPath}/js/jquery-1.11.1.min.js"></script>
 
         <script src="${resourcesPath}/js/bootstrap.min.js"></script>
@@ -502,7 +742,6 @@
         <script src="${resourcesPath}/js/main.js"></script>
         <script src="${resourcesPath}/js/jquery.li-scroller.1.0.js"></script>
 
-        <script src="${resourcesPath}/js/ol.js"></script>
         <script type="text/javascript">
                             function sendAddDocument() {
                                 var formData = new FormData();
