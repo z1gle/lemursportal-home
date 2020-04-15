@@ -50,6 +50,11 @@ public class MetadataServiceImpl implements MetadataService {
     public List<Object[]> findDiscussion(String keyword) {
        return dao.findDiscussion(keyword);
     }
+    
+    @Override
+    public List<Object[]> getDocbyTopics() {
+         return dao.getDocbyTopics();
+    }
 
      @Override
     public List<Object[]> findGloballim(String search) {
@@ -60,4 +65,5 @@ public class MetadataServiceImpl implements MetadataService {
     public List<Object[]> findDiscussionlim(String keyword) {
        return dao.findDiscussionlim(keyword);
     }
+
 }

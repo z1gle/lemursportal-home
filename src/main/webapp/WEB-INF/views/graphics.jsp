@@ -51,8 +51,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/tail.select@0.5.11/js/tail.select-full.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tail.select@0.5.11/css/tail.select-default.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
 <!--link rel="stylesheet" href="${resourcesPath}/css/styles.css"-->
         <link rel="stylesheet" href="${resourcesPath}/css/ol.css"></script>
     <script src="${resourcesPath}/js/modernizr-2.6.2.min.js"></script>
@@ -60,7 +59,8 @@
     </script>
     <script src = "${resourcesPath}/js/highcharts.js"></script> 
     <script src = "${resourcesPath}/js/data.js"></script>
-
+    <script src = "${resourcesPath}/js/exporting.js"></script>
+    <script src = "${resourcesPath}/js/export-data.js"></script>
     <script src="${resourcesPath}/js/jquery.highchartTable.js" type="text/javascript"></script>
     <style type="text/css">
         a.read-more {
@@ -85,20 +85,37 @@
             font-size: 1.2em;
             color:#555;
         }
+        #datatable {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        #datatable caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        #datatable th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+        #datatable td, #datatable th, #datatable caption {
+            padding: 0.5em;
+        }
+        #datatable thead tr, #datatable tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        #datatable tr:hover {
+            background: #f1f7ff;
+        }
+
     </style>
 </head>
 <body id="body">
-
-    <!-- preloader 
-    <div id="preloader">
-        <div class="loder-box">
-            <div class="battery"></div>
-        </div>
-    </div>
-     end -->
-
-
-
     <!-- Navigation -->
     <header id="navigation"
             class="navbar-inverse animated-header">
@@ -493,6 +510,40 @@
         });
         $(document).ready(function () {
             var data = {
+                table: 'datatablebyspeciesGpBytopics'
+            };
+            var chart = {
+                type: 'column'
+            };
+            var title = {
+                text: '<spring:message code="species.by.topics" />'
+            };
+            var yAxis = {
+                allowDecimals: false,
+                title: {
+                    text: '<spring:message code="text.count" />'
+                }
+            };
+            var tooltip = {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ' ' + this.point.name.toLowerCase();
+                }
+            };
+            var credits = {
+                enabled: false
+            };
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.data = data;
+            json.yAxis = yAxis;
+            json.credits = credits;
+            json.tooltip = tooltip;
+            $('#speciesgpBytopics').highcharts(json);
+        });
+        $(document).ready(function () {
+            var data = {
                 table: 'datatableocc'
             };
             var chart = {
@@ -628,125 +679,193 @@
             json.tooltip = tooltip;
             $('#MetadatabyBL').highcharts(json);
         });
+        $(document).ready(function () {
+            var data = {
+                table: 'datatableDT'
+            };
+            var chart = {
+                type: 'column'
+            };
+            var title = {
+                text: '<spring:message code="publication.by.topics" />'
+            };
+            var yAxis = {
+                allowDecimals: false,
+                title: {
+                    text: '<spring:message code="text.count" />'
+                }
+            };
+            var tooltip = {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + ':' + this.point.name.toLowerCase();
+                }
+            };
+            var credits = {
+                enabled: false
+            };
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.data = data;
+            json.yAxis = yAxis;
+            json.credits = credits;
+            json.tooltip = tooltip;
+            $('#DocumentByTopic').highcharts(json);
+        });
     </script>
-    <div class="container">
-
-        <div class="col-sm-12" id="graph_occurrence" style="min-width: 310px; height: 400px; margin: 0 auto">
-            <table id = "datatableocc" class="table table-responsive table-striped">
-                <thead>
-                <th><spring:message code="text.year" /></th>
-                <th><spring:message code="occurrence.all.occurrences" /></th>
-                <th><spring:message code="occurrence.all.reliables" /></th>
-                </thead>
-                <c:forEach items="${occurrencePerYearlist}" var="occ">
-                    <tbody>
-                    <td><c:out value="${occ[0]}"></c:out></td>
-                    <td><c:out value="${occ[1]}"></c:out></td>
-                    <td><c:out value="${occ[2]}"></c:out></td>
-                        </tbody>
-                </c:forEach>
-            </table>
-        </div>
-        <div class="col-sm-12" id="listspecies">
-            <div class="row">
-                <center> <h4><spring:message code="menu.species" /></h4></center>
-            </div>
-            <div class="row">
-                <div class="col-sm-8" id="speciesbyfamily" style="min-width: 310px; height: 400px; margin: 0 auto">
-                    <table id = "datatablebyfamily" class="table table-responsive table-striped">
+    <section class="" >
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="col-sm-12" id="graph_occurrence" style="min-width: 310px; height: 400px; margin: 0 auto">
+                    <table id = "datatableocc" class="table table-responsive table-striped">
                         <thead>
-                        <th><spring:message code="text.family" /></th>
-                        <th><spring:message code="text.count" /></th>
+                        <th><spring:message code="text.year" /></th>
+                        <th><spring:message code="occurrence.all.occurrences" /></th>
+                        <th><spring:message code="occurrence.all.reliables" /></th>
                         </thead>
-                        <c:forEach items="${speciesGpByFamilylist}" var="taxonomi_base">
+                        <c:forEach items="${occurrencePerYearlist}" var="occ">
                             <tbody>
-                            <td><c:out value="${taxonomi_base[0]}"></c:out></td>
-                            <td><c:out value="${taxonomi_base[1]}"></c:out></td>
+                            <td><c:out value="${occ[0]}"></c:out></td>
+                            <td><c:out value="${occ[1]}"></c:out></td>
+                            <td><c:out value="${occ[2]}"></c:out></td>
                                 </tbody>
                         </c:forEach>
                     </table>
                 </div>
-                <div class="col-sm-4" id="">
-                    <div id = "container" style = "width: 350px; height: 400px; margin: 0 auto">
-                        <table id = "datatable" class="table table-responsive table-striped">
-                            <thead>
-                            <th><spring:message code="text.iucn.status" /></th>
-                            <th><spring:message code="text.count" /></th>
-                            </thead>
-                            <c:forEach items="${speciesGpByIUCNStatuslist}" var="taxonomi_base">
-                                <tbody>
-                                <td><c:out value="${taxonomi_base[0]}"></c:out></td>
-                                <td><c:out value="${taxonomi_base[1]}"></c:out></td>
-                                    </tbody>
-                            </c:forEach>
-                        </table>
+                <div id="listspecies" class="col-sm-12">
+                    <div class="row">
+                        <center> <h4><spring:message code="menu.species" /></h4></center>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" id="speciesbyfamily" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id = "datatablebyfamily" class="table table-responsive table-striped">
+                                <thead>
+                                <th><spring:message code="text.family" /></th>
+                                <th><spring:message code="text.count" /></th>
+                                </thead>
+                                <c:forEach items="${speciesGpByFamilylist}" var="taxonomi_base">
+                                    <tbody>
+                                    <td><c:out value="${taxonomi_base[0]}"></c:out></td>
+                                    <td><c:out value="${taxonomi_base[1]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" id="">
+                        <div id = "container" style = "width: 350px; height: 400px; margin: 0 auto">
+                            <table id = "datatable" class="table table-responsive table-striped">
+                                <thead>
+                                <th><spring:message code="text.iucn.status" /></th>
+                                <th><spring:message code="text.count" /></th>
+                                </thead>
+                                <c:forEach items="${speciesGpByIUCNStatuslist}" var="taxonomi_base">
+                                    <tbody>
+                                    <td><c:out value="${taxonomi_base[0]}"></c:out></td>
+                                    <td><c:out value="${taxonomi_base[1]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>  
+                    <div class="row" id="">
+                        <div class="col-sm-12" id="speciesbygenus" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id = "datatablebygenus" class="table table-responsive table-striped">
+                                <thead>
+                                <th><spring:message code="text.genus" /></th>
+                                <th><spring:message code="text.count" /></th>
+                                </thead>
+                                <c:forEach items="${speciesGpByGenus}" var="taxonomi_base">
+                                    <tbody>
+                                    <td><c:out value="${taxonomi_base[0]}"></c:out></td>
+                                    <td><c:out value="${taxonomi_base[1]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" id="">
+                        <div class="col-sm-12" id="speciesgpBytopics" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id = "datatablebyspeciesGpBytopics" class="table table-responsive table-striped">
+                                <thead>
+                                <th><spring:message code="metadata.topics" /></th>
+                                <th><spring:message code="text.count" /></th>
+                                </thead>
+                                <c:forEach items="${speciesGpBytopics}" var="speciesGpBytopic">
+                                    <tbody>
+                                    <td><c:out value="${speciesGpBytopic[0]}"></c:out></td>
+                                    <td><c:out value="${speciesGpBytopic[1]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" id="DocumentS">
+                    <div class="row">
+                        <center> <h4><spring:message code="home.document" /></h4></center>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" id="MetadataSpecies" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id ="datatableSpecies" class="table table-responsive table-striped">
+                                <thead><th><spring:message code="text.count" /></th><th>Species</th></thead>
+                                    <c:forEach items="${metadatabyspecies}" var="metsp">
+                                    <tbody>
+                                    <td><c:out value="${metsp[1]}"></c:out></td>
+                                    <td><c:out value="${metsp[0]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                        <div class="col-sm-12" id="metadatabyYear" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id ="datatableYear" class="table table-responsive table-striped">
+                                <thead><th><spring:message code="text.year" /></th><th><spring:message code="text.count" /></th></thead>
+                                    <c:forEach items="${metadatabyYear}" var="metadatabyYear">
+                                    <tbody>
+                                    <td><c:out value="${metadatabyYear[0]}"></c:out></td>
+                                    <td><c:out value="${metadatabyYear[1]}"></c:out></td>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row" id="">
+                        <div class="col-sm-12" id="MetadatabyBL" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id = "datatableBL" class="table table-responsive table-striped">
+                                <thead><th><spring:message code="text.bibliographic.level" /></th><th><spring:message code="text.count" /></th></thead>
+                                    <c:forEach items="${metadatabyBL}" var="mByBL">
+                                    <tbody>
+                                        <tr> 
+                                            <td><c:out value="${mByBL[0]}"></c:out></td>
+                                            <td><c:out value="${mByBL[1]}"></c:out></td>
+                                            </tr>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" id="">
+                        <div class="col-sm-12" id="DocumentByTopic" style="min-width: 310px; height: 400px; margin: 0 auto">
+                            <table id = "datatableDT" class="table table-responsive table-striped">
+                                <thead><th><spring:message code="metadata.topics" /></th><th><spring:message code="text.count" /></th></thead>
+                                    <c:forEach items="${docbytopics}" var="dt">
+                                    <tbody>
+                                        <tr> 
+                                            <td><c:out value="${dt[1]}"></c:out></td>
+
+                                                <td><c:out value="${dt[0]}"></c:out></td>
+                                            </tr>
+                                        </tbody>
+                                </c:forEach>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row" id="">
-                <div class="col-sm-12" id="speciesbygenus" style="min-width: 310px; height: 400px; margin: 0 auto">
-                    <table id = "datatablebygenus" class="table table-responsive table-striped">
-                        <thead>
-                        <th><spring:message code="text.genus" /></th>
-                        <th><spring:message code="text.count" /></th>
-                        </thead>
-                        <c:forEach items="${speciesGpByGenus}" var="taxonomi_base">
-                            <tbody>
-                            <td><c:out value="${taxonomi_base[0]}"></c:out></td>
-                            <td><c:out value="${taxonomi_base[1]}"></c:out></td>
-                                </tbody>
-                        </c:forEach>
-                    </table>
-                </div>
-            </div>      
         </div>
-        <div class="col-sm-12" id="DocumentS">
-            <div class="row">
-                <center> <h4><spring:message code="home.document" /></h4></center>
-            </div>
-            <div class="row">
-                <div class="col-sm-12" id="MetadataSpecies" style="min-width: 310px; height: 400px; margin: 0 auto">
-                    <table id ="datatableSpecies" class="table table-responsive table-striped">
-                        <thead><th><spring:message code="text.count" /></th><th>Species</th></thead>
-                            <c:forEach items="${metadatabyspecies}" var="metsp">
-                            <tbody>
-                            <td><c:out value="${metsp[1]}"></c:out></td>
-                            <td><c:out value="${metsp[0]}"></c:out></td>
-                                </tbody>
-                        </c:forEach>
-                    </table>
-                </div>
-                <div class="col-sm-12" id="metadatabyYear" style="min-width: 310px; height: 400px; margin: 0 auto">
-                    <table id ="datatableYear" class="table table-responsive table-striped">
-                        <thead><th><spring:message code="text.year" /></th><th><spring:message code="text.count" /></th></thead>
-                            <c:forEach items="${metadatabyYear}" var="metadatabyYear">
-                            <tbody>
-                            <td><c:out value="${metadatabyYear[0]}"></c:out></td>
-                            <td><c:out value="${metadatabyYear[1]}"></c:out></td>
-                                </tbody>
-                        </c:forEach>
-                    </table>
-                </div>
-            </div>
-
-            <div class="row" id="">
-                <div class="col-sm-12" id="MetadatabyBL" style="min-width: 310px; height: 400px; margin: 0 auto">
-                    <table id = "datatableBL" class="table table-responsive table-striped">
-                        <thead><th><spring:message code="text.bibliographic.level" /></th><th><spring:message code="text.count" /></th></thead>
-                            <c:forEach items="${metadatabyBL}" var="mByBL">
-                            <tbody>
-                                <tr> 
-                                    <td><c:out value="${mByBL[0]}"></c:out></td>
-                                    <td><c:out value="${mByBL[1]}"></c:out></td>
-                                    </tr>
-                                </tbody>
-                        </c:forEach>
-                    </table>
-                </div>
-            </div>      
-        </div>
-    </div>
+    </section>
 
     <footer id="footer">
         <div class="container">

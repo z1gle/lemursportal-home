@@ -57,6 +57,11 @@ public class TaxonomiServiceImpl implements TaxonomiService {
     }
 
     @Override
+    public List<Object[]> getSpeciesByTopics() {
+       return dao.getSpeciesByTopics();
+    }
+    
+    @Override
     public List<Object[]> searchlim(String keyword) {
        return dao.searchlim(keyword);
     }
@@ -64,4 +69,5 @@ public class TaxonomiServiceImpl implements TaxonomiService {
     public void MAJIUCN_satus(String scientificname, String category) {
         dao.MAJIUCN_satus(scientificname, category);
     }
+
 }

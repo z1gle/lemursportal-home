@@ -30,6 +30,17 @@ public interface TaxonomiRepository extends
     @Query("Select genus, count(Distinct scientificname)as count from TaxonomiBase group by genus")
     public List<Object[]> getSpeciesByGenus();
 
+    @Query(value = "select tp.topic,count(tp.species) from (select test.topic,test.species from \n"
+            + "(select m.*, tax.scientificname as species, t.libelle as topic \n"
+            + "from metadata m \n"
+            + "left join association_metadata_taxonomi amtax on amtax.id_metadata = m.id \n"
+            + "left join association_metadata_topic amt on amt.id_metadata = m.id \n"
+            + "left join thematique t on t.id = amt.id_topic \n"
+            + "left join taxonomi_base tax on tax.idtaxonomibase = amtax.id_taxonomi) as test \n"
+            + "left join metadata m on test.id = m.id \n"
+            + "where test.topic not like '' and test.species not like '' group by test.topic,test.species)tp group by tp.topic", nativeQuery = true)
+    public List<Object[]> getSpeciesByTopics();
+
     @Query(value = "SELECT distinct(t.scientificname),t.idtaxonomibase,p.chemin "
             + "FROM taxonomi_base t left join photo_taxonomi p on t.idtaxonomibase=p.id_taxonomi and p.profil=true where "
             + "LOWER(t.higherclassification) LIKE '%' || :keyword || '%' or "

@@ -18,6 +18,8 @@ public interface TaxonomiService {
     List<Object[]> getCountSpeciesGpByFamily();
 
     List<Object[]> getCountSpeciesGpByGenus();
+    
+    List<Object[]> getSpeciesByTopics();
 
     public List<Object[]> search(String keyword);
     

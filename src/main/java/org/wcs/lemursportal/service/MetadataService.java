@@ -28,4 +28,6 @@ public interface MetadataService {
     List<Object[]> findGloballim(String search);
 
     List<Object[]> findDiscussionlim(String keyword);
+    
+    List<Object[]> getDocbyTopics();
 }

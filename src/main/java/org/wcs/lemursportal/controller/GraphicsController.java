@@ -39,17 +39,21 @@ public class GraphicsController {
         List<Object[]> speciesGpByIUCN_Statuslist = taxonomiService.getCountSpeciesGpByIUCN_Status();
         List<Object[]> speciesGpByFamilylist = taxonomiService.getCountSpeciesGpByFamily();
         List<Object[]> speciesGpByGenus = taxonomiService.getCountSpeciesGpByGenus();
+        List<Object[]> speciesGpBytopics = taxonomiService.getSpeciesByTopics();
         List<DarwinCore> occurrencePerYearlist = darwinCoreService.getOccperYear();
         List<Object[]> metadatabySpecies = metadataService.getDocbySpecies();
         List<Object[]> metadatabyYear = metadataService.getDocbyPublicationYear();
         List<Object[]> metadatabyBL = metadataService.getDocbyBibliographicLevel();
+         List<Object[]> docbytopics = metadataService.getDocbyTopics();
         model.addObject("speciesGpByIUCNStatuslist", speciesGpByIUCN_Statuslist);
         model.addObject("speciesGpByFamilylist", speciesGpByFamilylist);
         model.addObject("speciesGpByGenus", speciesGpByGenus);
+        model.addObject("speciesGpBytopics", speciesGpBytopics);
         model.addObject("occurrencePerYearlist", occurrencePerYearlist);
         model.addObject("metadatabyspecies", metadatabySpecies);
         model.addObject("metadatabyYear", metadatabyYear);
         model.addObject("metadatabyBL", metadatabyBL);
+        model.addObject("docbytopics", docbytopics);
         return model;
     }
 }

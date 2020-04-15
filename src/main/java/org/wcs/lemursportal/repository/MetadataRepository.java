@@ -22,15 +22,26 @@ public interface MetadataRepository extends JpaRepository<Metadata, Integer> {
 
     @Query(value = "SELECT count(m.id_document),t.scientificname \n"
             + "FROM Metadata m JOIN association_metadata_taxonomi a ON m.id= a.id_metadata "
-            + "JOIN taxonomi_base t ON a.id_taxonomi= t.idtaxonomibase group by t.scientificname order by t.scientificname",
+            + "JOIN taxonomi_base t ON a.id_taxonomi= t.idtaxonomibase  and m.type='4'group by t.scientificname order by t.scientificname",
             nativeQuery = true)
     public List<Object[]> getDocbySpecies();
 
-    @Query("Select year, count(id_document)as count from Metadata where year is not null and year not like '' group by year order by year")
+    @Query("Select year, count(id_document)as count from Metadata where year is not null and year not like ''  and type='4' group by year order by year")
     public List<Object[]> getDocbyPublicationYear();
 
-    @Query("Select bibliographic_resource, count(id_document)as count from Metadata where bibliographic_resource is not null and bibliographic_resource not like '' group by bibliographic_resource")
+    @Query("Select bibliographic_resource, count(id_document)as count from Metadata where bibliographic_resource is not null and bibliographic_resource not like ''  and type='4' group by bibliographic_resource")
     public List<Object[]> getDocbyBibliographicLevel();
+
+    @Query(value = "select count(pt.id_document),pt.topic from (select m.id_document,test.topic  \n"
+            + "from (select m.*, tax.scientificname as species, t.libelle as topic \n"
+            + "from metadata m \n"
+            + "left join association_metadata_taxonomi amtax on amtax.id_metadata = m.id \n"
+            + "left join association_metadata_topic amt on amt.id_metadata = m.id \n"
+            + "left join thematique t on t.id = amt.id_topic \n"
+            + "left join taxonomi_base tax on tax.idtaxonomibase = amtax.id_taxonomi) as test \n"
+            + "left join metadata m on test.id = m.id \n"
+            + "where m.type='4' and test.topic not like '' group by m.id_document,test.topic )pt group by pt.topic", nativeQuery = true)
+    public List<Object[]> getDocbyTopics();
 
     @Query(value = "select distinct m.id,m.title,m.url,m.year,m.creator,m.coverage from \n"
             + "(select m.*, tax.scientificname as species, t.libelle as topic \n"
