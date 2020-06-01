@@ -547,7 +547,6 @@
                     </div> 
                 </div>
                 <!-- end -->
-
                 <!-- number section -->
                 <div id="number" style="background-color: lightgray;">
                     <div class="container">
@@ -563,7 +562,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-3 animated fadeInUp" data-wow-delay="0.4s">
                                 <div class="number-table text-center">
                                     <span><spring:message code="text.species" /></span>
@@ -572,7 +570,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
                                 <div class="number-table text-center">
                                     <span><spring:message code="text.obsercations" /></span>
