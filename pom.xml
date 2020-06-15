@@ -19,7 +19,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<org.hibernate-version>4.3.10.Final</org.hibernate-version>
 		<logback.version>1.2.17</logback.version>
-        <spring.security.version>4.0.1.RELEASE</spring.security.version>
+        <spring.security.version>5.3.3.RELEASE</spring.security.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
