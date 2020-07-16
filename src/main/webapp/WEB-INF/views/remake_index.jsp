@@ -946,29 +946,39 @@
                                     margin: 40px;
                                 }
                             </style>
-                            <div class="inat-widget">
-                                <div class="inat-widget-header">
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
-                                            alt="iNaturalist.org"
-                                            src="https://static.inaturalist.org/sites/1-logo.svg?1573071870" style="width:150px;height: 150px;"/></a>
+                            <div class="col-sm-8">
+                                <div class="inat-widget">
+                                    <div class="inat-widget-header">
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
+                                                alt="iNaturalist.org"
+                                                src="https://static.inaturalist.org/sites/1-logo.svg?1573071870" style="width:150px;height: 150px;"/></a>
+                                    </div>
+                                    <div id="inaturalist">
+                                        <script type="text/javascript" charset="utf-8"
+                                        src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
+                                    </div>
+                                    <div id="img-inaturalist">
+                                        <span>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
+                                                <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
+                                            </a>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div id="inaturalist">
-                                    <script type="text/javascript" charset="utf-8"
-                                    src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="inat-widget">
+                                    <div id="img-inaturalist">
+                                        <span>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
+                                                    src="${resourcesPath}/img/Logo_LemursPortal_Final.png" alt="<spring:message code="home.pageTitle" />" style="width:150px;height: 150px;"/></a>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:5px;">Download lemursportal apk <span><i class="fa fa-download"></i>
+                                            </span></a>
+                                    </div>
                                 </div>
-                                <div id="img-inaturalist">
-                                    <span>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
-                                            <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
-                                        </a></span>
-                                </div>
-
-                                <!-- 				<h2 class="animated bounceInLeft"></h2> -->
-                                <!-- table class="inat-footer">
-                                        <tr class="inat-user">
-                                                <td class="inat-value">&nbsp;</td>
-                                        </tr>
-                                </table-->
                             </div>
                         </div>
                     </div>
