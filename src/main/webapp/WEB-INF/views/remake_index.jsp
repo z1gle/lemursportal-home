@@ -971,11 +971,11 @@
                                     <div id="img-inaturalist">
                                         <span>
                                             <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
-                                                    src="${resourcesPath}/img/Logo_LemursPortal_Final.png" alt="<spring:message code="home.pageTitle" />" style="width:150px;height: 150px;"/></a>
+                                                    src="${resourcesPath}/img/icons/Mobile_app_2.png" alt="<spring:message code="home.pageTitle" />" style="width:150px;height: 150px;"/></a>
                                         </span>
                                     </div>
                                     <div>
-                                        <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:5px;">Download lemursportal apk <span><i class="fa fa-download"></i>
+                                        <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:5px;"><spring:message code="download_mobile_app" /> <span><i class="fa fa-download"></i>
                                             </span></a>
                                     </div>
                                 </div>
