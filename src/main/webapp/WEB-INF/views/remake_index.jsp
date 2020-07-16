@@ -968,10 +968,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="inat-widget">
-                                    <div id="img-inaturalist">
+                                    <div id="">
                                         <span>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
-                                                    src="${resourcesPath}/img/icons/Mobile_app_2.png" alt="<spring:message code="home.pageTitle" />" style="width:150px;height: 150px;"/></a>
+                                            <img src="${resourcesPath}/img/icons/icon_Apk3.png" alt="<spring:message code="home.pageTitle" />" style="width:200px;height: 230px;"/>
                                         </span>
                                     </div>
                                     <div>
