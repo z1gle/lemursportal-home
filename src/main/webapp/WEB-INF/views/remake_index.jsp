@@ -945,6 +945,9 @@
                                 #img-inaturalist{
                                     margin: 40px;
                                 }
+                                #mobileapp{
+                                    margin: 40px;
+                                }
                             </style>
                             <div class="col-sm-8">
                                 <div class="inat-widget">
@@ -968,14 +971,19 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="inat-widget">
-                                    <div id="">
-                                        <span>
-                                            <img src="${resourcesPath}/img/icons/icon_Apk3.png" alt="<spring:message code="home.pageTitle" />" style="width:200px;height: 230px;"/>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:5px;"><spring:message code="download_mobile_app" /> <span><i class="fa fa-download"></i>
-                                            </span></a>
+                                    <div id="mobileapp">
+                                        <div id="">                                       
+                                            <span><spring:message code="text.mobileapp" /></span>
+                                        </div>
+                                        <div id="">                                       
+                                            <span>
+                                                <img src="${resourcesPath}/img/icons/icon_Apk3.png" alt="<spring:message code="home.pageTitle" />" style="width:150px;height: 170px;"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:5px;"><spring:message code="download_mobile_app" /> <span><i class="fa fa-download"></i>
+                                                </span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
