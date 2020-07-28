@@ -949,7 +949,7 @@
                                     margin-top: 90px;
                                 }
                                 #mobileapp-img{
-                                   margin: 10px; 
+                                    margin: 10px; 
                                 }
                             </style>
                             <div class="col-sm-7">
@@ -979,8 +979,13 @@
                                             <span><spring:message code="text.mobileapp" /></span>
                                         </div>
                                         <div>
-                                            <a class="btn btn-success" href="${resourcesPath}/lemursportalapp.apk" style="margin-top:50px;"><spring:message code="download_mobile_app" /> <span><i class="fa fa-download"></i>
+                                            <a class="btn btn-success" href="${resourcesPath}/app/lemursportalapp.apk" style="margin-top:50px;"><spring:message code="download_mobile_app" /> <span><i class=""></i>
                                                 </span></a>
+                                        </div>
+                                        <div class="">
+                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
+                                                <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
