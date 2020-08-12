@@ -983,7 +983,7 @@
                                                 </span></a>
                                         </div>
                                         <div class="">
-                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP" style="margin-top:100px;">
+                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
                                             </a>
                                         </div>
