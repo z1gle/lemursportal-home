@@ -577,11 +577,11 @@
                             <ul id="" class="">
                                 <li><a href="#"><spring:message code="text.all" /></a></li>
                                 <li>
-                                    <c:url var="occurrenceList" value="/lists/occurrenceList?keyword=${searchfield}"></c:url>
+                                    <c:url var="occurrenceList" value="/results/occurrenceList?keyword=${searchfield}"></c:url>
                                     <a href="${occurrenceList}"><spring:message code="home.header.observations" /></a>
                                 </li>
                                 <li>
-                                    <c:url var="specieslist" value="/lists/specieslist?keyword=${searchfield}"></c:url>
+                                    <c:url var="specieslist" value="/results/specieslist?keyword=${searchfield}"></c:url>
                                     <a href="${specieslist}"><spring:message code="menu.species" /></a>
                                 </li>
                                <!-- <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>-->
@@ -590,11 +590,11 @@
                                     <a href="${documentslist}"><spring:message code="home.document" /></a>
                                 </li>
                                 <li>
-                                    <c:url var="expertslist" value="/lists/expertslist?keyword=${searchfield}"></c:url>
+                                    <c:url var="expertslist" value="/results/expertslist?keyword=${searchfield}"></c:url>
                                     <a href="${expertslist}"><spring:message code="menu.experts" /></a>
                                 </li>
                                 <li> 
-                                    <c:url var="discussionslist" value="/lists/discussionslist?keyword=${searchfield}"></c:url>
+                                    <c:url var="discussionslist" value="/results/discussionslist?keyword=${searchfield}"></c:url>
                                     <a href="${discussionslist}"><spring:message code="text.discussion" /></a>
                                 </li>
                             </ul>
@@ -644,7 +644,7 @@
                         <div class="row">
                             <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="menu.species" /></h6></div>
                             <div class="col-sm-3">
-                                <c:url var="specieslist" value="/lists/specieslist?keyword=${searchfield}"></c:url>
+                                <c:url var="specieslist" value="/results/specieslist?keyword=${searchfield}"></c:url>
                                 <a href="${specieslist}" class="btn btn-default"><h6 style="color:grey">${countspecies} <spring:message code="text.results" /></h6></a>
                             </div>
                         </div>
@@ -685,7 +685,7 @@
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="home.header.observations" /></h6></div>
-                            <div class="col-sm-3"> <c:url var="occurrenceList" value="/lists/occurrenceList?keyword=${searchfield}"></c:url>
+                            <div class="col-sm-3"> <c:url var="occurrenceList" value="/results/occurrenceList?keyword=${searchfield}"></c:url>
                                 <a href="${occurrenceList}" class="btn btn-default"><h6 style="color:grey">${countocc} <spring:message code="text.results" /></h6></a>
                             </div>
                         </div>
@@ -712,7 +712,7 @@
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="menu.experts" /></h6></div>
-                            <div class="col-sm-3"> <c:url var="occurrenceList" value="/lists/expertslist?keyword=${searchfield}"></c:url>
+                            <div class="col-sm-3"> <c:url var="occurrenceList" value="/results/expertslist?keyword=${searchfield}"></c:url>
                                 <a href="${occurrenceList}" class="btn btn-default"><h6 style="color:grey">${countexpert} <spring:message code="text.results" /></h6></a>
                             </div>
                         </div>
@@ -772,7 +772,7 @@
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-9"><h6 style="color:grey;text-transform:uppercase;font-weight: bold;"><spring:message code="text.discussion" /></h6></div>
-                            <div class="col-sm-3"> <c:url var="discussionslist" value="/lists/discussionslist?keyword=${searchfield}"></c:url>
+                            <div class="col-sm-3"> <c:url var="discussionslist" value="/results/discussionslist?keyword=${searchfield}"></c:url>
                                 <a href="${discussionslist}" class="btn btn-default"><h6 style="color:grey">${countdiscussion} <spring:message code="text.results" /></h6></a>
                             </div>
                         </div>

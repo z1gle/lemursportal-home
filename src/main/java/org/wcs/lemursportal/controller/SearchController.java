@@ -6,7 +6,6 @@
 package org.wcs.lemursportal.controller;
 
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -52,7 +51,7 @@ public class SearchController {
     @Autowired
     private MetadataService documentService;
 
-    @RequestMapping(value = "/lists/discussionslist{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/results/discussionslist{keyword}", method = RequestMethod.GET)
     public ModelAndView discussionslist(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("/lists/discussionslist");
         List<Object[]> discussion = documentService.findDiscussion(keyword.toLowerCase());
@@ -63,7 +62,7 @@ public class SearchController {
         return model;
     }
 
-    @RequestMapping(value = "/lists/expertslist{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/results/expertslist{keyword}", method = RequestMethod.GET)
     public ModelAndView expertslist(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("/lists/expertslist");
         List<Object[]> exp = utilisateurService.findExpert(keyword.toLowerCase());
@@ -74,7 +73,7 @@ public class SearchController {
         return model;
     }
 
-    @RequestMapping(value = "/lists/occurrenceList{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/results/occurrenceList{keyword}", method = RequestMethod.GET)
     public ModelAndView occurrenceList(@RequestParam("keyword") String keyword) {
         ModelAndView model = new ModelAndView("lists/occurrenceList");
         List<Object[]> occurrence = darwinCoreService.findOccurrennce(keyword.toLowerCase());
@@ -85,7 +84,7 @@ public class SearchController {
         return model;
     }
 
-    @RequestMapping(value = "/lists/specieslist{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/results/specieslist{keyword}", method = RequestMethod.GET)
     public ModelAndView specieslist(@RequestParam("keyword") String keyword) {
         List<Object[]> tax = taxonomiService.search(keyword.toLowerCase());
         int counttax = tax.size();

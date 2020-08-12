@@ -527,16 +527,16 @@
                                 <div class="home__searchFilters">
                                     <c:url var="documentslist" value="https://www.lemursportal.org/forum/documents?search=${keyword}"></c:url>
                                     <a href="${documentslist}{{s}}"><spring:message code="home.header.documents" /></a>
-                                    <c:url var="specieslist" value="/lists/specieslist?keyword=${keyword}"></c:url>
+                                    <c:url var="specieslist" value="/results/specieslist?keyword=${keyword}"></c:url>
                                     <a href="${specieslist}{{s}}"><spring:message code="menu.species" /></a>
-                                    <c:url var="occurrenceList" value="/lists/occurrenceList?keyword=${keyword}"></c:url>
+                                    <c:url var="occurrenceList" value="/results/occurrenceList?keyword=${keyword}"></c:url>
                                     <a href="${occurrenceList}{{s}}"><spring:message code="home.header.observations" /></a>
-                                    <c:url var="expertslist" value="/lists/expertslist?keyword=${keyword}"></c:url>
+                                    <c:url var="expertslist" value="/results/expertslist?keyword=${keyword}"></c:url>
                                     <a href="${expertslist}{{s}}"><spring:message code="menu.experts" /></a> 
                                 </div>
                                 <div class="home__header__search-bar search-box">
-                                    <c:url var="resus" value="/results${keyword}"></c:url>
-                                    <form method="get" class="form" action="${resus}">
+                                    <c:url var="result" value="/results${keyword}"></c:url>
+                                    <form method="get" class="form" action="${result}">
                                         <input type="text" name="keyword" ng-model="s"/> &nbsp;
                                         <button type="submit" class="search-box__submit fa fa-search btn-default"/>
                                     </form>
@@ -983,7 +983,7 @@
                                                 </span></a>
                                         </div>
                                         <div class="">
-                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
+                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
                                             </a>
                                         </div>
@@ -1154,9 +1154,9 @@
                                         Don't let lemurs disappear from the wild on our watch.</h2>
                                     </div>
                                     <div class="donateButtons">
-                                        <button
-                                            class="ocDonateButton"
-                                            name="" type="button" data-bi-mto="">Donate</button>
+                                        <a href="#"
+                                           class="ocDonateButton"
+                                           name="" type="button" data-bi-mto="">Donate</a>
                                     </div>
                                 </div>
                             </form>
@@ -1691,7 +1691,7 @@
 
                         $(function () {
                             $.ajax({
-                                url: "https://www.lemursportal.org/forum_test/alerts?alert=1",
+                                url: "https://www.lemursportal.org/forum/alerts?alert=1",
                                 success: function (json) {
                                     if (json != null && json.length != 0) {
                                         $("ul#alert-list").show();
