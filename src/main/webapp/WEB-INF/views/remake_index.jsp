@@ -1041,9 +1041,12 @@
                                         class="fa fa-twitter fa-2x"></i></a></li>
                             <li class="animated zoomIn" data-wow-delay="0.6s"><a href="https://web.facebook.com/lemursportal"><i
                                         class="fa fa-facebook-square fa-2x"></i></a></li>
+                            <li class="animated zoomIn" data-wow-delay="0.6s"><a href="https://www.youtube.com/channel/UCNN2Zq7Ny8tGehZkcKpkjHg"><i
+                                        class="fa fa-youtube fa-2x"></i></a></li>
                             <li class="animated zoomIn" data-wow-delay="0.6s"><a href="https://www.instagram.com/lemursportal/"><i
-                                        class="fa fa-instagram fa-2x"></i></a></li
+                                        class="fa fa-instagram fa-2x"></i></a></li                                        
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -1153,7 +1156,6 @@
                                         Don't let lemurs disappear from the wild on our watch.</h2>
                                     </div>
                                     <div class="donateButtons">
-                                       
                                         <a href="#"
                                            class="ocDonateButton"
                                            name="" type="button" data-bi-mto="">Donate</a>
