@@ -972,7 +972,7 @@ src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2Oxd
                             data: formData,
                             contentType: false,
                             processData: false,
-                            url: 'https://www.lemursportal.org/forum_test/secured/document/post',
+                            url: 'https://www.lemursportal.org/forum/secured/document/post',
                             success: function (json) {
                                 $('#bibliographic_resource').val('');
                                 $('#datePublication').val('');
@@ -1093,7 +1093,7 @@ src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2Oxd
 
                     $(function () {
                         $.ajax({
-                            url: "https://www.lemursportal.org/forum_test/alerts?alert=1",
+                            url: "https://www.lemursportal.org/forum/alerts?alert=1",
                             success: function (json) {
                                 if (json != null && json.length != 0) {
                                     $("ul#alert-list").show();
@@ -1107,7 +1107,7 @@ src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2Oxd
                         });
                         $.ajax({
                             method: "POST",
-                            url: "https://www.lemursportal.org/species_test/findByespeceTaxo",
+                            url: "https://www.lemursportal.org/species/findByespeceTaxo",
                             success: function (json) {
                                 //                                                                if (json != null && json.length != 0) {
                                 //                                                                }
@@ -1139,7 +1139,7 @@ src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2Oxd
                         }
                         $.ajax({
                             method: 'POST',
-                            url: 'https://www.lemursportal.org/species_test/processExcel',
+                            url: 'https://www.lemursportal.org/species/processExcel',
                             data: formData,
                             processData: false,
                             contentType: false,

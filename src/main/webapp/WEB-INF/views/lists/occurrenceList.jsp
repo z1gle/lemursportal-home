@@ -831,7 +831,7 @@
                                 data: formData,
                                 contentType: false,
                                 processData: false,
-                                url: 'https://www.lemursportal.org/forum_test/secured/document/post',
+                                url: 'https://www.lemursportal.org/forum/secured/document/post',
                                 success: function (json) {
                                     $('#bibliographic_resource').val('');
                                     $('#datePublication').val('');
@@ -952,7 +952,7 @@
 
                         $(function () {
                             $.ajax({
-                                url: "https://www.lemursportal.org/forum_test/alerts?alert=1",
+                                url: "https://www.lemursportal.org/forum/alerts?alert=1",
                                 success: function (json) {
                                     if (json != null && json.length != 0) {
                                         $("ul#alert-list").show();
@@ -966,7 +966,7 @@
                             });
                             $.ajax({
                                 method: "POST",
-                                url: "https://www.lemursportal.org/species_test/findByespeceTaxo",
+                                url: "https://www.lemursportal.org/species/findByespeceTaxo",
                                 success: function (json) {
                                     //                                                                if (json != null && json.length != 0) {
                                     //                                                                }
@@ -998,7 +998,7 @@
                             }
                             $.ajax({
                                 method: 'POST',
-                                url: 'https://www.lemursportal.org/species_test/processExcel',
+                                url: 'https://www.lemursportal.org/species/processExcel',
                                 data: formData,
                                 processData: false,
                                 contentType: false,
