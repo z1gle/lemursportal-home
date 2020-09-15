@@ -553,6 +553,11 @@
                         <div class="row">
                             <div class="text-center white animated fadeInDown">
                                 <h2> <spring:message code="menu.number" /></h2>
+                                <div class="fb-page" 
+                                     data-href="https://www.facebook.com/facebook"
+                                     data-width="380" 
+                                     data-hide-cover="false"
+                                     data-show-facepile="false"></div>
                             </div>
                             <div class="col-md-3 animated fadeInUp">
                                 <div class="number-table text-center">
@@ -979,11 +984,11 @@
                                             <span><spring:message code="text.mobileapp" /></span>
                                         </div>
                                         <div>
-                                            <a class="btn btn-success" href="${resourcesPath}/app/lemursportalapp.apk" style="margin-top:50px;"><spring:message code="download_mobile_app" /> <span><i class=""></i>
+                                            <a class="btn btn-success" href="download/lemursportalapp.apk" style="margin-top:50px;"><spring:message code="download_mobile_app" /> <span><i class=""></i>
                                                 </span></a>
                                         </div>
                                         <div class="">
-                                            <a target="_blank" href="${resourcesPath}/app/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
+                                            <a target="_blank" href="download/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
                                             </a>
                                         </div>
