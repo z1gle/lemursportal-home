@@ -46,10 +46,6 @@
 
         <script src="https://cdn.jsdelivr.net/npm/tail.select@0.5.11/js/tail.select-full.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tail.select@0.5.11/css/tail.select-default.css">
-
-<!--link rel="stylesheet" href="${resourcesPath}/css/styles.css"-->
-
-
         <script src="${resourcesPath}/js/modernizr-2.6.2.min.js"></script>
         <style type="text/css">
             a.read-more {
@@ -68,14 +64,6 @@
     </head>
 
     <body id="body">
-
-        <!-- preloader 
-        <div id="preloader">
-            <div class="loder-box">
-                <div class="battery"></div>
-            </div>
-        </div>
-         end -->
         <!-- Navigation -->
         <header id="navigation"
                 class="navbar-inverse animated-header navbar-fixed-top">
@@ -132,10 +120,8 @@
                                         </li>
                                     </ul>
                                 </li>
-
                             </c:when>
                             <c:otherwise>
-                                <%--                         <c:url value="/signup" var="signupUrl"/> --%>
                                 <c:url value="/forum/signup" var="signupUrl"/>
                                 <li class=""><a href="${signupUrl}"><i
                                             class="fa fa-user fa-fw"></i> <spring:message code="login.signup"/></a></li>
@@ -169,7 +155,6 @@
                             class="icon-bar"></span>
                     </button>
                     <!-- /responsive nav button -->
-
                     <!-- logo -->
                     <h1 class="navbar-brand">
                         <a href="/"><img
@@ -204,8 +189,7 @@
                         <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>
                             <c:url var="graphics" value="/graphics"></c:url>
                         <li><a href="${graphics}" onclick="window.location = '${graphics}'">Graphiques</a></li>
-                        <!--<li><a href="https://www.lemursportal.org/forum/documents#tab-item-4" onclick="window.location = 'https://www.lemursportal.org/forum/documents#tab-item-4'">Galerie</a></li>-->
-                        <c:if test="${isLoggedInUser}">
+                            <c:if test="${isLoggedInUser}">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown" role="button"
@@ -223,26 +207,6 @@
                                 </ul>
                             </li>
                         </c:if>
-
-                        <!--                        <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle"
-                                                        data-toggle="dropdown" role="button"
-                                                        aria-haspopup="true" aria-expanded="false"> 
-                                                        <span>More</span>
-                                                        <i class="fa fa-caret-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li class="active">
-                                                            <a href="#">Test</a>
-                                                        </li>
-                                                        <li  id="fr">
-                                                            <a href="#">test</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>-->
-                        <!--                        <li>
-                                                    <a href="#number"><spring:message code="menu.number" /></a>
-                                                </li>-->
                     </ul>
                 </nav>
                 <!-- /main nav -->
@@ -251,10 +215,7 @@
                 <li id="alert-text"></li>
             </ul>
         </header>
-
-
         <main class="site-content" role="main"> <!-- Slider -->
-
             <section id="">
                 <style>
                     .banniere {
@@ -262,14 +223,11 @@
                         background-image: url(https://www.lemursportal.org/resources/img/slider/cinelli.jpeg);
                         margin-top: -70px;
                     }
-
                     #searchs {
                         margin-top: -50px;
                     }
                 </style>
                 <div class="banniere">
-
-
                     <div class="bg-img bg-img-5"></div>
                     <div class="slide-caption" style="min-height: 60vh; height: 60vh;">
                         <div class="caption-content">
@@ -282,95 +240,7 @@
                             </a>
                         </div>
                     </div>
-
-
                 </div>
-
-                <!--                <div id="slider" class="sl-slider-wrapper">
-                
-                                    <div class="sl-slider">
-                
-                                        <div class="sl-slide" data-orientation="horizontal"
-                                             data-slice1-rotation="3" data-slice2-rotation="3"
-                                             data-slice1-scale="2" data-slice2-scale="2">
-                
-                                            <div class="bg-img bg-img-3"></div>
-                                            <div class="slide-caption">
-                                                <div class="caption-content">
-                                                    <h2><spring:message code="slider.lemursportal" /></h2>
-                                                    <span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
-                                                                                                                      class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-                                                </div>
-                                            </div>
-                
-                                        </div>
-                
-                                        <div class="sl-slide" data-orientation="horizontal"
-                                             data-slice1-rotation="-25" data-slice2-rotation="-25"
-                                             data-slice1-scale="3" data-slice2-scale="3">
-                
-                                            <div class="bg-img bg-img-1"></div>
-                
-                                            <div class="slide-caption">
-                                                <div class="caption-content">
-                                                    <h2><spring:message code="slider.lemursportal" /></h2>
-                                                    <span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
-                                                                                                                      class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-                                                </div>
-                                            </div>
-                
-                                        </div>
-                
-                                        <div class="sl-slide" data-orientation="vertical"
-                                             data-slice1-rotation="10" data-slice2-rotation="-15"
-                                             data-slice1-scale="1.5" data-slice2-scale="1.5">
-                
-                                            <div class="bg-img bg-img-2"></div>
-                                            <div class="slide-caption">
-                                                <div class="caption-content">
-                                                    <h2><spring:message code="slider.savelemurs" /></h2>
-                                                    <span><spring:message code="slider.savelemurs.txt" /></span> 
-                                                    <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-                                                </div>
-                                            </div>
-                
-                                        </div>
-                
-                                        <div class="sl-slide" data-orientation="vertical"
-                                             data-slice1-rotation="-14" data-slice2-rotation="-20"
-                                             data-slice1-scale="-1.2" data-slice2-scale="3">
-                
-                                            <div class="bg-img bg-img-4"></div>
-                                            <div class="slide-caption">
-                                                <div class="caption-content">
-                                                    <h2><spring:message code="slider.vision" /></h2>
-                                                    <span><spring:message code="slider.vision.txt" /></span> 
-                                                    <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-                                                </div>
-                                            </div>
-                
-                                        </div>
-                
-                                    </div>
-                                     /sl-slider 
-                
-                                    <nav id="nav-arrows"
-                                         class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
-                                        <a href="javascript:;" class="sl-prev"> <i
-                                                class="fa fa-angle-left fa-3x"></i>
-                                        </a> <a href="javascript:;" class="sl-next"> <i
-                                                class="fa fa-angle-right fa-3x"></i>
-                                        </a>
-                                    </nav>
-                
-                
-                                    <nav id="nav-dots"
-                                         class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
-                                        <span class="nav-dot-current"></span> <span></span> <span></span> <span></span>
-                                    </nav>
-                
-                                </div>-->
-                <!-- /slider-wrapper -->
             </section>
             <style>
                 .home__searchFilters a {
@@ -595,46 +465,6 @@
                     </div>
                 </div>
                 <!-- end --> 
-                <!--            <div class="row text-center pad-top-20" style="background: #f8f8f8;padding: 25px 0;">
-                                <div class="sec-title text-center animated fadeInDown" style="margin-bottom: 0px !important">
-                                    <style type="text/css" media="screen">
-                                        .inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
-                                        .inat-widget-header {margin-bottom: 10px;}
-                                        .inat-widget td {vertical-align: top; padding-bottom: 10px;}
-                                        .inat-label { color: #888; }
-                                        .inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
-                                        .inat-observation-body, .inat-user-body { padding-left: 10px; }
-                                        .inat-observation-image {text-align: center;}
-                                        .inat-observation-image, .inat-user-image { width: 48px; display: inline-block; }
-                                        .inat-observation-image img, .inat-user-image img { max-width: 48px; }
-                                        .inat-observation-image img { vertical-align: middle; }
-                                        .inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 3px 3px 0; height:48px;}
-                                        .inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; }
-                                        .inat-user-body {vertical-align: middle;}
-                                        .inat-widget td.inat-user-body {vertical-align: middle;}
-                                        .inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
-                                    </style>
-                                    <div class="inat-widget">
-                                        <div class="inat-widget-header">
-                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
-                                                    alt="iNaturalist.org"
-                                                    src="https://www.inaturalist.org/assets/logo-small-27dadf5468502c764c7a2cf8e30617d3.png" /></a>
-                                        </div>
-                                        <script type="text/javascript" charset="utf-8"
-                                        src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
-                                        <span>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
-                <spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
-            </a></span>
-                                        <h2 class="animated bounceInLeft"></h2> 
-         table class="inat-footer">
-                <tr class="inat-user">
-                        <td class="inat-value">&nbsp;</td>
-                </tr>
-        </table
-    </div>
-    </div>
-    </div>-->
                 <style>
                     .resized-img {
                         width: unset;
@@ -676,131 +506,10 @@
                         max-height: 150px;
                     }
                 </style>
-                <!--div class="row text-center pad-top-20">
-                                  <div class="sec-title text-center animated fadeInDown">
-                                        <a href="#" target="_blank" class=""><img src="img/googleplay.png"></a>
-                                  </div>
-                                </div--> <!-- species section -->
+                <!-- species section -->
                 <section id="species" style="padding: 20px 0; border-top: solid; 
                          border-width: 1px; border-color: lightgrey; margin-top: 25px;
                          background-color: #d3d3d314;">
-                    <!--<div class="container">-->
-                    <!--                <div class="row">
-                    
-                                                                <div class="sec-title text-center animated fadeInDown">
-                                                                    <h2><spring:message code="menu.species" /></h2>
-                                                                    <p></p>
-                                                                </div>
-                    
-                    
-                                        <ul class="project-wrapper animated fadeInUp">
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item.jpg" class="img-responsive resized-img"
-                                                    alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Varecia variegata subcincta</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox"
-                                                       title="<i>Varecia variegata subcincta</i>"
-                                                       data-fancybox-group="works"
-                                                       href="${resourcesPath}/img/species/item.jpg"><i
-                                                            class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=110"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                    
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item2.jpg"
-                                                    class="img-responsive resized-img" alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Hapalemur alaotrensis</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox" title="<i>Hapalemur alaotrensis</i>"
-                                                       href="${resourcesPath}/img/species/item2.jpg"
-                                                       data-fancybox-group="works"><i class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=33"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                    
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item3.jpg"
-                                                    class="img-responsive resized-img" alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Propithecus diadema</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox" title="<i>Propithecus diadema</i>"
-                                                       data-fancybox-group="works" href="${resourcesPath}/img/species/item3.jpg"><i
-                                                            class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=103"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                    
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item4.jpg"
-                                                    class="img-responsive resized-img" alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Propithecus candidus</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox" title="<i>Propithecus candidus</i>"
-                                                       data-fancybox-group="works" href="${resourcesPath}/img/species/item4.jpg"><i
-                                                            class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=99"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                    
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item5.jpg"
-                                                    class="img-responsive resized-img" alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Daubentonia madagascariensis</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox"
-                                                       title="<i>Daubentonia madagascariensis</i>"
-                                                       data-fancybox-group="works" href="${resourcesPath}/img/species/item5.jpg"><i
-                                                            class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=20"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                    
-                                            <li class="species-item"><img
-                                                    src="${resourcesPath}/img/species/item6.jpg"
-                                                    class="img-responsive resized-img" alt="--">
-                                            <figcaption class="mask">
-                                                <h3>
-                                                    <i>Indri indri</i>
-                                                </h3>
-                                                <p>--</p>
-                                            </figcaption>
-                                            <ul class="external">
-                                                <li><a class="fancybox" title="<i>Indri indri</i>"
-                                                       data-fancybox-group="works" href="${resourcesPath}/img/species/item6.jpg"><i
-                                                            class="fa fa-search"></i></a></li>
-                                                <li><a href="species/getDetailTaxo?id=40"><i
-                                                            class="fa fa-link"></i></a></li>
-                                            </ul></li>
-                                        </ul>
-                    
-                                    </div>-->
                     <style>
                         .new-a {
                             color: gray;
@@ -845,37 +554,10 @@
                                         </div>
                                     </div>
                                 </a>
-                                <!--                            <div class="row new-second">
-                                                                <div class="col-sm-8">
-                                                                    <img src="${resourcesPath}/img/species/item2.jpg" alt="--">
-                                                                </div>
-                                                                <div class="col-sm-4">
-                                                                    <h4>Titre d'un new ou article etc ...</h4>
-                                                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
-                                                                </div>
-                                                            </div>-->
                             </div>
                         </div>
                     </div>
-                    <!--</div>-->
                 </section>
-
-                <!--                <section id="experts" class="parallax">
-                                    <div class="overlay">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img class="resized-img" src="https://www.lemursportal.org/forum/resources/profil/default.png" alt="Experts"></a>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <span>${experts[0].nom} ${experts[0].prenom}</span>
-                                                    <div class="show-read-more">${experts[0].biographie}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>-->
-
                 <!-- end --> 
                 <!-- experts section -->
                 <section id="experts" class="parallax">
@@ -992,6 +674,13 @@
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
                                             </a>
                                         </div>
+                                        <div class="">
+                                            <c:url value="/zip" var="zi">
+                                            </c:url>
+                                            <a target="_blank" href="${zi}" style="margin-top:100px;">
+                                                <h4 style="font-size:12px;color:#A18029;">zip</span></h4>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1012,25 +701,6 @@
             </div>
         </section
         <!--Fin inaturalist section-->
-        <!--How to section-->
-        <!--            <section id="">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 animated fadeInUp">
-                                    <h3>How to upload observations</h3>
-                                    <span style="font-weight: 100;">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </span>
-                                </div>
-                                <div class="col-md-6 animated fadeInUp" data-wow-delay="0.4s">
-                                    <iframe style="height: 20vh; width: 100%;"
-                                            src="https://www.youtube.com/embed/Hdi7OqUlEt8">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-        <!--Fin how to section-->
         <!-- Social section -->
         <section id="social" class="parallax">
             <div class="overlay">
@@ -1146,7 +816,6 @@
 
             <div id="map-canvas" class="animated fadeInUp"></div>
         </section>
-
     </main>
     <div id="supWrapperToPreventFeedbackFlickering">
         <section id="supDonateWrapper">
@@ -1161,7 +830,8 @@
                                         Don't let lemurs disappear from the wild on our watch.</h2>
                                     </div>
                                     <div class="donateButtons">
-                                        <a href="#"
+                                        <c:url value="/donate" var="donate" />
+                                        <a href="${donate}"
                                            class="ocDonateButton"
                                            name="" type="button" data-bi-mto="">Donate</a>
                                     </div>
@@ -1174,7 +844,6 @@
                         </div>
                     </section>
                 </div>
-
                 <a href="javascript:removeStickyDonate();" id="supDisableStickyFeedbackButton" class="">×</a>
             </div>
         </section>
@@ -1182,35 +851,11 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-
-                <!-- 				<div class="col-md-1 animated" align="center" id="lg-footer"> -->
-                <%-- 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt=""> --%>
-                <!-- 				</div> -->
-
-                <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-                <!-- 					<ul style="padding-left: 20px;"> -->
-                <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li> -->
-                <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li> -->
-                <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li> -->
-                <!-- 					</ul> -->
-                <!-- 				</div> -->
-
-                <!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-                <!-- 					<ul style="padding-left: 20px;"> -->
-                <!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li> -->
-                <!-- 						<li class="animated zoomIn"><a href="#">Help</a></li> -->
-                <!-- 						li class="animated zoomIn"><a href="#">Mentions légales</a></li -->
-                <!-- 						<li class="animated zoomIn"><a href="#contact">Contact</a></li> -->
-                <!-- 					</ul> -->
-                <!-- 				</div> -->
-
                 <div class="col-md-5">
                     <div class="row">
-
                         <div class="col-xs-3 animated fadeInUp" data-wow-delay="0.4s">
                             <img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="height: 78px; margin-left: 15px;" alt="">
                         </div>
-
                         <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
                             <ul style="padding-left: 20px;">
                                 <!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
@@ -1233,7 +878,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
                     <div class="row" style="padding-left: 15px !important;">
                         <div class="col-xs-2">
@@ -1273,7 +917,6 @@
                 </div>
             </div>
     </footer>
-
     <style>
         .tail-select {
             width: 100%!important;
@@ -1370,8 +1013,6 @@
                             <spring:message code="metadata.subject"/>
                             <input title="<spring:message code="metadata.popup.bubble.subject"/>" placeholder="ex: Mouse lemur Species | Bayesian Methods" type="text" class="form-control" id="subject">
                         </div>                        
-                        <!--<div class="autocomplete" style="width: 100%;">-->
-                        <%--<spring:message code="metadata.format"/>--%>
                         <input title="<spring:message code="metadata.popup.bubble.format"/>" placeholder="ex: text" type="hidden" class="form-control" id="format">
                         <!--</div>-->
                         <div class="autocomplete" style="width: 100%;">
@@ -1409,29 +1050,6 @@
             </div>
         </div>                        
     </div>
-    <!--        <div id="modal-upload-darwincore" class="modal edit-profil-form">
-                <div class="modal-dialog">
-                     Modal content
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title"><spring:message code="document.add_document.title"/></h4>
-                        </div>
-                        <form action="javascript:sendAddDocument();" autocomplete="off">
-                            <div class="modal-body" style="overflow-y: auto;max-height:  500px;">
-                                                            
-                            </div>
-                            <div class="modal-footer">
-                                <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.cancel"/></button>
-                                <input type="submit" style="float: right;" class="btn btn-default" value="<spring:message code="global.btn.save"/>">
-                                <button style="float: right;" type="submit" class="btn btn-default" data-dismiss="modal"><spring:message code="global.btn.save"/></button>
-                                <div id="delete"></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>                        
-            </div>-->
-
     <div id='modal-upload_spinner' class='modal fade' role='dialog' style='display:none !important' tabindex="-1">
         <div class='modal-dialog'>
             <div class='modal-content'>
@@ -1471,7 +1089,6 @@
             </div>
         </div>
     </div>
-
     <div id='modal-upload-darwincore' class='modal'>
         <div class='modal-dialog'>
             <div class='modal-content'>
@@ -1492,12 +1109,7 @@
                                 File path
                             </span>
                         </label>
-                        <input type="file" class="form-control" name="excelfile" ng-model="file" id="csv-xl">
-                        <!--                            <label for="filename" class="hide">
-                                                        uploaded file
-                                                    </label>
-                                                    <input type="text" id="filename" autocomplete="off" readonly placeholder="no file uploaded">  <br>-->
-                        <!--<input id="publique" type="checkbox" value="1"> publique --> <br>
+                        <input type="file" class="form-control" name="excelfile" ng-model="file" id="csv-xl"> <br>
                         <div class="">
                             <input id="publique-modal" type="checkbox" value="1">
                             <label for="publique-modal"><spring:message code="checkbox.public"/></label>
@@ -1518,31 +1130,21 @@
     <script src="${resourcesPath}/js/bootstrap.min.js"></script>
 
     <script src="${resourcesPath}/js/jquery.singlePageNav.min.js"></script>
-
     <script src="${resourcesPath}/js/jquery.fancybox.pack.js"></script>
-
     <script
-    src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2OxdbCcY&callback=initMap"></script>
-
+    src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2OxdbCcY&callback"></script>
     <script src="${resourcesPath}/js/owl.carousel.min.js"></script>
-
     <script src="${resourcesPath}/js/jquery.easing.min.js"></script>
-
     <script src="${resourcesPath}/js/jquery.slitslider.js"></script>
-
     <script>
                         $(function () {
                             $('.sl-content-wrapper').css('height', '350px!important');
                         });
     </script>
-
     <script src="${resourcesPath}/js/jquery.ba-cond.min.js"></script>
-
     <script src="${resourcesPath}/js/wow.min.js"></script>
-
     <script src="${resourcesPath}/js/main.js"></script>
     <script src="${resourcesPath}/js/jquery.li-scroller.1.0.js"></script>
-
     <script type="text/javascript">
                         function sendAddDocument() {
                             var formData = new FormData();
