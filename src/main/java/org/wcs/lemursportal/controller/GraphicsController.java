@@ -40,7 +40,7 @@ public class GraphicsController {
         List<Object[]> speciesGpByFamilylist = taxonomiService.getCountSpeciesGpByFamily();
         List<Object[]> speciesGpByGenus = taxonomiService.getCountSpeciesGpByGenus();
         List<Object[]> speciesGpBytopics = taxonomiService.getSpeciesByTopics();
-        List<DarwinCore> occurrencePerYearlist = darwinCoreService.getOccperYear();
+        List<Object[]> occurrencePerYearlist = darwinCoreService.getOccperYear();
         List<Object[]> metadatabySpecies = metadataService.getDocbySpecies();
         List<Object[]> metadatabyYear = metadataService.getDocbyPublicationYear();
         List<Object[]> metadatabyBL = metadataService.getDocbyBibliographicLevel();

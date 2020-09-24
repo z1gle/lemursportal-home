@@ -20,11 +20,11 @@ public interface DarwinCoreRepository extends
     @Query("select count(*) from DarwinCore")
     long getCount();
 
-    @Query("select dwcyear, count(iddwc),count(reviewed) as reviewed\n"
-            + " from DarwinCore\n"
-            + " where reviewed='t' and dwcyear is not null  and dwcyear is not null  and dwcyear not like '-' or\n"
-            + " dwcyear is not null  and dwcyear not like '-' group by dwcyear order by dwcyear")
-    public List<DarwinCore> getOccperYear();
+     @Query(value = "select distinct(d.dwcyear), count(d.iddwc)as tous,(SELECT count(v.iddwc)as reviewed\n"
+            + " FROM vue_validation_darwin_core v\n"
+            + " WHERE v.validationexpert=1 and v.dwcyear=d.dwcyear) AS reviewed\n"
+            + "from vue_validation_darwin_core d where d.dwcyear not like '-' or d.dwcyear not like '-' group by d.dwcyear order by d.dwcyear", nativeQuery = true)
+    public List<Object[]> getOccperYear();
 
      @Query(value = "Select distinct(d.scientificname),\n"
             + "(select count(ts.iddwc) from vue_validation_darwin_core ts where ts.scientificname=d.scientificname ) as tous,\n"

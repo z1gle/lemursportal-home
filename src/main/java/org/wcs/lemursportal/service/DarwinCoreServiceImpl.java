@@ -35,7 +35,7 @@ public class DarwinCoreServiceImpl implements DarwinCoreService {
     }
 
     @Override
-    public List<DarwinCore> getOccperYear() {
+    public List<Object[]> getOccperYear() {
         return dao.getOccperYear();
     }
 
