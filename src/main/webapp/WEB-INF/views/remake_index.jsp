@@ -215,7 +215,7 @@
                 <li id="alert-text"></li>
             </ul>
         </header>
-        <main class="site-content" role="main"> <!-- Slider -->
+        <main class="site-content" role="main" id="main"> <!-- Slider -->
             <section id="">
                 <style>
                     .banniere {
@@ -672,13 +672,6 @@
                                         <div class="">
                                             <a target="_blank" href="download/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
-                                            </a>
-                                        </div>
-                                        <div class="">
-                                            <c:url value="/zip" var="zi">
-                                            </c:url>
-                                            <a target="_blank" href="${zi}" style="margin-top:100px;">
-                                                <h4 style="font-size:12px;color:#A18029;">zip</span></h4>
                                             </a>
                                         </div>
                                     </div>
