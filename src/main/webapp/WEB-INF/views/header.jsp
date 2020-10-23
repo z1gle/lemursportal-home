@@ -147,14 +147,14 @@
                             Forum <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="https://www.lemursportal.org/forum" onclick="window.location = 'https://www.lemursportal.org/forum'">Publier</a></li>
+                            <li><a href="https://www.lemursportal.org/forum" onclick="window.location = 'https://www.lemursportal.org/forum'"><spring:message code="text.post" /></a></li>
                             <li class="divider"></li>
                             <li><a href="https://www.lemursportal.org/forum/documents" onclick="window.location = 'https://www.lemursportal.org/forum/documents'"><spring:message code="home.document" /></a></li>
                             <li class="divider"></li>
                             <li>
                                 <a href="https://www.lemursportal.org/forum/experts"  onclick="window.location = 'https://www.lemursportal.org/forum/experts'"><spring:message code="menu.experts" /></a></li>
                             <li class="divider"></li>
-                            <li><a href="https://www.lemursportal.org/forum/formation/" onclick="window.location = 'https://www.lemursportal.org/forum/formation/'">Opportunités</a></li>
+                            <li><a href="https://www.lemursportal.org/forum/formation/" onclick="window.location = 'https://www.lemursportal.org/forum/formation/'"><spring:message code="text.opportunities" /></a></li>
                         </ul>
                     </li>
                     <li><a href="https://www.lemursportal.org/species/taxonomi" onclick="window.location = 'https://www.lemursportal.org/species/taxonomi'"><spring:message code="menu.species" /></a></li>

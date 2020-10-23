@@ -9,7 +9,7 @@
                     <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
                         <ul style="padding-left: 20px;">
                             <li class="animated zoomIn"><a
-                                    href="https://www.lemursportal.org/forum/">Post</a></li>
+                                    href="https://www.lemursportal.org/forum/"><spring:message code="text.post" /></a></li>
                             <li class="animated zoomIn"><a
                                     href="https://www.lemursportal.org/forum/documents"><spring:message code="home.document" /></a></li>
                             <li class="animated zoomIn"><a
@@ -19,10 +19,10 @@
                     <div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
                         <ul style="padding-left: 20px;">
                             <li class="animated zoomIn"><a
-                                    href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
-                            <li class="animated zoomIn"><a href="#">Help</a></li>
+                                    href="https://www.lemursportal.org/forum/formation/"><spring:message code="text.opportunities" /></a></li>
+                            <li class="animated zoomIn"><a href="#"><spring:message code="text.help" /></a></li>
                             <!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
-                            <li class="animated zoomIn"><a href="#contact">Contact</a></li>
+                            <li class="animated zoomIn"><a href="#contact"><spring:message code="menu.contact" /></a></li>
                         </ul>
                     </div>
                 </div>
