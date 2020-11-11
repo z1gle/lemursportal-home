@@ -51,12 +51,10 @@
             a.read-more {
                 color: black /*#74ac00*/;
             }
-
             a.read-more:hover {
                 text-decoration: underline;
                 color: #000;
             }
-
             .show-read-more .more-text, .home-bio p .more-text {
                 display: none;
             }
@@ -291,20 +289,17 @@
                     color: #fff;
                     position: relative;
                 }
-
                 .noUnderline, .noUnderline:focus, .noUnderline:hover, a.inherit.noUnderline, a.inherit.noUnderline:focus, a.inherit.noUnderline:hover {
                     text-decoration: none;
                 }
                 .home .search-box {
                     max-width: 700px;
                 }
-
                 button, input, select, textarea {
                     font-family: inherit;
                     font-size: inherit;
                     line-height: inherit;
                 }
-
                 button, input {
                     color: inherit;
                     font: inherit;
@@ -489,16 +484,13 @@
                         border-radius: 5px;
                         border-color: #d3d3d34f;
                     }
-
                     .service-desc {
                         color: #818181 !important; 
                         display: none;
                     }
-
                     /*                .service-desc:hover {
                                         display: block;
                                     }*/
-
                     .new-second {
                         height: 22vh; 
                         overflow: hidden;
@@ -681,7 +673,7 @@
                                     <div id="mobileapp-img">
                                         <div id="">                                       
                                             <span>
-                                                <img src="${resourcesPath}/img/icons/icon_apk2.png" alt="<spring:message code="home.pageTitle" />" style="width:400px;height: 300px;"/>
+                                                <img src="${resourcesPath}/img/icons/icon_apk2.png" alt="<spring:message code="home.pageTitle" />" style="max-width:300px;max-height: 300px;"/>
                                             </span>
                                         </div>
                                     </div>
