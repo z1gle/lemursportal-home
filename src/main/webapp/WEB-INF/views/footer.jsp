@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <footer id="footer">
     <div class="container">
         <div class="row">
@@ -62,7 +63,7 @@
     <div style="background: #2E2E2E; margin-top: 35px">
         <div class="row text-center">
             <div class="footer-content">
-                <p>Copyright &copy; - Lemurs Portal 2019</p>
+                <p>Copyright &copy; - Lemurs Portal ${lbyear}</p>
             </div>
         </div>
 </footer>
@@ -71,6 +72,34 @@
         width: 100%!important;
     }
 </style>
+<div id='actu_form' class='modal' >
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class="modal-header" style="background-color:#d8b03f">
+                <button data-dismiss='modal' class='close' type='button'>x</button>
+                <h4 class="modal-title"><center><spring:message code="text_nouveau_actualite" /></center></h4>
+            </div>
+            <div class='modal-body row'>      
+                <form method="post" action="upload" class="col-md-offset-1 col-md-11" enctype="multipart/form-data" modelAttribut="Actualite">
+                    <label for="Titre"><spring:message code="text.titre" /></label>
+                    <input type="text" class="form-control" name="title"> <br>
+                    <label for="commentaire"><spring:message code="text.commentaire" /></label>
+                    <Textarea class="form-control" id="commentaire" name="commentaire" /></Textarea><br>
+                    </label>
+                    <label for="image"><spring:message code="text.cheminFichier" /></label> 
+                    <input id="file-id" class="form-control" type="file" name="file" /> <br/>
+                    <label for="url_source"><spring:message code="text_url_source" /></label>
+                    <input id="file-id" class="form-control" type="text" name="url_source" /> <br/>
+            </div>
+            <div class='modal-footer'>                        
+                <input id="submit" type="submit" class="btn btn-success" tabindex="5" value="Upload">
+                <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><spring:message code="global.btn.cancel"/></button>                    
+            </div> 
+             </form>
+        </div>
+    </div>
+</div>   
+
 <div id="modal-ajout-document" class="modal edit-profil-form">
     <div class="modal-dialog">
         <!-- Modal content-->

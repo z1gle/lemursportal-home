@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page contentType="text/html;charset=UTF-8" language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
 <c:url value="/resources" var="resourcesPath" />
 <c:url value="/" var="path" />
@@ -187,7 +187,7 @@
                         <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>
                             <c:url var="graphics" value="/graphics"></c:url>
                         <li><a href="${graphics}" onclick="window.location = '${graphics}'">Graphiques</a></li>
-                            <c:if test="${isLoggedInUser}">
+                        <c:if test="${isLoggedInUser}">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown" role="button"
@@ -204,6 +204,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <sec:autorize access="hasRole('ADMIN')">
+                                <li><a data-toggle="modal" href="#actu_form" class="btn btnprimary"><spring:message code="text.actualite" /></a></li>
+                            </sec:autorize>
                         </c:if>
                     </ul>
                 </nav>
@@ -497,70 +500,201 @@
                         margin-top: 5px;
                         max-height: 150px;
                     }
+                    *{
+                        box-sizing: border-box;
+                    }
+
+                    img {
+                        vertical-align: middle;
+                    }
+
+                    /* Position the image container (needed to position the left and right arrows) */
+                    .container {
+                        position: relative;
+                    }
+
+                    /* Hide the images by default */
+                    .mySlides {
+                        display: none;
+                    }
+
+                    /* Add a pointer when hovering over the thumbnail images */
+                    .cursor {
+                        cursor: pointer;
+                    }
+
+                    /* Next & previous buttons */
+                    .prev,
+                    .next {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 40%;
+                        width: auto;
+                        padding: 16px;
+                        margin-top: -50px;
+                        color: Black;
+                        font-weight: bold;
+                        font-size: 20px;
+                        border-radius: 0 3px 3px 0;
+                        user-select: none;
+                        -webkit-user-select: none;
+                    }
+
+                    /* Position the "next button" to the right */
+                    .next {
+                        right: 0;
+                        border-radius: 3px 0 0 3px;
+                    }
+
+                    /* On hover, add a black background color with a little bit see-through */
+                    .prev:hover,
+                    .next:hover {
+                        background-color: rgba(0, 0, 0, 0.8);
+                    }
+
+                    /* Number text (1/3 etc) */
+                    .numbertext {
+                        color: #f2f2f2;
+                        font-size: 12px;
+                        padding: 8px 12px;
+                        position: absolute;
+                        top: 0;
+                    }
+
+                    /* Container for image text */
+                    .caption-container {
+                        text-align: center;
+                        background-color: #222;
+                        padding: 2px 16px;
+                        color: white;
+                    }
+
+                    .row:after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+
+                    /* Six columns side by side */
+                    .column {
+                        float: left;
+                        width: 16.66%;
+                    }
+                    .active{
+                        opacity: 1;
+                    }
+                    .actu-sidebar {
+                        padding: 0px;
+                        background: #f7f5f5 none repeat scroll 0 0;
+                        border: 0px solid #d7d7d7;
+                        margin: 20px 20px;
+                        background-color: #fff;
+                        border-radius: 2px;
+                        box-shadow: 0 1px 3px #9e9e9e;
+                        display: inline-block;
+                        flex-grow: 1;
+                        position: relative;
+                        overflow: hidden;
+                        vertical-align: top;
+                        padding: 20px 20px 20px 20px;
+                    }
+                    h6{
+                    text-align: justify;
+                    line-height: 30px;
+                }
                 </style>
-                <!-- species section -->
-                <section id="species" style="padding: 20px 0; border-top: solid; 
-                         border-width: 1px; border-color: lightgrey; margin-top: 25px;
-                         background-color: #d3d3d314;">
-                    <style>
-                        .new-a {
-                            color: gray;
-                        }
-                        .new-a:hover {
-                            color: #A18029;
-                        }
-                    </style>
-                    <div class="container">
-                        <div class="row" style="height: 45vh; overflow: hidden; max-height: 300px;">
-                            <div class="col-sm-8">
-                                <a class="new-a" href="https://doi.org/10.1371/journal.pone.0216593">
-                                    <div class="col-sm-7 col-md-7 col-lg-7">
-                                        <img src="https://journals.plos.org/plosone/article/figure/image?size=inline&id=info:doi/10.1371/journal.pone.0216593.g001" alt="--">
-                                    </div>
-                                    <div class="col-sm-5 col-md-5 col-lg-5">
-                                        <h3 style="margin-top: 0px;">A national survey of household pet lemur ownership in Madagascar</h3>
-                                        <span>Primates are extracted from the wild for the pet trade across the world. In Madagascar, lemurs are kept as illegal pets and an understanding of lemur pet ownership at the national level is lacking. In 2013 and 2016, we undertook a national survey in 11 of Madagascar’s 22 administrative regions (n = 28 towns) with 1,709 households. To our knowledge, this is the first national survey of the household ownership of pet primates in a country where they are endemic. In the 1.5 years prior to being surveyed, 8% ± 4% (towns as replicates) of respondents had seen a captive lemur while a further 0.7% ± 0.5% of respondents had owned one personally. We estimate that 33,428 ± 24,846 lemurs were kept in Malagasy households in the six months prior to our survey efforts, with 18,462 ± 12,963 of these pet lemurs estimated in urban household alone. Rates of lemur ownership did not differ by province but increased with the human population of a town and with the popularity of the town on Flickr (a proxy indicator for tourism). We found that the visibility of pet lemur ownership did not differ across the country, but it did increase with the size of the town and popularity with tourists. Areas with visible pet lemurs were not always the areas with the highest rates of pet lemur ownership, highlighting that many pet lemurs are hidden from the general public. Our study highlights the need for conservation programs to consider both the proportion of inhabitants that own pet lemurs and the total number of lemurs that are potentially being kept as pets in those towns. We close by noting that for some species, even just a small amount of localized live extraction for pet ownership could be enough to cause localized population extinctions over time. Moreover, an urgent response is needed to combat a recent and alarming rise in illegal exploitation of biodiversity across Madagascar.</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <a class="new-a" href="https://www.rtl.fr/actu/debats-societe/madagascar-les-lemuriens-en-danger-7797625070?fbclid=IwAR0LwwlAIk7Qd_VdV8wZvUMvB_bt8N9irY57MWOd0xzLytvd4qwVnJZuLj8">
-                                    <div class="row new-second">
-                                        <div class="col-sm-6 col-md-8">
-                                            <img src="https://cdn-media.rtl.fr/online/image/2019/0514/7797628415_les-lemuriens-de-madagascar-en-danger.jpg" alt="--">
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <h4>Madagascar : les lémuriens en danger</h4>
-                                            <span>D'après l'ONU près d'1 million d'espèces seraient menacées d'extinction. À Madagascar, ce sont les lémuriens qui sont en première ligne.</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="new-a" href="https://www.bbc.com/news/science-environment-48113501?fbclid=IwAR1ySxtvFP5lzcU3fMGPsBUMANbRlZ6I7b92dvI_HJpNipV0uCoJ4NQeUYY">
-                                    <div class="row new-second">
-                                        <div class="col-sm-8">
-                                            <img src="https://ichef.bbci.co.uk/news/1024/branded_news/4B18/production/_106742291_mediaitem106742290.jpg" alt="--">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <h4>Biodiversity heroes: The teenagers saving Madagascar's wildlife</h4>
-                                            <span>The island nation of Madagascar has a dubious accolade: it is the world-leader in deforestation. Now, some of the island's teenagers have started a farming revolution - working to stop food production from destroying the island's rich rainforest.</span>
-                                        </div>
-                                    </div>
-                                </a>
+                <section id="actualite">
+                    <div class="container" >
+                        <div class="block">
+                            <div class="block">
+                                <div class="block-heading">
+                                    <h2><spring:message code="text.actualite" /></h2>
+                                </div>
                             </div>
                         </div>
+                        <c:forEach items="${listeactu}" var="a">
+                            <div class="mySlides">
+                                <div class="row">
+                                    <a class="new-a" href="${a.urlSourceActu}">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <center><img src="http://localhost:8080/lemursPortal-root/${a.urlPhoto}" style="height: 250px; width: 250px; 
+                                                         margin: 0px 50px 10px 50px;"></center>
+                                        </div>
+                                        <div class="col-sm-5 col-md-5 col-lg-5">
+                                            <h4 style="margin-top: 0px;">${a.titreActu}</h4></br>
+                                            <h6 class="comment">${a.commentaireActu}</h6></br>
+                                            <span>le: ${a.dateActu}</span>
+                                        </div>  
+                                    </a>
+                                    <div class="col-sm-1 col-md-1 col-lg-1">
+                                        <c:if test="${isLoggedInUser}">
+                                            <sec:autorize access="hasRole('ADMIN')">
+                                                <div><a data-toggle="modal" href="#actu_inform" class="btn btn-default"><span class="fa fa-close" style="color:red;"></span></a></div>
+                                                <div id='actu_inform' class='modal' >
+                                                    <div class='modal-dialog'>
+                                                        <div class='modal-content'>
+                                                            <div class="modal-header" style="background-color:#d8b03f">
+                                                                <button data-dismiss='modal' class='close' type='button'>x</button>
+                                                                <h4 class="modal-title"><center><spring:message code="text.inform" /></center></h4>
+                                                            </div>
+                                                            <div class='modal-body row'>      
+                                                                <h6 class="modal-title"><center><span class="fa fa-warning" style="color:#d8b03f;"></span><spring:message code="text.info" /></center></h6>
+                                                            </div>
+                                                            <div class='modal-footer'>
+                                                                <c:url value="/delete?id=${a.idActu}" var="del"></c:url>
+                                                                <a href="${del}" class="btn btn-success"><spring:message code="text.yes" /></a>
+                                                                <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><spring:message code="text.no" /></button>                    
+                                                            </div> 
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                            </sec:autorize>
+                                        </c:if>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </c:forEach>
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
                     </div>
+                    <script>
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+
+                        function showSlides(n) {
+                            var i;
+                            var slides = document.getElementsByClassName("mySlides");
+                            if (n > slides.length) {
+                                slideIndex = 1
+                            }
+                            if (n < 1) {
+                                slideIndex = slides.length
+                            }
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            slides[slideIndex - 1].style.display = "block";
+                        }
+                    </script>
                 </section>
-                <!-- end --> 
                 <!-- experts section -->
                 <section id="experts" class="parallax">
                     <div class="overlay">
                         <div class="container">
                             <div class="row">
-
                                 <div class="sec-title text-center white animated fadeInDown">
                                     <h2><a style="color: white;" href="https://www.lemursportal.org/forum/experts/"><spring:message code="menu.experts" /></a></h2>
                                 </div>
-
                                 <div id="expert" class=" animated fadeInUp">
                                     <c:forEach var="user" items="${experts}">
                                         <div class="expert-item text-center">
@@ -663,6 +797,11 @@
                                         <div class="">
                                             <a target="_blank" href="download/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
+                                            </a>
+                                        </div>
+                                        <div class="">
+                                            <a target="_blank" href="zip" style="margin-top:100px;">
+                                                <h4 style="font-size:12px;color:#A18029;">zip</h4>
                                             </a>
                                         </div>
                                     </div>
@@ -834,18 +973,18 @@
     </div>
     <%@include file="./footer.jsp" %>
     <script type="text/javascript">
-                                            $(function () {
-                                            $.ajax({
-                                            url: "https://www.lemursportal.org/forum/alerts?alert=1",
-                                                    success: function (json) {
-                                                    if (json != null && json.length != 0) {
-                                                    $("ul#alert-list").show();
-                                                            $("ul#alert-list").liScroll(0.07, json);
-                                                    } else {
-                                                    $("ul#alert-list").hide();
-                                                    }
-                                                    }, error: function () {
-                                            $("ul#alert-list").hide();
-                                            }
-                                            });
+                        $(function () {
+                        $.ajax({
+                        url: "https://www.lemursportal.org/forum/alerts?alert=1",
+                                success: function (json) {
+                                if (json != null && json.length != 0) {
+                                $("ul#alert-list").show();
+                                        $("ul#alert-list").liScroll(0.07, json);
+                                } else {
+                                $("ul#alert-list").hide();
+                                }
+                                }, error: function () {
+                        $("ul#alert-list").hide();
+                        }
+                        });
     </script>
