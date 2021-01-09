@@ -204,6 +204,10 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li>
+                                <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
+                            </li>
                         </c:if>
                     </ul>
                 </nav>
