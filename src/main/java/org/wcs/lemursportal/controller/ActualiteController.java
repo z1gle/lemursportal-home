@@ -14,7 +14,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Date;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.wcs.lemursportal.model.Actualite;
@@ -39,7 +37,8 @@ public class ActualiteController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String save(@RequestParam CommonsMultipartFile file, @RequestParam String title,
-            @RequestParam String commentaire, @RequestParam String url_source, Utilisateur user, HttpSession session) throws Exception {
+            @RequestParam String commentaire, @RequestParam String url_source, @RequestParam int iduser, HttpSession session) throws Exception {
+        Utilisateur utilisateur = (Utilisateur) session.getAttribute("currentUser");
         Actualite actu = new Actualite();
         ServletContext context = session.getServletContext();
         String path = context.getRealPath(UPLOAD_DIRECTORY);
@@ -55,7 +54,7 @@ public class ActualiteController {
         stream.write(bytes);
         stream.flush();
         stream.close();
-        actu.setIdUser(88983);
+        actu.setIdUser(utilisateur.getId());
         actu.setTitreActu(title);
         actu.setCommentaireActu(commentaire);
         actu.setUrlPhoto(url);

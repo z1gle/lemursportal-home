@@ -95,7 +95,7 @@
                 <input id="submit" type="submit" class="btn btn-success" tabindex="5" value="Upload">
                 <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><spring:message code="global.btn.cancel"/></button>                    
             </div> 
-             </form>
+            </form>
         </div>
     </div>
 </div>   
@@ -116,8 +116,8 @@
                     <spring:message code="metadata.topics"/><sup>*</sup>
                     <select title="<spring:message code="metadata.popup.bubble.topics"/>" required multiple="" id="id_thematique" class="form-control tailed">
                             <c:forEach items="${topics}" var="topThematique">
-                            <option value="${topThematique.id}"><spring:message code="document.thematique.id.${topThematique.id}"/></option>
-                        </c:forEach>                                
+                                <option value="${topThematique.id}"><spring:message code="document.thematique.id.${topThematique.id}"/></option>
+                            </c:forEach>                                
                     </select><br>                            
                     <spring:message code="metadata.type"/><sup>*</sup>
                     <select required title="<spring:message code="metadata.popup.bubble.type"/>" class="form-control" id="type" style="width: 100%!important;">

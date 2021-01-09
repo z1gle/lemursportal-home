@@ -598,10 +598,10 @@
                         vertical-align: top;
                         padding: 20px 20px 20px 20px;
                     }
-                    h6{
-                    text-align: justify;
-                    line-height: 30px;
-                }
+                    .actu-comment{
+                        text-align: justify;
+                        line-height: 5px;
+                    }
                 </style>
                 <section id="actualite">
                     <div class="container" >
@@ -617,13 +617,15 @@
                                 <div class="row">
                                     <a class="new-a" href="${a.urlSourceActu}">
                                         <div class="col-sm-6 col-md-6 col-lg-6">
-                                            <center><img src="http://localhost:8080/lemursPortal-root/${a.urlPhoto}" style="height: 250px; width: 250px; 
+                                            <center><img src="https://www.lemursportal.org/${a.urlPhoto}" style="height: 250px; width: 250px; 
                                                          margin: 0px 50px 10px 50px;"></center>
                                         </div>
                                         <div class="col-sm-5 col-md-5 col-lg-5">
-                                            <h4 style="margin-top: 0px;">${a.titreActu}</h4></br>
-                                            <h6 class="comment">${a.commentaireActu}</h6></br>
-                                            <span>le: ${a.dateActu}</span>
+                                            <div class="actu-comment">
+                                                <h4 style="margin-top: 0px;">${a.titreActu}</h4></br>
+                                                <h6 class="comment" style="line-height:20px;">${a.commentaireActu}</h6></br>
+                                                <span>le: ${a.dateActu}</span>
+                                            </div>
                                         </div>  
                                     </a>
                                     <div class="col-sm-1 col-md-1 col-lg-1">
@@ -684,6 +686,13 @@
                                 slides[i].style.display = "none";
                             }
                             slides[slideIndex - 1].style.display = "block";
+                        }
+                        var i;
+                        var divs = document.getElementsByTagName('h6');
+                        for (i = 0; i < divs.length; i++) {
+                            if (divs[i].className == 'comment') {
+                                divs[i].innerHTML = divs[i].innerHTML.substring(0, 400)+"...";
+                            }
                         }
                     </script>
                 </section>
@@ -797,11 +806,6 @@
                                         <div class="">
                                             <a target="_blank" href="download/Manuel-d'utilisation-AP-MLP.pdf" style="margin-top:100px;">
                                                 <h4 style="font-size:12px;color:#A18029;"><spring:message code="manuel_ap_mlp" /><span><img src="${resourcesPath}/img/icons/pdf.png"/></span></h4>
-                                            </a>
-                                        </div>
-                                        <div class="">
-                                            <a target="_blank" href="zip" style="margin-top:100px;">
-                                                <h4 style="font-size:12px;color:#A18029;">zip</h4>
                                             </a>
                                         </div>
                                     </div>
