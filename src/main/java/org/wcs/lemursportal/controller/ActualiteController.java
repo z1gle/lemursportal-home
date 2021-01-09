@@ -37,7 +37,7 @@ public class ActualiteController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String save(@RequestParam CommonsMultipartFile file, @RequestParam String title,
-            @RequestParam String commentaire, @RequestParam String url_source, @RequestParam int iduser, HttpSession session) throws Exception {
+            @RequestParam String commentaire, @RequestParam String url_source,HttpSession session) throws Exception {
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("currentUser");
         Actualite actu = new Actualite();
         ServletContext context = session.getServletContext();

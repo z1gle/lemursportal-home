@@ -187,7 +187,7 @@
                         <li><a href="https://www.lemursportal.org/species/visualisation" onclick="window.location = 'https://www.lemursportal.org/species/visualisation'"><spring:message code="home.header.map" /></a></li>
                             <c:url var="graphics" value="/graphics"></c:url>
                         <li><a href="${graphics}" onclick="window.location = '${graphics}'">Graphiques</a></li>
-                        <c:if test="${isLoggedInUser}">
+                            <c:if test="${isLoggedInUser}">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown" role="button"
@@ -204,9 +204,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <sec:autorize access="hasRole('ADMIN')">
-                                <li><a data-toggle="modal" href="#actu_form" class="btn btnprimary"><spring:message code="text.actualite" /></a></li>
-                            </sec:autorize>
                         </c:if>
                     </ul>
                 </nav>
@@ -631,6 +628,9 @@
                                     <div class="col-sm-1 col-md-1 col-lg-1">
                                         <c:if test="${isLoggedInUser}">
                                             <sec:autorize access="hasRole('ADMIN')">
+                                                <div>
+                                                    <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
+                                                </div>
                                                 <div><a data-toggle="modal" href="#actu_inform" class="btn btn-default"><span class="fa fa-close" style="color:red;"></span></a></div>
                                                 <div id='actu_inform' class='modal' >
                                                     <div class='modal-dialog'>
@@ -691,7 +691,7 @@
                         var divs = document.getElementsByTagName('h6');
                         for (i = 0; i < divs.length; i++) {
                             if (divs[i].className == 'comment') {
-                                divs[i].innerHTML = divs[i].innerHTML.substring(0, 400)+"...";
+                                divs[i].innerHTML = divs[i].innerHTML.substring(0, 400) + "...";
                             }
                         }
                     </script>
