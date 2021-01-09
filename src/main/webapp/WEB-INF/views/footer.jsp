@@ -86,10 +86,10 @@
                     <label for="commentaire"><spring:message code="text.commentaire" /></label>
                     <Textarea class="form-control" id="commentaire" name="commentaire" /></Textarea><br>
                     </label>
-                    <label for="image"><spring:message code="text.cheminFichier" /></label> 
-                    <input id="file-id" class="form-control" type="file" name="file" /> <br/>
+                    <label for="file"><spring:message code="text.cheminFichier" /></label> 
+                    <input id="file" class="form-control" type="file" name="file" /> <br/>
                     <label for="url_source"><spring:message code="text_url_source" /></label>
-                    <input id="file-id" class="form-control" type="text" name="url_source" /> <br/>
+                    <input id="urlsource" class="form-control" type="text" name="url_source" /> <br/>
             </div>
             <div class='modal-footer'>                        
                 <input id="submit" type="submit" class="btn btn-success" tabindex="5" value="Upload">
