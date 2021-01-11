@@ -25,13 +25,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.wcs.lemursportal.repository.UtilisateurRepository;
 import org.wcs.lemursportal.service.AuthenticationService;
 import org.wcs.lemursportal.service.LocalUserDetailService;
 
 /**
  * @author z
- * 
+ *
  */
 @Configuration
 @EnableWebSecurity
@@ -39,61 +41,61 @@ import org.wcs.lemursportal.service.LocalUserDetailService;
 @ComponentScan("org.wcs.lemursportal")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private final static Logger LOGGER = LoggerFactory
-			.getLogger(SecurityConfig.class);
+    private final static Logger LOGGER = LoggerFactory
+            .getLogger(SecurityConfig.class);
 
-	private static final String ROLE_HIERARCHY = "ROLE_ADMIN > ROLE_MODERATEUR > ROLE_EXPERT > ROLE_USER";
+    private static final String ROLE_HIERARCHY = "ROLE_ADMIN > ROLE_MODERATEUR > ROLE_EXPERT > ROLE_USER";
 
-	@Autowired
-	AuthenticationService authenticationService;
-	
-	@Autowired
+    @Autowired
+    AuthenticationService authenticationService;
+
+    @Autowired
     private UtilisateurRepository userRepository;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		//On securise les pages qui manipules des mots de passe
-		http.sessionManagement()
-			.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).sessionFixation().none() //on veut garder la même session pour le basculement des pages http<->https
-			.maximumSessions(1).sessionRegistry(sessionRegistry());
-		http.authorizeRequests()
-			.expressionHandler(defaultWebSecurityExpressionHandler())
-			.anyRequest().permitAll()
-			.and().formLogin()
-						.loginPage("/login").permitAll()
-						.usernameParameter("email").passwordParameter("password")
-						.failureUrl("/login?error")
-						.loginProcessingUrl("/authenticate").permitAll()
-			.and().logout()
-						.deleteCookies("JSESSIONID")
-						.logoutUrl("/logout").permitAll()
-    			        .logoutSuccessUrl("/")
-    	    .and()
-    	    			.authorizeRequests()
-    		.and().rememberMe()
-    					.rememberMeServices(rememberMeServices())
-    					.key("remember-me-key");
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        //On securise les pages qui manipules des mots de passe
+        http.sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).sessionFixation().none() //on veut garder la même session pour le basculement des pages http<->https
+                .maximumSessions(1).sessionRegistry(sessionRegistry());
+        http.authorizeRequests()
+                .expressionHandler(defaultWebSecurityExpressionHandler())
+                .anyRequest().permitAll()
+                .and().formLogin()
+                .loginPage("/login").permitAll()
+                .usernameParameter("email").passwordParameter("password")
+                .failureUrl("/login?error")
+                .loginProcessingUrl("/authenticate").permitAll()
+                .and().logout()
+                .deleteCookies("JSESSIONID")
+                .logoutUrl("/logout").permitAll()
+                .logoutSuccessUrl("/")
+                .and()
+                .authorizeRequests()
+                .and().rememberMe()
+                .rememberMeServices(rememberMeServices())
+                .key("remember-me-key");
 //		http.csrf();
-		http.csrf().disable();
-		
-	}
-	
-	@Bean
-	public SessionRegistry sessionRegistry() {
-	    return new SessionRegistryImpl();
-	}
-	
-	@Bean
+        http.csrf().disable();
+
+    }
+
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+    @Bean
     public TokenBasedRememberMeServices rememberMeServices() {
         return new TokenBasedRememberMeServices("remember-me-key", authenticationService);
     }
-	
-	@Bean
+
+    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-	/**
+    /**
      * Configures the authentication manager bean which processes authentication
      * requests.
      */
@@ -103,8 +105,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService())
                 .passwordEncoder(bCryptPasswordEncoder());
     }
-    
-    
+
 //	@Autowired
 //	public void configureGlobal(AuthenticationManagerBuilder auth)
 //			throws Exception {
@@ -112,39 +113,48 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ////		auth.userDetailsService(authenticationService).passwordEncoder(encoder);
 //		auth.userDetailsService(authenticationService).passwordEncoder(bCryptPasswordEncoder());
 //	}
-    
-    
-	@Bean
-	public RoleHierarchy roleHierarchy() {
-		RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-		roleHierarchy.setHierarchy(ROLE_HIERARCHY);
-		return roleHierarchy;
-	}
+    @Bean
+    public RoleHierarchy roleHierarchy() {
+        RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
+        roleHierarchy.setHierarchy(ROLE_HIERARCHY);
+        return roleHierarchy;
+    }
 
-	@Bean
-	public RoleVoter roleVoter() {
-		return new RoleHierarchyVoter(roleHierarchy());
-	}
+    @Bean
+    public RoleVoter roleVoter() {
+        return new RoleHierarchyVoter(roleHierarchy());
+    }
 
-	@Bean
-	public SecurityExpressionHandler<FilterInvocation> defaultWebSecurityExpressionHandler() {
-		DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler = new DefaultWebSecurityExpressionHandler();
-		defaultWebSecurityExpressionHandler.setRoleHierarchy(roleHierarchy());
-		return defaultWebSecurityExpressionHandler;
-	}
-	
-	@Bean("authenticationManager")
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		// TODO Auto-generated method stub
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    public SecurityExpressionHandler<FilterInvocation> defaultWebSecurityExpressionHandler() {
+        DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler = new DefaultWebSecurityExpressionHandler();
+        defaultWebSecurityExpressionHandler.setRoleHierarchy(roleHierarchy());
+        return defaultWebSecurityExpressionHandler;
+    }
 
-	/**
+    @Bean("authenticationManager")
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        // TODO Auto-generated method stub
+        return super.authenticationManagerBean();
+    }
+
+    /**
      * This bean is load the user specific data when form login is used.
      */
     @Bean
     public UserDetailsService userDetailsService() {
         return new LocalUserDetailService(userRepository);
+    }
+
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(20848820);
+        return multipartResolver;
+    }
+
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 }
