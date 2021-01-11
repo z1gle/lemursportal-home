@@ -202,11 +202,10 @@
                                     <li>
                                         <a href="#" data-toggle='modal' data-target='#modal-ajout-document' ><spring:message code="home.header.addDocument" /></a>
                                     </li>
+                                    <li>
+                                        <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
+                                    </li>
                                 </ul>
-                            </li>
-
-                            <li>
-                                <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
                             </li>
                         </c:if>
                     </ul>
