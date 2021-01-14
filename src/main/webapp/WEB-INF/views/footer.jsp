@@ -81,6 +81,7 @@
             </div>
             <div class='modal-body row'>      
                 <form method="post" action="upload" class="col-md-offset-1 col-md-11" enctype="multipart/form-data" modelAttribut="Actualite">
+                    <input type="hidden"  name="user" value="${currentUser.id}"> <br>
                     <label for="Titre"><spring:message code="text.titre" /></label>
                     <input type="text" class="form-control" name="title"> <br>
                     <label for="commentaire"><spring:message code="text.commentaire" /></label>

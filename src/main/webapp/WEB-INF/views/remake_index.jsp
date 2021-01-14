@@ -203,7 +203,7 @@
                                         <a href="#" data-toggle='modal' data-target='#modal-ajout-document' ><spring:message code="home.header.addDocument" /></a>
                                     </li>
                                     <li>
-                                        <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
+                                        <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><spring:message code="text.actualite" /></span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -630,7 +630,7 @@
                                     </a>
                                     <div class="col-sm-1 col-md-1 col-lg-1">
                                         <c:if test="${isLoggedInUser}">
-                                            <sec:autorize access="hasRole('ADMIN')">
+                                            <sec:autorize access="hasRole('ROLE_ADMIN')">
                                                 <div>
                                                     <a data-toggle="modal" href="#actu_form" class="btn btnprimary"><span class="fa fa-plus-circle" style="color:red;"></span></a>
                                                 </div>
