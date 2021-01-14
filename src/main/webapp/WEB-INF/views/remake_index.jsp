@@ -389,7 +389,6 @@
                         <h4 class="w">
                             <spring:message code="home.description" />
                         </h4>
-
                         <div class="home__header__hero-text">
                             <div ng-app="">
                                 <div class="home__searchFilters">

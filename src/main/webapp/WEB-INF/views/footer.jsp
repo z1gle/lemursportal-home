@@ -81,16 +81,16 @@
             </div>
             <div class='modal-body row'>      
                 <form method="post" action="upload" class="col-md-offset-1 col-md-11" enctype="multipart/form-data" modelAttribut="Actualite">
-                    <input type="hidden"  name="user" value="${currentUser.id}"> <br>
+                    <input type="hidden"  name="user" value="${currentUser.id}"><br>
                     <label for="Titre"><spring:message code="text.titre" /></label>
-                    <input type="text" class="form-control" name="title"> <br>
+                    <input type="text" class="form-control" name="title"><br>
                     <label for="commentaire"><spring:message code="text.commentaire" /></label>
                     <Textarea class="form-control" id="commentaire" name="commentaire" /></Textarea><br>
                     </label>
                     <label for="file"><spring:message code="text.cheminFichier" /></label> 
-                    <input id="file" class="form-control" type="file" name="file" /> <br/>
+                    <input id="file" class="form-control" type="file" name="file" /><br/>
                     <label for="url_source"><spring:message code="text_url_source" /></label>
-                    <input id="urlsource" class="form-control" type="text" name="url_source" /> <br/>
+                    <input id="urlsource" class="form-control" type="text" name="url_source" /><br/>
             </div>
             <div class='modal-footer'>                        
                 <input id="submit" type="submit" class="btn btn-success" tabindex="5" value="Upload">
