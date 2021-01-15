@@ -54,6 +54,7 @@ public class ActualiteController {
         stream.write(bytes);
         stream.flush();
         stream.close();
+        System.out.println("org.wcs.lemursportal.controller.ActualiteController.save()---" + title + actu);
         actu.setTitreActu(title);
         actu.setCommentaireActu(commentaire);
         actu.setUrlPhoto(url);
