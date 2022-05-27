@@ -1,0 +1,175 @@
+/* Custom modification */
+
+/* Search */
+#custom-search-button {
+    position: absolute;
+    top: 22px;
+    right: 188px;
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: url(../images/bg-search.png) no-repeat center center;
+    border: none;
+    border-radius: 3px;
+}
+
+
+#custom-search-form {
+    position: absolute;
+    z-index: 999;
+    top: 56px;
+    right: 231px;
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    #header.stuck #custom-search-button {
+        top: 22px;
+    }
+    #header.stuck #custom-search-form {
+        top: 56px;
+    }
+    
+    #custom-search-form {
+        position: absolute;
+        z-index: 999;
+        top: 56px;
+        right: 231px;
+        display: none;
+    }
+    
+    #custom-search-button {
+        position: absolute;
+        top: 22px;
+        right: 240px;
+        display: block;
+        width: 34px;
+        height: 34px;
+        background: url(../images/bg-search.png) no-repeat center center;
+        border: none;
+        border-radius: 3px;
+    }
+}
+
+@media (min-width: 1653px) {
+    #custom-search-button {
+        right: 300px;
+    }
+    #custom-search-form {
+        right: 293px;
+    }
+}
+
+
+/* Caroussel */
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.logo-carousel {
+  overflow: inherit;
+  /*border-top: 1px solid #353535;
+  border-bottom: 1px solid #353535;*/
+}
+
+.slick-slide img {
+  /*width: 65%;*/
+  height: 75px;
+}
+
+.slick-track::before,
+.slick-track::after {
+  display: table;
+  content: '';
+}
+
+.slick-track::after {
+  clear: both;
+}
+
+.slick-track {
+  padding: 1rem 0;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  background: url(https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/arrow.svg?sanitize=true) center no-repeat;
+  color: #fff;
+  filter: invert(77%) sepia(32%) saturate(1%) hue-rotate(344deg) brightness(105%) contrast(103%);
+  border: none;
+  width: 2rem;
+  height: 1.5rem;
+  text-indent: -10000px;
+  margin-top: -16px;
+  z-index: 99;
+}
+
+.slick-arrow.slick-next {
+  right: -40px;
+  transform: rotate(180deg);
+}
+
+.slick-arrow.slick-prev {
+  left: -40px;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .slick-arrow {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+body {
+    background-color: #010101;
+  }
+
+.row {
+  overflow: hidden;
+}  
+
+
+.partenaire-princ img {
+    height: 50px;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+@media (min-width: 980px) and (max-width: 1166px) {
+    .sf-menu > li > a, .sf-menu > li.dropdown > a, .sp-menu > li.dropdown > a {
+        padding: 27px 7px 27px 7px;
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 768px) {
+    .fullwidth-section-content .row {
+        width: 98%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .fullwidth-section-content .row span {
+        width: unset;
+        font-size: 80%;
+    }
+    
+    .fullwidth-section-content .row .span3 {
+        text-align: center;
+    }
+}

@@ -1,927 +1,941 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
+<%-- <%@ taglib prefix="sec" uri="https://www.springframework.org/security/tags" %> --%>
 <c:url value="/resources" var="resourcesPath" />
 <c:url value="/" var="path" />
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" class="no-js">
-<!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<link rel="icon" href="${resourcesPath}/img/favicon.ico" type="image/x-icon">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title><spring:message code="home.pageTitle" /></title>
-<meta name="description" content="">
-<meta name="keywords"
-	content="Madagascar lemursportal, portail des l&eacute;muriens">
+<html>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,requiresActiveX=true">
+        <meta name="keywords" content="Madagascar lemursportal, portail des l&eacute;muriens">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            <spring:message code="home.pageTitle" />
+        </title>
+        <meta name="description" content=" Un portail où on trouve tous ce qui concerne les lémuriens. ">
+        <!-- /// Favicons ////////  -->
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.ico">
+        <!-- /// Google Fonts ////////  -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+        <!-- /// FontAwesome Icons 4.2.0 ////////  -->
+        <link rel="stylesheet" href="${resourcesPath}/assets/fonts/fontawesome/font-awesome.min.css">
+        <!-- /// Custom Icon Font ////////  -->
+        <link rel="stylesheet" href="${resourcesPath}/assets/fonts/iconfontcustom/icon-font-custom.css">
+        <!-- /// Template CSS ////////  -->
+        <link rel="stylesheet" href="${resourcesPath}/assets/css/integrity.css">
+        <link rel="stylesheet" href="${resourcesPath}/assets/css/custom.css">
+        <!-- /// JS Plugins CSS ////////  -->
+        <link rel="stylesheet" href="${resourcesPath}/assets/vendors/slick/slick.css">
+        <link rel="stylesheet" href="${resourcesPath}/assets/vendors/bxslider/jquery.bxslider.css">
+        <link rel="stylesheet" href="${resourcesPath}/assets/vendors/magnificpopup/magnific-popup.css">
+        <link rel="stylesheet" href="${resourcesPath}/assets/vendors/animations/animate.min.css">
+        <link rel="stylesheet" href="${resourcesPath}/assets/vendors/itplayer/css/YTPlayer.css">
+    </head>
 
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
-	rel='stylesheet' type='text/css'>
+    <body class="sticky-header">
+        <div id="wrap">
+            <div id="header-top">
+                <!-- /// HEADER-TOP  //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <div class="row container-fluide" style="overflow: visible;">
+                    <div class="" id="header-top-widget-area-2">
+                        <div class="widget ewf_widget_contact_info">
+                            <ul class="sp-menu">
+                                <li>
+                                    <span>
+                                        <i class="fa fa-phone"></i>
+                                    </span>
+                                    <a href="callto://+261202260513">( +261 20 ) 22 605 13</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                    <a href="mailto:lemursportal@gmail.com">lemursportal@gmail.com</a>
+                                </li>
+                                <li class="dropdown language" id="lang-select">
+                                    <a
+                                        href="#"
+                                        class="dropdown-toggle" 
+                                        data-toggle="dropdown" 
+                                        role="button"
+                                        aria-haspopup="true" 
+                                        aria-expanded="false"
+                                        >
+                                        <span style="-webkit-transform: rotate(0deg); transform: rotate(0deg);">EN </span>
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" style="left: -30px;">
+                                        <li class="active" id="en">
+                                            <a href="#">English</a>
+                                        </li>
+                                        <li  id="fr"><a href="#">Français</a></li>
+                                        <li  id="mg"><a href="#">Malagasy</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- end .ewf_widget_contact_info -->
+                    </div><!-- end .span6 -->
+                </div><!-- end .row -->
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            </div><!-- end #header-top -->
+            <div id="header">
+                <!-- /// HEADER  //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <div class="row container-fluide">
+                    <div class="part1">
+                        <!-- // Logo // -->
+                        <a href="index.html" id="logo">
+                            <img class="responsive-img" src="${resourcesPath}/assets/images/Logo_LemursPortal.png" alt="">
+                        </a>
+                    </div><!-- end .span3 -->
+                    <div class="part2">
+                        <!-- // Custom search // -->
+                        <!--<form action="#" id="custom-search-form" method="get" role="search">
+                        <input type="text" value="" name="s" id="s" placeholder="type and press enter to search...">
+                        <input type="submit" id="custom-search-submit" value="">
+                    </form>
+    
+                    <a id="custom-search-button" href="#"></a>-->
 
-<link rel="stylesheet" href="${resourcesPath}/css/font-awesome.min.css">
+                        <!-- // Custom search // -->
 
-<link rel="stylesheet" href="${resourcesPath}/css/jquery.fancybox.css">
+                        <form action="results" id="custom-search-form" method="get" role="search">
+                            <input type="text" value="" name="keyword" id="s" placeholder="<spring:message code="search.searchText" />">
+                            <input type="submit" id="custom-search-submit" value="">
+                        </form>
 
-<link rel="stylesheet" href="${resourcesPath}/css/bootstrap.min.css">
+                        <a id="custom-search-button" href="#"></a>
 
-<link rel="stylesheet" href="${resourcesPath}/css/owl.carousel.css">
-
-<link rel="stylesheet" href="${resourcesPath}/css/owl.theme.css">
-
-<link rel="stylesheet" href="${resourcesPath}/css/slit-slider.css">
-
-<link rel="stylesheet" href="${resourcesPath}/css/animate.css">
-
-<link rel="stylesheet" href="${resourcesPath}/css/main.css">
-
-<!--link rel="stylesheet" href="${resourcesPath}/css/styles.css"-->
-
-
-<script src="${resourcesPath}/js/modernizr-2.6.2.min.js"></script>
-<style type="text/css">
-a.read-more {
-	color: black /*#74ac00*/;
-}
-
-a.read-more:hover {
-	text-decoration: underline;
-	color: #000;
-}
-
-.show-read-more .more-text, .home-bio p .more-text {
-	display: none;
-}
-</style>
-</head>
-
-<body id="body">
-
-	<!-- preloader -->
-	<div id="preloader">
-            <div class="loder-box">
-            	<div class="battery"></div>
+                        <!-- // Menu // -->
+                        <ul class="sf-menu fixed" id="menu">
+                            <li class="current">
+                                <a href="https://www.lemursportal.org/">
+                                    <spring:message code="menu.home" />
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="https://www.lemursportal.org/forum"><spring:message code="service.online" /></a>
+                            </li>
+                            <li>
+                                <a href="https://www.lemursportal.org/species/taxonomi">
+                                    <spring:message code="menu.species" />
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="https://www.lemursportal.org/species/darwinportal">
+                                    <spring:message code="menu.observations" />
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="https://www.lemursportal.org/species/visualisation">
+                                    <spring:message code="service.visualization" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.lemursportal.org/graphics">
+                                    <spring:message code="menu.graphics" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- end .span6 -->
+                    <div class="part3">
+                        <!--// Mobile menu trigger // -->
+                        <a href="#" id="mobile-menu-trigger">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="sf-menu fixed" id="menu">
+                            <li class="">
+                                <c:url value="/login" var="loginUrl"/>
+                                <a href="${loginUrl}">
+                                    <span>
+                                        <i class="fa fa-sign-in"></i>
+                                    </span>
+                                    <spring:message code="home.login" />
+                                </a>
+                            </li>
+                            <li class="">
+                                <a data-animation="fadeInDown" data-delay="2s" id="join-us" class="" href="#inscription">
+                                    <span>
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                    <spring:message code="login.signup" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- end .row -->
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            </div><!-- end #header -->
+            <div id="content">
+                <!-- /// CONTENT  /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <div class="main-slider">
+                    <div id="video-hero" role="banner">
+                        <video autoplay="" id="heroVideo" loop muted poster="${resourcesPath}/assets/images/background/fd.jpg">
+                            <source src="${resourcesPath}/assets/videos/video_hero.mp4" type="video/mp4" />
+                            <!--<source src="https://raw.githubusercontent.com/solodev/hero-with-video-bg/blob/master/videos/hero-video.webm" type="video/webm" />
+                        <source src="https://raw.githubusercontent.com/solodev/hero-with-video-bg/blob/master/videos/hero-video.ogv" type="video/ogv" />-->
+                        </video>
+                    </div>
+                    <ul id="laptop-video-slider" class="main-slider__slides video-main-slider__slides" data-slick='{ "fade": true, "speed": 500, "autoplay": false, "infinite": true, "dots": true, "arrows": true }'>
+                        <li style="">
+                            <div class="main-slider-slide__content
+                                 main-slider-slide__content--valign-middle
+                                 main-slider-slide__content--align-center">
+                                <div class="main-slider-slide__content-wrap">
+                                    <h1 data-animation="fadeInDown" data-delay="0.5s">
+                                        MADAGASCAR LEMURS PORTAL
+                                    </h1>
+                                    <p data-animation="fadeInDown" data-delay="1s">
+                                        <spring:message code="slider.savelemurs.txt" />.<br class="hidden-xs">
+                                    </p>
+                                    <div data-animation="fadeInDown" data-delay="1.5s">
+                                        <a id="join-us" class="btn btn-large" href="#inscription">
+                                            <spring:message code="slider.join_us" /></a>
+                                    </div>
+                                </div><!-- end .main-slider-slide__content-wrap -->
+                            </div><!-- end .main-slider-slide__content -->
+                        </li>
+                    </ul>
+                    <ul id="laptop-img-slider" class="main-slider__slides" data-slick='{ "fade": true, "speed": 500, "autoplay": false, "infinite": true, "dots": true, "arrows": true }'>
+                        <li class="hero-image" style="background-image: url('${resourcesPath}/assets/images/background/fd.jpg')">
+                            <div class="main-slider-slide__content
+                                 main-slider-slide__content--valign-middle
+                                 main-slider-slide__content--align-center">
+                                <div class="main-slider-slide__content-wrap">
+                                    <h1 data-animation="fadeInDown" data-delay="0.5s">
+                                        MADAGASCAR LEMURS PORTAL
+                                    </h1>
+                                    <p data-animation="fadeInDown" data-delay="1s">
+                                        <spring:message code="slider.savelemurs.txt" />.<br class="hidden-xs">
+                                    </p>
+                                    <div data-animation="fadeInDown" data-delay="1.5s">
+                                        <a class="btn btn-large" href="#">
+                                            <spring:message code="slider.join_us" /></a>
+                                    </div>
+                                </div><!-- end .main-slider-slide__content-wrap -->
+                            </div><!-- end .main-slider-slide__content -->
+                        </li>
+                    </ul>
+                    <ul id="mobile-slider" class="main-slider__slides video-main-slider__slides" data-slick='{ "fade": true, "speed": 500, "autoplay": false, "infinite": true, "dots": true, "arrows": true }'>
+                        <li style="">
+                            <div class="main-slider-slide__content
+                                 main-slider-slide__content--valign-middle
+                                 main-slider-slide__content--align-center">
+                                <div class="main-slider-slide__content-wrap">
+                                    <h1 data-animation="fadeInDown" data-delay="0.5s">
+                                        MADAGASCAR LEMURS PORTAL
+                                    </h1>
+                                    <p data-animation="fadeInDown" data-delay="1s">
+                                        <spring:message code="slider.savelemurs.txt" />.<br class="hidden-xs">
+                                    </p>
+                                    <div data-animation="fadeInDown" data-delay="1.5s">
+                                        <a class="btn btn-large" href="#">
+                                            <spring:message code="slider.join_us" /></a>
+                                    </div>
+                                </div><!-- end .main-slider-slide__content-wrap -->
+                            </div><!-- end .main-slider-slide__content -->
+                        </li>
+                    </ul>
+                </div><!-- end .main-slider -->
+                <div class="row">
+                    <div class="span12">
+                        <div class="headline">
+                            <h2><spring:message code="service.component" /></h2>
+                            <!--                        <h6>Madagascar Lemurs Portal est l'un des outils les plus sophistiqués d'Afrique permettant aux utilisateurs d'accéder à des informations sur toutes les espèces de lémuriens de Madagascar.</h6>-->
+                        </div><!-- end .headline -->
+                    </div><!-- end .span12 -->
+                </div><!-- end .row -->
+                <div class="row">
+                    <div class="span3">
+                        <div class="icon-box-2">
+                            <a href="https://www.lemursportal.org/forum/">
+                                <img src="${resourcesPath}/assets/images/forum.png" alt="Forum" />
+                            </a>
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a href="https://www.lemursportal.org/forum/"><spring:message code="service.online" /></a>
+                                </h4>
+                                <p>
+                                    <spring:message code="service.online.txt" />
+                                    <!--Les membres de la communauté pourront poser des questions, discuter à temps réel sur différentes thématiques-->
+                                </p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-2 -->
+                    </div><!-- end .span3 -->
+                    <div class="span3">
+                        <div class="icon-box-2">
+                            <a href="https://www.lemursportal.org/forum/documents">
+                                <img src="${resourcesPath}/assets/images/documents.png" alt="Documents" />
+                            </a>
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a href="https://www.lemursportal.org/forum/documents"><spring:message code="service.documents" /></a>
+                                </h4>
+                                <p>
+                                    <spring:message code="service.documents.txt" />
+                                    <!--                                Articles | Publications
+                                                                    scientifiques | Mémoires| Thèses |
+                                                                    Rapports d'études-->
+                                </p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-2 -->
+                    </div><!-- end .span3 -->
+                    <div class="span3">
+                        <div class="icon-box-2">
+                            <a href="https://www.lemursportal.org/species/">
+                                <img src="${resourcesPath}/assets/images/especes.png" alt="Espèces" />
+                            </a>
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a href="https://www.lemursportal.org/species/"><spring:message code="service.species" /></a>
+                                </h4>
+                                <p>
+                                    <spring:message code="service.species.txt" />
+                                    <!--                                Photo | Taxonomie| Morphologie
+                                                                    | Habitat | Ecologie|
+                                                                    Comportement | Menance| Aire
+                                                                    protégée | statut de conservation-->
+                                </p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-2 -->
+                    </div><!-- end .span3 -->
+                    <div class="span3">
+                        <div class="icon-box-2">
+                            <a href="https://www.lemursportal.org/species/visualisation">
+                                <img src="${resourcesPath}/assets/images/map.png" alt="Map" />
+                            </a>
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a href="https://www.lemursportal.org/species/visualisation"><spring:message code="service.visualization" /></a>
+                                </h4>
+                                <p>
+                                    <spring:message code="service.visualization.txt" />
+                                    <!--Carte de distribution des espèces | Modèles de distribution-->
+                                </p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-2 -->
+                    </div><!-- end .span3 -->
+                </div><!-- end .row -->
+                <div class="row">
+                    <div class="span12">
+                        <!--<h4 class="text-center">Pour une meilleur practicité et une meilleure accessibilté, Madagascar lemurs portal est aussi disponible sur votre téléphone en téléchargeant l'application mobile dédié ou en utilisant inaturalist.</h4>-->
+                        <h4 class="text-center"><spring:message code="text.mobile" /></h4>
+                    </div><!-- end .span12 -->
+                </div><!-- end .row -->
+                <br><br><br>
+                <div class="row">
+                    <div class="span4">
+                        <div class="icon-box-1">
+                            <!--<span>
+                            <i class="ifc-megaphone"></i>
+                        </span>-->
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a><spring:message code="label.mobileApp" /></a>
+                                </h4>
+                                <p><spring:message code="text.mlpMobile" /></p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-1 -->
+                        <div class="icon-box-1">
+                            <!--<span>
+                            <i class="ifc-type"></i>
+                        </span>-->
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a>inaturalist</a>
+                                </h4>
+                                <p><spring:message code="text.inaturalist" /></p>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-1 -->
+                        <div class="icon-box-1">
+                            <!--<span>
+                            <i class="ifc-type"></i>
+                        </span>-->
+                            <div class="icon-box-content">
+                                <h4>
+                                    <a><spring:message code="label.download" /></a>
+                                </h4>
+                                <div>
+                                    <a class="btn btn-download" href="https://play.google.com/store/apps/details?id=org.inaturalist.android&hl=fr&gl=US">
+                                        <img style="max-height:70px;" class="responsive-img" src="${resourcesPath}/assets/images/Logo_LemursPortal.png" alt="Icone MLP" />
+                                    </a>
+                                    <a class="btn btn-download" href="https://play.google.com/store/apps/details?id=org.inaturalist.android&hl=fr&gl=US">
+                                        <img class="responsive-img" src="${resourcesPath}/assets/images/logo_inaturalist.png" alt="Icon inaturalist" />
+                                    </a>
+                                </div>
+                            </div><!-- end .icon-box-content -->
+                        </div><!-- end .icon-box-1 -->
+                    </div><!-- end .span4 -->
+                    <div class="span8">
+                        <p>
+                            <img class="animate responsive-img" data-animation="fadeInRight" src="${resourcesPath}/assets/images/mobile.png" alt="">
+                        </p>
+                    </div><!-- end .span8 -->
+                </div><!-- end .row -->
+                <br /><br /><br />
+                <div class="main-slider">
+                    <ul class="main-slider__slides" data-slick='{ "fade": true, "speed": 500, "autoplay": false, "infinite": true, "dots": true, "arrows": true }'>
+                        <li class="centre parallax parallax-enabled" style="background-image:url('${resourcesPath}/assets/images/background/jonah2.png');">
+                            <div class="headline" style="margin-top:-2vh;">
+                                <h2 class="expert-h"><spring:message code="menu.experts" /></h2>
+                            </div>
+                            <div class="main-slider-slide__content
+                                 main-slider-slide__content--valign-middle
+                                 main-slider-slide__content--align-center">
+                                <div class="main-slider-slide__content-wrap">
+                                    <div class="testimonial ">
+                                        <span data-animation="fadeInDown" data-delay="1s">
+                                            <img src="https://www.lemursportal.org/forum/resources/profil/DSC_0189 - Copie.JPG" alt="">
+                                        </span>
+                                    </div><!-- end .teatimonial -->
+                                    <h3 class="expert-h" data-animation="fadeInDown" data-delay="1s">RATSIMBAZAFY Jonah</h3>
+                                    <p data-animation="fadeInDown" data-delay="1s">
+                                        Jonah
+                                        Ratsimbazafy is a native of Madagascar. He received his PhD in Physical
+                                        Anthropology from the State University of New York at Stony Brook. He is
+                                        currently the Secretary General of the Madagascar Non-human Primate Group
+                                        (GERP) and the Director of the Houston Zoo Madagascar Programs. He is also an
+                                        Adjunct...
+                                    </p>
+                                    <div data-animation="fadeInDown" data-delay="1.5s">
+                                        <a class="btn btn-large" href="#">Voir plus</a>
+                                    </div>
+                                </div><!-- end .main-slider-slide__content-wrap -->
+                            </div><!-- end .main-slider-slide__content -->
+                        </li>
+                        <li class="centre parallax parallax-enabled" style="background-image:url('${resourcesPath}/assets/images/background/stacey.png');">
+                            <div class="headline" style="margin-top:-2vh;">
+                                <h2 class="expert-h">Experts</h2>
+                            </div>
+                            <div class="main-slider-slide__content
+                                 main-slider-slide__content--valign-middle
+                                 main-slider-slide__content--align-center">
+                                <div class="main-slider-slide__content-wrap">
+                                    <div class="testimonial ">
+                                        <span data-animation="fadeInDown" data-delay="1s">
+                                            <img src="https://www.lemursportal.org/forum/resources/profil/Stacey Tecot.png" alt="">
+                                        </span>
+                                    </div><!-- end .teatimonial -->
+                                    <h3 class="expert-h" data-animation="fadeInDown" data-delay="1s">TECOT STACEY</h3>
+                                    <p data-animation="fadeInDown" data-delay="1s">
+                                        Stacey Tecot is an Associate Professor of Anthropology and the Director
+                                        of the Laboratory for the Evolutionary Endocrinology of Primates (LEEP) at the University of Arizona. She uses a
+                                        combination of field and lab methods to understand how social and physical
+                                        environments shape the behavior and physiology of ...
+                                    </p>
+                                    <div data-animation="fadeInDown" data-delay="1.5s">
+                                        <a class="btn btn-large" href="#">Voir plus</a>
+                                    </div>
+                                </div><!-- end .main-slider-slide__content-wrap -->
+                            </div><!-- end .main-slider-slide__content -->
+                        </li>
+                    </ul>
+                    <!--<div class="main-slider__pager main-slider__pager--align-center"></div>-->
+                    <div class="main-slider__arrows"></div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="span12">
+                        <div class="headline">
+                            <h2><spring:message code="label.news" /></h2>
+                            <h6><spring:message code="text.news" /></h6>
+                        </div><!-- end .headline -->
+                    </div><!-- end .span12 -->
+                </div><!-- end .row -->
+                <div class="row">
+                    <div class="span12">
+                        <div class="blog-post-slider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="blog-post">
+                                        <div class="row">
+                                            <div class="span6">
+                                                <div class="blog-post-thumb">
+                                                    <img src="${resourcesPath}/content/index/lemurs_week.jpg" alt="">
+                                                    <div class="blog-post-info">
+                                                        10
+                                                        <small>Dec</small>
+                                                    </div><!-- end .blog-post-info -->
+                                                </div><!-- end .blog-post-thumb -->
+                                            </div><!-- end .span6 -->
+                                            <div class="span6">
+                                                <div class="blog-post-title">
+                                                    <h4>
+                                                        <a href="blog.html">
+                                                            Lemurs week
+                                                        </a>
+                                                    </h4>
+                                                    <p><em>by <a href="#">Admin</a>
+                                                            <!--in <a href="#">General Posts</a>--></em></p>
+                                                </div><!-- end .blog-post-title -->
+                                                <p>
+                                                    À la découverte des lémuriens ! Vendredi 10 décembre, Madagascar Lemurs Portal, en collaboration avec Office Régional du Tourisme d'Antananarivo - ORTANA Fédération Nationale des Guides - FNG et la mention Anthropobiologie et développement durable de l’Université d’Antananarivo se sont mobilisés pour une journée de sensibilisation et d’information sur les lémuriens.🐒🌱
+                                                </p>
+                                                <p>
+                                                    <em>
+                                                        L'évennement s'est passé à ORTANA Antaninarenina, dans les respects des gestes barrière et le protocole sanitaire
+                                                    </em>
+                                                </p>
+                                                <a class="btn" href="blog.html">Voir plus</a>
+                                            </div><!-- end .span6 -->
+                                        </div><!-- end .row -->
+                                    </div><!-- end .blog-post -->
+                                </li>
+                                <li>
+                                    <div class="blog-post">
+                                        <div class="row">
+                                            <div class="span6">
+                                                <div class="blog-post-thumb">
+                                                    <img src="${resourcesPath}/content/index/timbre.jpg" alt="">
+                                                    <div class="blog-post-info">
+                                                        04
+                                                        <small>Nov</small>
+                                                    </div><!-- end .blog-post-info -->
+                                                </div><!-- end .blog-post-thumb -->
+                                            </div><!-- end .span6 -->
+                                            <div class="span6">
+                                                <div class="blog-post-title">
+                                                    <h4>
+                                                        <a href="blog.html">
+                                                            Timbre à l’effigie du Pr Jonah Ratsimbazafy : « un message de protection »
+                                                        </a>
+                                                    </h4>
+                                                    <p><em>by <a href="#">GERP</a></em></p>
+                                                </div><!-- end .blog-post-title -->
+                                                <p>
+                                                    Un évènement sans pareil, une première dans l’histoire ; le 28 Octobre 2021 fut la date à laquelle eu lieu la célébration de la création de 6 nouveaux timbres-poste. En l’honneur du courage sans faille du Professeur Henri Jonah RATSIMBAZAFY dans sa noble quête de fervent défenseur de l’environnement, il a été immortalisé sur les nouveaux timbres ainsi que 5 autres espèces de lémuriens. Une première car il est le premier primatologue mondial à figurer sur un timbre de son vivant. C’est un véritable symbole de courage et d’espoir pour la génération future.
+                                                </p>
+                                                <p>
+                                                    <em>
+                                                        La cérémonie a eu lieu au Carlton Anosy
+                                                    </em>
+                                                </p>
+                                                <a class="btn" href="blog.html">Voir plus</a>
+                                            </div><!-- end .span6 -->
+                                        </div><!-- end .row -->
+                                    </div><!-- end .blog-post -->
+                                </li>
+                            </ul>
+                        </div><!-- end .blog-post-slider -->
+                    </div><!-- end .span12 -->
+                </div><!-- end .row -->
+                <div class="fullwidth-section parallax" id="bg-2" style="background-image: url('${resourcesPath}/assets/images/background/fexpert.png') ">
+                    <div class="fullwidth-section-content">
+                        <div class="row">
+                            <div class="span3">
+                                <div class="milestone">
+                                    <div class="milestone-content">
+                                        <span class="milestone-value" data-stop="880" data-speed="1000"></span>
+                                        <div class="milestone-description">
+                                            <h4 class="text-uppercase"><spring:message code="text.users" /></h4>
+                                            <!--<p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis, lacus vel vulputate consequat, quam sapien
+                                            tristique leo, eget placerat urna quam.
+                                        </p>-->
+                                        </div><!-- end .milestone-description -->
+                                    </div><!-- end .milestone-content -->
+                                </div><!-- end .milestone -->
+                            </div><!-- end .span3 -->
+                            <div class="span3">
+                                <div class="milestone">
+                                    <div class="milestone-content">
+                                        <span class="milestone-value" data-stop="112" data-speed="1000"></span>
+                                        <div class="milestone-description">
+                                            <h4 class="text-uppercase"><spring:message code="text.species.detail" /></h4>
+                                        </div><!-- end .milestone-description -->
+                                    </div><!-- end .milestone-content -->
+                                </div><!-- end .milestone -->
+                            </div><!-- end .span3 -->
+                            <div class="span3">
+                                <div class="milestone">
+                                    <div class="milestone-content">
+                                        <span class="milestone-value" data-stop="16726" data-speed="1000"></span>
+                                        <div class="milestone-description">
+                                            <h4 class="text-uppercase"><spring:message code="text.obsercations" /></h4>
+                                        </div><!-- end .milestone-description -->
+                                    </div><!-- end .milestone-content -->
+                                </div><!-- end .milestone -->
+                            </div><!-- end .span3 -->
+                            <div class="span3">
+                                <div class="milestone">
+                                    <div class="milestone-content">
+                                        <span class="milestone-value" data-stop="1406" data-speed="1000"></span>
+                                        <div class="milestone-description">
+                                            <h4 class="text-uppercase"><spring:message code="service.documents" /></h4>
+                                        </div><!-- end .milestone-description -->
+                                    </div><!-- end .milestone-content -->
+                                </div><!-- end .milestone -->
+                            </div><!-- end .span3 -->
+                        </div><!-- end .row -->
+                    </div><!-- end .fullwidth-section-content -->
+                </div><!-- end .fullwidth-section -->
+                <div id="inscription">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="headline">
+                                <h3><spring:message code="slider.join_us" /></h3>
+                            </div><!-- end .headline -->
+                        </div><!-- end .span12 -->
+                    </div><!-- end .row -->
+                    <div class="row">
+                        <div class="span6">
+                            <div class="headline-2">
+                                <h3><spring:message code="text.joinus" /></h3>
+                            </div><!-- end .headline-2 -->
+                            <p><spring:message code="text.inscription" /></p>
+                        </div><!-- end .span6 -->
+                        <div id="inscr" class="span6">
+                            <div class="widget ewf_widget_newsletter">                            
+                                <form action="https://www.lemursportal.org/forum/register" method="POST" id="registrationForm" class="comment-form" novalidate>
+                                    <!-- Text or HTML to be displayed before the set of comment form fields if the user is not logged in. -->
+                                    <!--                                <p class="comment-notes">Your email address will not be published.</p>-->
+                                    <p class="comment-form-author">
+                                        <label for="author"><spring:message code="signin.name" /> <span class="required">*</span></label>
+                                        <input class="span4" id="author" name="nom" type="nom" value="" size="30" aria-required="true" placeholder="<spring:message code="signin.name" />">
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label for="author"><spring:message code="signin.firstname" /><span class="required">*</span></label>
+                                        <input id="prenom" name="prenom" type="prenom" class="span4" value="" size="30" aria-required="true" placeholder="<spring:message code="signin.firstname" />">
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email"><spring:message code="signin.email" /><span class="required">*</span></label>
+                                        <input id="email" name="email" type="email" class="span4" value="" size="30" aria-required="true" placeholder="<spring:message code="signin.email" />">
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="url"><spring:message code="signin.password" /></label>
+                                        <input type="password" name="password" id="password" class="span4"    value="" size="30" placeholder="<spring:message code="signin.password" />">
+                                    </p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment"><spring:message code="signin.confpassword" /></label>
+                                        <input type="password" class="span4" id="comment"  value="" size="30" placeholder="<spring:message code="signin.confpassword" />">
+                                    </p>
+                                    <!-- Text or HTML to be displayed after the set of comment fields (and before the submit button) -->
+                                    <p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: <code> allowed_tags() </code></p>
+                                    <p class="form-submit">
+                                        <input class="btn" name="submit" type="submit" id="submit" value="<spring:message code="login.signup" />">
+                                    </p>
+                                </form>
+                            </div><!-- end .ewf_widget_newsletter -->
+                        </div><!-- end .span6 -->
+                    </div><!-- end .row -->
+                </div><!-- end #subscribe -->
+            </div><!-- end #content -->
+            <div class="wrapper">
+                <div onclick="window.location = 'https://www.facebook.com/lemursportal'" class="button-wrap">
+                    <div class="icon-wrap">
+                        <i class="fa fa-facebook fa-2x"></i>
+                    </div>
+                    <span>Facebook</span>
+                </div>
+                <div onclick="window.location = 'https://twitter.com/LemursPortal'" class="button-wrap">
+                    <div class="icon-wrap">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </div>
+                    <span>Twitter</span>
+                </div>
+                <div onclick="window.location = 'https://www.instagram.com/lemursportal/'" class="button-wrap">
+                    <div class="icon-wrap">
+                        <i class="fa fa-instagram fa-2x"></i>
+                    </div>
+                    <span>Instagram</span>
+                </div>
+                <div onclick="window.location = 'https://www.youtube.com/channel/UCNN2Zq7Ny8tGehZkcKpkjHg'" class="button-wrap">
+                    <div class="icon-wrap">
+                        <i class="fa fa-youtube fa-2x"></i>
+                    </div>
+                    <span>Youtube</span>
+                </div>
             </div>
-		</div>
-	<!-- end -->
-	
-	
-		
-	<!-- Navigation -->
-	<header id="navigation"
-		class="navbar-inverse animated-header navbar-fixed-top">
-		<div class="container">
-			
-			<!-- TOPBAR -->
-			<div class="topbar">
-				<ul>
-					<c:set value="${pageContext.request.userPrincipal.name != null}" var="isLoggedInUser"/>
-                	<c:choose>
-                    <c:when test="${isLoggedInUser}">
-                    	<c:url var="viewProfilUrl" value="/user/profil"></c:url>
-                    	<c:url var="imgProfilUrl" value="/forum"></c:url>
-                    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false"> 
-                    		<img src="https://www.lemursportal.org/forum/resources${currentUser.photoProfil}" class="img-circle"/> 
-<%--                     		<spring:message code="login.signup"/> --%>
-							Welcome, ${currentUser.prenom} <i class="fa fa-caret-down"></i></a>
-							
-							<ul class="dropdown-menu">
-								<li><a href="https://www.lemursportal.org/forum/user/profil"> 
-									<i class="fa fa-edit fa-fw"></i> My account</a></li>
-									<li class="divider"></li>
-								<li><a href="https://www.lemursportal.org/species/modification-observations"> 
-									<i class="fa fa-align-left"></i> My data</a></li>
-									<li class="divider"></li>
-								<li>
-		                            <span style="display:none;">
-		                                <c:url value="/logout" var="logoutUrl" />
-		                                <form action="${logoutUrl}" method="post" id="logoutForm">
-		                                    <input type="hidden" name="${_csrf.parameterName}"
-		                                           value="${_csrf.token}" />
-		                                </form>
-		<!--                                 verification dev mode -->
-		                                <c:set var="port" value="" />
-										<c:if test="${req.getServerPort() != '80' || req.getServerPort() != '443'}">
-											<c:set var="port" value=":${req.getServerPort()}" />
-										</c:if>
-		                                <script>
-		                                    function formSubmit() {
-		                                        //logout also species databases by Zacharie
-		                                    	$.post("https://www.lemursportal.org/species/logout", function () {
-		                                            $.post("https://www.lemursportal.org/forum/logout", function () {
-		                                            	document.getElementById("logoutForm").submit();
-		                                            });
-		                                        }).fail(function () {
-		                                            alert('Error!');
-		                                        });
-		                                    }
-		                                </script>
-		                            </span>
-		                            <a href="javascript:formSubmit();"><i
-										class="fa fa-power-off fa-fw"></i><spring:message code="home.logout"/></a>
-		                        </li>
-							</ul>
-						</li>
+            <div class="partenaires">
+                <div class="liste-footer">
+                    <a href="https://www.lemursportal.org/forum/" class="publier"><spring:message code="footer.post" /></a>
+                    <a href="https://www.lemursportal.org/forum/documents" class="documents"><spring:message code="service.documents" /></a>
+                    <a href="https://www.lemursportal.org/forum/experts" class="expert"><spring:message code="menu.experts" /></a>
+                    <a href="https://www.lemursportal.org/forum/formation/" class="opportunites"><spring:message code="footer.opportunities" /></a>
+                    <!--<a href="" class="aide">Aide</a>-->
+                    <!--<a href="" class="contacts">Contacts</a>-->
+                </div>
+                <div class="img-ressources">
+                    <a href="https://www.fapbm.org/"><img src="${resourcesPath}/assets/images/ressource1.png" alt="" class="img-ressourcesliste"></a>
+                    <a href="https://www.gerp.mg/"><img src="${resourcesPath}/assets/images/ressource2.png" alt="" class="img-ressourcesliste"></a>
+                    <a href="https://www.primate-sg.org/"><img src="${resourcesPath}/assets/images/ressource3.png" alt="" class="img-ressourcesliste"></a>
+                    <a href="https://www.wcs.org/"><img src="${resourcesPath}/assets/images/ressource4.png" alt="" class="img-ressourcesliste"></a>
+                    <a href="https://www.rebioma.org/"><img src="${resourcesPath}/assets/images/ressource5.png" alt="" class="img-ressourcesliste"></a>
+                </div>
+                <div class="partenaire-princ">
+                    <a href="https://jrsbiodiversity.org/"><img src="${resourcesPath}/assets/images/ressource6.svg" alt="" class="img-ressourcesliste2"></a>
+                    <!--<img src="${resourcesPath}/logos/rewild-logo-color.svg" alt="" class="img-ressourcesliste2">-->
+                    <a href="https://www.rewild.org/"><img src="${resourcesPath}/logos/Rewild_Logo_green.png" alt="" class="img-ressourcesliste2"></a>
+                </div>
+
+                <br>
+                <!--<h3>Nos partenaires</h3>-->
+
+                <div class="row">
+                    <div class="container">
+                        <section class="logo-carousel slider" data-arrows="true">
+                            <div class="slide">
+                                <a href="https://www.ecologie.gov.mg/">
+                                    <img src="https://www.lemursportal.org/resources/logos/MEEF_logo.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.tourisme.gov.mg/">
+                                    <img src="https://www.lemursportal.org/resources/logos/05_2016-Logo-300x297.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="#">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_ADD.jpg">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.aspinallfoundation.org/the-aspinall-foundation/working-around-the-world/madagascar/">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_Aspinall.jpg">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.dpz.eu/en/unit/sociobiology-homepage/study-sites/madagascar.html">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_DPZ.jpg">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="#">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_DREEF-Atsinanana.jpg">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.issedd-univ.mg/">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_ISSEDD.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.stonybrook.edu/commcms/centre-valbio/">
+                                    <img src="https://www.lemursportal.org/resources/logos/logo_Valbio.jpg">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.madagasikara-voakajy.org/">
+                                    <img src="https://www.lemursportal.org/resources/logos/MV_logo.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.peregrinefund.org/projects/madagascar-project">
+                                    <img src="${resourcesPath}/logos/PGF_logo.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <a href="https://www.conservation.org/global/madagascar/Pages/default.aspx">
+                                    <img src="https://www.lemursportal.org/resources/logos/CI_logo.png">
+                                </a>
+                            </div>
+                            <div class="slide">
+                                <img style="width: 1px; height: 1px;" src="${resourcesPath}/logos/blanc.png">
+                            </div>
+                            <!--<div class="slide"><img src=""></div>-->
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+            <div class="divcopyright">
+                <p class="copiryght">Copyright © - Lemurs Portal 2022</p>
+            </div>
+        </div><!-- end #wrap -->
+        <a id="back-to-top" href="#">
+            <i class="ifc-up4"></i>
+        </a>
+        <!-- /// jQuery ////////  -->
+        <script src="${resourcesPath}/assets/vendors/jquery-2.1.1.min.js"></script>
+        <!-- /// ViewPort ////////  -->
+        <script src="${resourcesPath}/assets/vendors/viewport/jquery.viewport.js"></script>
+        <!-- /// Easing ////////  -->
+        <script src="${resourcesPath}/assets/vendors/easing/jquery.easing.1.3.js"></script>
+        <!-- /// Slick ////////  -->
+        <script src="${resourcesPath}/assets/vendors/slick/slick.min.js"></script>
+        <!-- /// Animations ////////  -->
+        <script src="${resourcesPath}/assets/vendors/animations/animate.js"></script>
+        <!-- /// Superfish Menu ////////  -->
+        <script src="${resourcesPath}/assets/vendors/superfish/hoverIntent.js"></script>
+        <script src="${resourcesPath}/assets/vendors/superfish/superfish.js"></script>
+        <!-- /// bxSlider ////////  -->
+        <script src="${resourcesPath}/assets/vendors/bxslider/jquery.bxslider.min.js"></script>
+        <!-- /// Magnific Popup ////////  -->
+        <script src="${resourcesPath}/assets/vendors/magnificpopup/jquery.magnific-popup.min.js"></script>
+        <!-- /// Isotope ////////  -->
+        <script src="${resourcesPath}/assets/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="${resourcesPath}/assets/vendors/isotope/isotope.pkgd.min.js"></script>
+        <!-- /// Parallax ////////  -->
+        <script src="${resourcesPath}/assets/vendors/parallax/jquery.parallax.min.js"></script>
+        <!-- /// EasyPieChart ////////  -->
+        <script src="${resourcesPath}/assets/vendors/easypiechart/jquery.easypiechart.min.js"></script>
+        <!-- /// YTPlayer ////////  -->
+        <script src="${resourcesPath}/assets/vendors/itplayer/jquery.mb.YTPlayer.js"></script>
+        <!-- /// Easy Tabs ////////  -->
+        <script src="${resourcesPath}/assets/vendors/easytabs/jquery.easytabs.min.js"></script>
+        <!-- /// Form validate ////////  -->
+        <script src="${resourcesPath}/assets/vendors/jqueryvalidate/jquery.validate.min.js"></script>
+        <!-- /// Form submit ////////  -->
+        <script src="${resourcesPath}/assets/vendors/jqueryform/jquery.form.min.js"></script>
+        <!-- /// gMap ////////  -->
+        <!--    <script src="https://maps.google.com/maps/api/js?key=AIzaSyDG-gTAgMTtgV3DOK0UQIkcruOy2yDDauc&sensor=false"></script>-->
+        <script src="${resourcesPath}/assets/vendors/gmap/jquery.gmap.min.js"></script>
+        <!-- /// Custom JS ////////  -->
+        <script src="${resourcesPath}/assets/js/integrity.js"></script>
+        <!-- My JS -->
+        <script>
+                    $(function () {
+                        var debit = navigator.connection.downlink;
+                        console.log("Débit de la connexion : ");
+                        console.log(debit);
+
+                        if (debit < 1) {
+                            console.log("Débit trop bas pour la vidéo");
+                        } else {
+                            $('#video-hero').removeClass("hide-video");
+                            $('#video-hero').addClass("show-video");
+                            $('#laptop-video-slider').removeClass("hide-video");
+                            $('#laptop-video-slider').addClass("show-video");
+                            $('#laptop-img-slider').removeClass("show-video");
+                            $('#laptop-img-slider').addClass("hide-video");
+                            /*$('#video-hero').show();
+                             $('#laptop-video-slider').show();
+                             $('#laptop-img-slider').remove();*/
+                        }
+
+                    });
+        </script>
+        <script type="text/javascript">
+            function setGetParameter(paramName, paramValue) {
+                //      verbose parameter
+                console.log("set parameter :");
+                console.log(paramName);
+                console.log(paramValue);
+
+                if (paramValue == '${pageContext.response.locale}')
+                    return;
+
+                var url = window.location.href;
+                console.log("url : ");
+                console.log(url);
+
+                var hash = location.hash;
+                console.log("hash : ");
+                console.log(hash);
+
+                url = url.replace(hash, '');
+                console.log("url wihtout hash");
+                console.log(url);
+
+                if (url.indexOf(paramName + "=") >= 0) {
+                    var prefix = url.substring(0, url.indexOf(paramName));
+                    var suffix = url.substring(url.indexOf(paramName));
+                    suffix = suffix.substring(suffix.indexOf("=") + 1);
+                    suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix
+                            .indexOf("&")) : "";
+                    url = prefix + paramName + "=" + paramValue + suffix;
+                } else {
+                    if (url.indexOf("?") < 0)
+                        url += "?" + paramName + "=" + paramValue;
+                    else
+                        url += "&" + paramName + "=" + paramValue;
+                }
+                window.location.href = url + hash;
+            }
+
+            $(document)
+                    .ready(
+                            function () {
+                                var maxLength = 310;
+                                $('.show-read-more p').contents().unwrap();
+                                $(".show-read-more")
+                                        .each(
+                                                function () {
+                                                    var myStr = $(this).text();
+                                                    if ($.trim(myStr).length > maxLength) {
+                                                        var newStr = myStr
+                                                                .substring(0,
+                                                                        maxLength);
+                                                        var removedStr = myStr
+                                                                .substring(
+                                                                        maxLength,
+                                                                        $
+                                                                        .trim(myStr).length);
+                                                        $(this).empty().html(
+                                                                newStr + "...");
+                                                        var link = $(this).parent()
+                                                                .parent().children(
+                                                                'a').attr(
+                                                                'href');
+                                                        $(this)
+                                                                .append(
+                                                                        ' <a href="' + link + '" class="read-more"> read more</a>');
+                                                    }
+                                                });
+                                $('#lang-select span').html(
+                                        '${pageContext.response.locale} ');
+
+                                //activate menu of selected language
+                                if ('${pageContext.response.locale}' != null) {
+                                    $("#lang-select li").removeClass("active");
+                                    $("#${pageContext.response.locale}").addClass(
+                                            "active");
+                                }
+
+                                $('#lang-select li a').click(
+                                        function () {
+                                            setGetParameter('lang', $(this)
+                                                    .parents('#lang-select li')
+                                                    .attr('id'));
+                                        });
+                                //donate button
+                                //                if (isDonateClosed()) {
+                                //                    removeStickyDonate();
+                                //                }
+                            });
+        </script>
+
+        <!-- Caroussel logo for partners -->
+        <script>
+            $(document).ready(function () {
+                $('.logo-carousel').slick({
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1000,
+                    arrows: true,
+                    dots: false,
+                    pauseOnHover: false,
+                    responsive: [{
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 4
+                            }
+                        }, {
+                            breakpoint: 520,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        }]
+                });
+            });
+
+            //         scroll animation
+            var $root = $('html, body');
+
+            $('#join-us').click(function () {
+                $root.animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top
+                }, 500);
+
+                return false;
+            });
+        </script>
+    </body>
 
-                    </c:when>
-                    <c:otherwise>
-<%--                         <c:url value="/signup" var="signupUrl"/> --%>
-                        <c:url value="/forum/signup" var="signupUrl"/>
-                        <li class=""><a href="${signupUrl}"><i
-							class="fa fa-user fa-fw"></i> <spring:message code="login.signup"/></a></li>
-<%--                             <c:url value="/login" var="loginUrl"/> --%>
-                            <c:url value="/login" var="loginUrl"/>
-                        <li class=""><a href="${loginUrl}"><i
-							class="fa fa-sign-in fa-fw"></i> <spring:message code="home.login"/></a></li>
-                        </c:otherwise>
-                    </c:choose>
-					<li class="dropdown language" id="lang-select"><a
-						href="#"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="fa fa-globe"></i><span>EN </span><i class="fa fa-caret-down"></i>
-					</a>
-						<ul class="dropdown-menu">
-							<li class="active" id="en"><a
-								href="#">English</a>
-							</li>
-							<li  id="fr"><a href="#">Français</a></li>
-							<li  id="mg"><a href="#">Malagasy</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<div class="navbar-header">
-				<!-- responsive nav button -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<!-- /responsive nav button -->
-
-				<!-- logo -->
-				<h1 class="navbar-brand">
-					<a href="/"><img
-						src="${resourcesPath}/img/Logo_LemursPortal_Final.png" alt="<spring:message code="home.pageTitle" />" /></a>
-				</h1>
-				<!-- /logo -->
-			</div>
-
-			<!-- main nav -->
-			<nav class="collapse navbar-collapse navbar-right" role="navigation">
-				<ul id="nav" class="nav navbar-nav">
-					<li><a href="#body"><spring:message code="menu.home" /></a></li>
-					<li><a href="#service"><spring:message code="menu.service" /></a></li>
-					<li><a href="#species"><spring:message code="menu.species" /></a></li>
-					<li><a href="#experts"><spring:message code="menu.experts" /></a></li>
-					<li><a href="#number"><spring:message code="menu.number" /></a></li>
-					<li><a href="#contact"><spring:message code="menu.contact" /></a></li>
-                                        <!--<li><a href="https://www.lemursportal.org/forum/login" onclick="window.location='https://www.lemursportal.org/forum/login';"><spring:message code="home.login"/></a></li>-->
-					<!--<li><a href="https://www.lemursportal.org/forum/signup" onclick="window.location='https://www.lemursportal.org/forum/signup';"><spring:message code="login.signup"/></a></li>-->
-<!-- 					<li><div style="padding-top: 12px;"> -->
-<!-- 							<select id="lang-select"> -->
-<!-- 								<option value="fr" selected="selected">Français</option> -->
-<!-- 								<option value="en" >English</option> -->
-<!-- 								<option value="mg" >Malagasy</option> -->
-<!-- 							</select> -->
-<!-- 						</div></li> -->
-				</ul>
-			</nav>
-			<!-- /main nav -->
-
-		</div>
-	</header>
-
-
-	<main class="site-content" role="main"> <!-- Slider -->
-
-	<section id="home-slider">
-		<div id="slider" class="sl-slider-wrapper">
-
-			<div class="sl-slider">
-
-				<div class="sl-slide" data-orientation="horizontal"
-					data-slice1-rotation="3" data-slice2-rotation="3"
-					data-slice1-scale="2" data-slice2-scale="2">
-
-					<div class="bg-img bg-img-3"></div>
-					<div class="slide-caption">
-						<div class="caption-content">
-							<h2><spring:message code="slider.lemursportal" /></h2>
-							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
-								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="sl-slide" data-orientation="horizontal"
-					data-slice1-rotation="-25" data-slice2-rotation="-25"
-					data-slice1-scale="3" data-slice2-scale="3">
-
-					<div class="bg-img bg-img-1"></div>
-
-					<div class="slide-caption">
-						<div class="caption-content">
-							<h2><spring:message code="slider.lemursportal" /></h2>
-							<span><spring:message code="slider.lemursportal.txt" /></span> <a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}"
-								class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="sl-slide" data-orientation="vertical"
-					data-slice1-rotation="10" data-slice2-rotation="-15"
-					data-slice1-scale="1.5" data-slice2-scale="1.5">
-
-					<div class="bg-img bg-img-2"></div>
-					<div class="slide-caption">
-						<div class="caption-content">
-							<h2><spring:message code="slider.savelemurs" /></h2>
-							<span><spring:message code="slider.savelemurs.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="sl-slide" data-orientation="vertical"
-					data-slice1-rotation="-14" data-slice2-rotation="-20"
-					data-slice1-scale="-1.2" data-slice2-scale="3">
-
-					<div class="bg-img bg-img-4"></div>
-					<div class="slide-caption">
-						<div class="caption-content">
-							<h2><spring:message code="slider.vision" /></h2>
-							<span><spring:message code="slider.vision.txt" /></span> 
-							<a href="https://www.lemursportal.org/forum/signup?lang=${pageContext.response.locale.language}" class="btn btn-blue btn-effect"><spring:message code="slider.join_us" /></a>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-			<!-- /sl-slider -->
-
-			<nav id="nav-arrows"
-				class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
-				<a href="javascript:;" class="sl-prev"> <i
-					class="fa fa-angle-left fa-3x"></i>
-				</a> <a href="javascript:;" class="sl-next"> <i
-					class="fa fa-angle-right fa-3x"></i>
-				</a>
-			</nav>
-
-
-			<nav id="nav-dots"
-				class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
-				<span class="nav-dot-current"></span> <span></span> <span></span> <span></span>
-			</nav>
-
-		</div>
-		<!-- /slider-wrapper -->
-	</section>
-
-
-
-	<!-- Service section -->
-	<section id="service">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center">
-					<h2 class="animated bounceInLeft"><spring:message code="menu.service" /></h2>
-					<p class="animated bounceInRight"><spring:message code="menu.service.description" /></p>
-				</div>
-
-				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn"
-					data-wow-delay="0.6s">
-					<a href="/forum?lang=${pageContext.response.locale.language}"><div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-comments-o fa-3x"></i>
-							</div>
-							<h3><spring:message code="service.online" /></h3>
-							<p style="color: #818181 !important"><spring:message code="service.online.txt" /></p>
-						</div></a>
-				</div>
-
-				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn">
-					<a href="/species?lang=${pageContext.response.locale.language}"><div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-database fa-3x"></i>
-							</div>
-							<h3><spring:message code="service.species" /></h3>
-							<p style="color: #818181 !important"><spring:message code="service.species.txt" /></p>
-						</div></a>
-				</div>
-
-				<div class="col-md-4 col-sm-6 col-xs-12 text-center animated zoomIn"
-					data-wow-delay="0.3s">
-					<a href="/species/visualisation?lang=${pageContext.response.locale.language}"><div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-globe fa-3x"></i>
-							</div>
-							<h3><spring:message code="service.visualization" /></h3>
-							<p style="color: #818181 !important"><spring:message code="service.visualization.txt" /></p>
-						</div></a>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- end -->
-
-	<div class="row text-center pad-top-20" style="background: #f8f8f8;padding: 25px 0;">
-		<div class="sec-title text-center animated fadeInDown" style="margin-bottom: 0px !important">
-			<style type="text/css" media="screen">
-				.inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
-				.inat-widget-header {margin-bottom: 10px;}
-				.inat-widget td {vertical-align: top; padding-bottom: 10px;}
-				.inat-label { color: #888; }
-				.inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
-				.inat-observation-body, .inat-user-body { padding-left: 10px; }
-				.inat-observation-image {text-align: center;}
-				.inat-observation-image, .inat-user-image { width: 48px; display: inline-block; }
-				.inat-observation-image img, .inat-user-image img { max-width: 48px; }
-				.inat-observation-image img { vertical-align: middle; }
-				.inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 3px 3px 0; height:48px;}
-				.inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; }
-				.inat-user-body {vertical-align: middle;}
-				.inat-widget td.inat-user-body {vertical-align: middle;}
-				.inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
-			</style>
-			<div class="inat-widget">
-				<div class="inat-widget-header">
-					<a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org"><img
-						alt="iNaturalist.org"
-						src="https://www.inaturalist.org/assets/logo-small-27dadf5468502c764c7a2cf8e30617d3.png" /></a>
-				</div>
-				<script type="text/javascript" charset="utf-8"
-					src="https://www.inaturalist.org/observations/project/23226.widget?layout=small&limit=6&order=desc&order_by=observed_on"></script>
-				<span>
-				<a target="_blank" rel="noopener noreferrer" href="https://www.inaturalist.org/observations/project/23226">
-				<spring:message code="view.observation.inaturalist.txt" /> <br><nobr>iNaturalist.org»</nobr>
-				</a></span>
-<!-- 				<h2 class="animated bounceInLeft"></h2> -->
-				<!-- table class="inat-footer">
-					<tr class="inat-user">
-						<td class="inat-value">&nbsp;</td>
-					</tr>
-				</table-->
-			</div>
-		</div>
-	</div>
-
-	<!--div class="row text-center pad-top-20">
-			  <div class="sec-title text-center animated fadeInDown">
-				<a href="#" target="_blank" class=""><img src="img/googleplay.png"></a>
-			  </div>
-			</div--> <!-- species section -->
-	<section id="species">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center animated fadeInDown">
-					<h2><spring:message code="menu.species" /></h2>
-					<p></p>
-				</div>
-
-
-				<ul class="project-wrapper animated fadeInUp">
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item.jpg" class="img-responsive"
-						alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Varecia variegata subcincta</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox"
-								title="<i>Varecia variegata subcincta</i>"
-								data-fancybox-group="works"
-								href="${resourcesPath}/img/species/item.jpg"><i
-									class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=110"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item2.jpg"
-						class="img-responsive" alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Hapalemur alaotrensis</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox" title="<i>Hapalemur alaotrensis</i>"
-								href="${resourcesPath}/img/species/item2.jpg"
-								data-fancybox-group="works"><i class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=33"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item3.jpg"
-						class="img-responsive" alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Propithecus diadema</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox" title="<i>Propithecus diadema</i>"
-								data-fancybox-group="works" href="${resourcesPath}/img/species/item3.jpg"><i
-									class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=103"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item4.jpg"
-						class="img-responsive" alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Propithecus candidus</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox" title="<i>Propithecus candidus</i>"
-								data-fancybox-group="works" href="${resourcesPath}/img/species/item4.jpg"><i
-									class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=99"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item5.jpg"
-						class="img-responsive" alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Daubentonia madagascariensis</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox"
-								title="<i>Daubentonia madagascariensis</i>"
-								data-fancybox-group="works" href="${resourcesPath}/img/species/item5.jpg"><i
-									class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=20"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-
-					<li class="species-item"><img
-						src="${resourcesPath}/img/species/item6.jpg"
-						class="img-responsive" alt="--">
-						<figcaption class="mask">
-							<h3>
-								<i>Indri indri</i>
-							</h3>
-							<p>--</p>
-						</figcaption>
-						<ul class="external">
-							<li><a class="fancybox" title="<i>Indri indri</i>"
-								data-fancybox-group="works" href="${resourcesPath}/img/species/item6.jpg"><i
-									class="fa fa-search"></i></a></li>
-							<li><a href="species/getDetailTaxo?id=40"><i
-									class="fa fa-link"></i></a></li>
-						</ul></li>
-				</ul>
-
-			</div>
-		</div>
-	</section><table>
-	
-	<!-- end --> <!-- experts section -->
-	<section id="experts" class="parallax">
-		<div class="overlay">
-			<div class="container">
-				<div class="row">
-
-					<div class="sec-title text-center white animated fadeInDown">
-                                            <h2><a style="color: white;" href="https://www.lemursportal.org/forum/experts/"><spring:message code="menu.experts" /></a></h2>
-					</div>
-
-					<div id="expert" class=" animated fadeInUp">
-					  <c:forEach var="user" items="${experts}">
-						<div class="expert-item text-center">
-							<a href="https://www.lemursportal.org/forum/experts/${user.id}">
-						   	<c:choose>
-							    <c:when test="${empty user.photoProfil}">
-							    	<img src="https://www.lemursportal.org/forum/resources/profil/default.png" alt="Experts"></a>
-							    </c:when>    
-							    <c:otherwise>
-							        <img src="https://www.lemursportal.org/forum/resources/profil/blanc.png" style="background-image: url('https://www.lemursportal.org/forum/resources/${user.photoProfil}');" alt="Experts"></a> 
-							        <br />
-							    </c:otherwise>
-							</c:choose>
-<!-- 							<div class="clearfix home-bio"> -->
-							<div class="clearfix">
-								<span>${user.nom} ${user.prenom}</span>
-								<!-- p class="show-read-more">Biography: user.biographie</p-->
-								<div class="show-read-more">${user.biographie}</div>
-							</div>
-						</div>
-					   </c:forEach>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end --> <!-- number section -->
-	<section id="number">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center animated fadeInDown">
-					<h2><spring:message code="menu.number" /></h2>
-					<p>--</p>
-				</div>
-
-				<div class="col-md-4 animated fadeInUp">
-					<div class="number-table text-center">
-						<span><spring:message code="text.users" /></span>
-						<div class="value">
-							<span></span> <span>${nbrUtilisateur}</span><br> <span><spring:message code="text.users.detail" /></span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 animated fadeInUp" data-wow-delay="0.4s">
-					<div class="number-table text-center">
-						<span><spring:message code="text.species" /></span>
-						<div class="value">
-							<span></span> <span>${nbrTaxonomi}</span><br> <span><spring:message code="text.species.detail" /></span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
-					<div class="number-table text-center">
-						<span><spring:message code="text.obsercations" /></span>
-						<div class="value">
-							<span></span> <span>${nbrOccurrence}</span><br> <span><spring:message code="text.obsercations.detail" /></span>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- end --> <!-- Social section -->
-	<section id="social" class="parallax">
-		<div class="overlay">
-			<div class="container">
-				<div class="row">
-
-					<div class="sec-title text-center white animated fadeInDown">
-						<h2><spring:message code="text.follow_us" /></h2>
-						<p><img src="${path}visit" alt="Nombre de visite"></p>
-					</div>
-
-					<ul class="social-button">
-						<li class="animated zoomIn" data-wow-delay="0.3s"><a href="#"><i
-								class="fa fa-twitter fa-2x"></i></a></li>
-						<li class="animated zoomIn" data-wow-delay="0.6s"><a href="#"><i
-								class="fa fa-facebook-square fa-2x"></i></a></li>
-						<li class="animated zoomIn" data-wow-delay="0.6s"><a href="#"><i
-								class="fa fa-youtube fa-2x"></i></a></li>
-					</ul>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end --> <!-- Contact section -->
-	<section id="contact">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center animated fadeInDown">
-					<h2><spring:message code="menu.contact_us" /></h2>
-					<p></p>
-				</div>
-
-				<div style="text-align: center" class="animated fadeInRight">
-					<address class="contact-details">
-						<p>
-							<i class="fa fa-pencil"></i>Madagascar Lemurs Portal<span>Lot
-								II K 44 Ankadivato</span> <span>Antananarivo 101</span><span>Madagascar</span>
-						</p>
-						<br>
-						<p>
-							<i class="fa fa-phone"></i>Phone: (+261 20) 22 605 13
-						</p>
-						<p>
-							<i class="fa fa-phone"></i>Fax : (+261 20) 22 621 44
-						</p>
-						<p>
-							<i class="fa fa-envelope"></i>lemursportal@gmail.com
-						</p>
-
-					</address>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- end -->
-	<section id="partner-area" style="padding: 10px 0 30px">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="block">
-						<div class="block-heading">
-							<h2><spring:message code="our.partners" /></h2>
-						</div>
-					</div>	<!-- End of /.block -->
-					<div id="owl-example" class="owl-carousel">
-						
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/MEEF_logo.png"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/05_2016-Logo-300x297.png"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_ADD.jpg"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_Aspinall.jpg"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_DPZ.jpg"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_DREEF-Atsinanana.jpg"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_ISSEDD.png"></a></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/logo_Valbio.jpg"></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/MV_logo.png"></div>
-						<div> <a href="#" target="_blank"><img
-								src="${resourcesPath}/logos/PGF_logo.png"></div>
-					</div>	<!-- End of /.Owl-Slider -->
-				</div>	<!-- End of /.col-md-12 -->
-			</div> <!-- End Of /.Row -->
-		</div> <!-- End Of /.Container -->
-	</section>	<!-- End of Section -->
-	<section id="google-map">
-			
-			<div id="map-canvas" class="animated fadeInUp"></div>
-	</section>
-	
-	</main>
-	<div id="supWrapperToPreventFeedbackFlickering">
-				<section id="supDonateWrapper">
-					<div id="supColumnWrapper" class="x-hidden-focus">
-						<div id="supDonateContainer">
-							<section id="supDT" class="ocDT">
-								<div id="supFBCont">
-									<form class="supStickyDonateMarginBottom" 
-										data-support-available="true">
-										<div class="ocSmartDonateBegin x-hidden-focus" role="region">
-											<div id="beginDonateHeader">
-												Don't let lemurs disappear from the wild on our watch.</h2>
-											</div>
-											<div class="donateButtons">
-												<button
-													class="ocDonateButton"
-													name="" type="button" data-bi-mto="">Donate</button>
-											</div>
-										</div>
-									</form>
-									<div
-										class="ocDonateThxMessage ocHidden">
-										<h2>Thank you for your donation!</h2>
-									</div>
-								</div>
-							</section>
-						</div>
-
-						<a href="javascript:removeStickyDonate();" id="supDisableStickyFeedbackButton" class="">×</a>
-					</div>
-				</section>
-			</div>
-	<footer id="footer">
-		<div class="container">
-			<div class="row">
-
-<!-- 				<div class="col-md-1 animated" align="center" id="lg-footer"> -->
-<%-- 					<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="width: 75%; margin-left: 15px;" alt=""> --%>
-<!-- 				</div> -->
-
-<!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-<!-- 					<ul style="padding-left: 20px;"> -->
-<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/">Post</a></li> -->
-<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/documents">Documents</a></li> -->
-<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/experts">Experts</a></li> -->
-<!-- 					</ul> -->
-<!-- 				</div> -->
-
-<!-- 				<div class="col-md-2 animated fadeInUp" data-wow-delay="0.4s"> -->
-<!-- 					<ul style="padding-left: 20px;"> -->
-<!-- 						<li class="animated zoomIn"><a href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li> -->
-<!-- 						<li class="animated zoomIn"><a href="#">Help</a></li> -->
-<!-- 						li class="animated zoomIn"><a href="#">Mentions légales</a></li -->
-<!-- 						<li class="animated zoomIn"><a href="#contact">Contact</a></li> -->
-<!-- 					</ul> -->
-<!-- 				</div> -->
-
-					<div class="col-md-5">
-						<div class="row">
-
-							<div class="col-xs-3 animated fadeInUp" data-wow-delay="0.4s">
-								<img src="${resourcesPath}/img/logo-lemurs-blanc.png" style="height: 78px; margin-left: 15px;" alt="">
-							</div>
-
-							<div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
-								<ul style="padding-left: 20px;">
-									<!-- 						<li class="animated zoomIn"><a href="www.lemursportal.org">Home</a></li> -->
-									<li class="animated zoomIn"><a
-										href="https://www.lemursportal.org/forum/">Post</a></li>
-									<li class="animated zoomIn"><a
-										href="https://www.lemursportal.org/forum/documents">Documents</a></li>
-									<li class="animated zoomIn"><a
-										href="https://www.lemursportal.org/forum/experts">Experts</a></li>
-								</ul>
-							</div>
-							<div class="col-xs-4 animated fadeInUp" data-wow-delay="0.4s">
-								<ul style="padding-left: 20px;">
-									<li class="animated zoomIn"><a
-										href="https://www.lemursportal.org/forum/formation/">Opportunities</a></li>
-									<li class="animated zoomIn"><a href="#">Help</a></li>
-									<!--li class="animated zoomIn"><a href="#">Mentions légales</a></li-->
-									<li class="animated zoomIn"><a href="#contact">Contact</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 animated fadeInUp" data-wow-delay="0.8s">
-					<div class="row" style="padding-left: 15px !important;">
-						<div class="col-xs-2">
-							<a href="http://www.fapbm.org/" target="_blank"><img
-								src="${resourcesPath}/img/part1.png"></a>
-						</div>
-						<div class="col-xs-2">
-
-							<a href="http://www.gerp.mg" target="_blank"><img
-								src="${resourcesPath}/img/part2.png"></a>
-						</div>
-						<div class="col-xs-2">
-							<a href="http://www.primate-sg.org/" target="_blank"><img
-								src="${resourcesPath}/img/part3.png"></a>
-						</div>
-						<div class="col-xs-2">
-							<a href="http://madagascar.wcs.org" target="_blank"><img
-								src="${resourcesPath}/img/part4.png"></a>
-						</div>
-						<div class="col-xs-2">
-							<a href="http://data.rebioma.net/" target="_blank"><img
-								src="${resourcesPath}/img/part5.png"></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 animated fadeInUp" data-wow-delay="0.8s">
-					<a href="http://jrsbiodiversity.org/" class="donor" target="_blank"><img
-						src="http://jrsbiodiversity.org/wp-content/themes/zero/images/jrs-logo.svg"
-						style="border-radius: 4%; /*margin-top: 3%*/;padding:2%;"></a>
-				</div>
-			</div>
-			</div>
-		<div style="background: #2E2E2E; margin-top: 35px">
-			<div class="row text-center">
-				<div class="footer-content">
-					<p>Copyright &copy; - Lemurs Portal 2017</p>
-				</div>
-			</div>
-	</footer>
-
-	<script src="${resourcesPath}/js/jquery-1.11.1.min.js"></script>
-
-	<script src="${resourcesPath}/js/bootstrap.min.js"></script>
-
-	<script src="${resourcesPath}/js/jquery.singlePageNav.min.js"></script>
-
-	<script src="${resourcesPath}/js/jquery.fancybox.pack.js"></script>
-
-	<script
-		src="https://maps.google.com/maps/api/js?key=AIzaSyDC9ch_Ee_RiaM4H_270yzyI8n2OxdbCcY&callback=initMap"></script>
-
-	<script src="${resourcesPath}/js/owl.carousel.min.js"></script>
-
-	<script src="${resourcesPath}/js/jquery.easing.min.js"></script>
-
-	<script src="${resourcesPath}/js/jquery.slitslider.js"></script>
-	<script src="${resourcesPath}/js/jquery.ba-cond.min.js"></script>
-
-	<script src="${resourcesPath}/js/wow.min.js"></script>
-
-	<script src="${resourcesPath}/js/main.js"></script>
-	
-	<script type="text/javascript">
-	
-		function setGetParameter(paramName, paramValue) {
-			if (paramValue == '${pageContext.response.locale}')
-				return;
-			var url = window.location.href;
-			var hash = location.hash;
-			url = url.replace(hash, '');
-			if (url.indexOf(paramName + "=") >= 0) {
-				var prefix = url.substring(0, url.indexOf(paramName));
-				var suffix = url.substring(url.indexOf(paramName));
-				suffix = suffix.substring(suffix.indexOf("=") + 1);
-				suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix
-						.indexOf("&")) : "";
-				url = prefix + paramName + "=" + paramValue + suffix;
-			} else {
-				if (url.indexOf("?") < 0)
-					url += "?" + paramName + "=" + paramValue;
-				else
-					url += "&" + paramName + "=" + paramValue;
-			}
-			window.location.href = url + hash;
-		}
-
-		$(document)
-				.ready(
-						function() {
-							var maxLength = 310;
-							$('.show-read-more p').contents().unwrap();
-							$(".show-read-more")
-									.each(
-											function() {
-												var myStr = $(this).text();
-												if ($.trim(myStr).length > maxLength) {
-													var newStr = myStr
-															.substring(0,
-																	maxLength);
-													var removedStr = myStr
-															.substring(
-																	maxLength,
-																	$
-																			.trim(myStr).length);
-													$(this).empty().html(
-															newStr + "...");
-													var link = $(this).parent()
-															.parent().children(
-																	'a').attr(
-																	'href');
-													$(this)
-															.append(
-																	' <a href="'+link+'" class="read-more"> read more</a>');
-													//$(this)
-													// 															.append(
-													// 																	'<span class="more-text">'
-													// 																			+ removedStr
-													// 																			+ '</span>');
-												}
-											});
-							//$(".read-more").click(function(){
-							//	$(this).siblings(".more-text").contents().unwrap();
-							//	$(this).remove();
-							//});
-							// 							$('#lang-select').val('${pageContext.response.locale}');
-							// 							$('#lang-select').change(function(){
-							// 								setGetParameter('lang', this.value);
-							// 							});
-							$('#lang-select span').html(
-									'${pageContext.response.locale} ');
-
-							//activate menu of selected language
-							if ('${pageContext.response.locale}' != null) {
-								$("#lang-select li").removeClass("active");
-								$("#${pageContext.response.locale}").addClass(
-										"active");
-							}
-
-							$('#lang-select li a').click(
-									function() {
-										setGetParameter('lang', $(this)
-												.parents('#lang-select li')
-												.attr('id'));
-									});
-							//donate button
-							if(isDonateClosed()) {
-								removeStickyDonate();
-							}
-						});
-	</script>
-</body>
 </html>
-
